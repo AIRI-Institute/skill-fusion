@@ -1,0 +1,125 @@
+habitat:
+  environment:
+    max_episode_steps: 500
+    max_episode_seconds: 1500
+    iterator_options:
+      shuffle: False
+  seed: 123
+
+  simulator:
+    type: "Sim-v0"
+    turn_angle: 30
+    tilt_angle: 30
+    forward_step_size: 0.25
+    action_space_config: "v1"
+    agents:
+      main_agent:
+        sim_sensors:
+          rgb_sensor:
+            width: 640
+            height: 480
+            hfov: 79
+            position: [0, 0.88, 0]
+          depth_sensor:
+            width: 640
+            height: 480
+            hfov: 79
+            min_depth: 0.5
+            max_depth: 5.0
+            position: [0, 0.88, 0]
+            normalize_depth: False
+          semantic_sensor:
+            width: 640
+            height: 480
+        height: 0.88
+        radius: 0.18
+    habitat_sim_v0:
+      gpu_device_id: 0
+      gpu_gpu: False
+      allow_sliding: False
+    scene: "data/scene_datasets/habitat-test-scenes/van-gogh-room.glb"
+    scene_dataset: "/data/scene_datasets/hm3d/hm3d_annotated_basis.scene_dataset_config.json"
+    default_agent_id: 0
+    additional_object_paths: []
+
+  dataset:
+    type: "ObjectNav-v1"
+    split: "val"
+    data_path: "/data/datasets/objectnav_hm3d_v2/val/val.json.gz"
+    scenes_dir: "/data/scene_datasets/"
+    content_scenes: ['yr17PDCnDDW',
+                     'mL8ThkuaVTM',
+                     'GLAQ4DNUx5U',
+                     'ziup5kvtCCR',
+                     'k1cupFYWXJ6',
+                     '5cdEh9F2hJL',
+                     'bCPU9suPUw9',
+                     'BAbdmeyTvMZ',
+                     '4ok3usBNeis',
+                     'QaLdnwvtxbs',
+                     'p53SfW6mjZe',
+                     'CrMo8WxCyVb',
+                     'q5QZSEeHe5g',
+                     'TEEsavR23oF',
+                     '6s7QHgap2fW',
+                     'wcojb4TFT35',
+                     'q3zU7Yy5E5s',
+                     'h1zeeAwLh9Z',
+                     'LT9Jq6dN3Ea',
+                     'HY1NcmCgn3n',
+                     'y9hTuugGdiq',
+                     'VBzV5z6i1WS',
+                     'DYehNKdT76V',
+                     '7MXmsvcQjpJ',
+                     'bxsVRursffK',
+                     'eF36g7L6Z9M',
+                     'Nfvxx8J5NCo',
+                     'MHPLjHsuG27',
+                     'qyAac8rV8Zk',
+                     'svBbv1Pavdk',
+                     'a8BtkwhxdRV',
+                     'Dd4bFSTQ8gi',
+                     'zt1RVoi7PcG',
+                     'cvZr5TUy5C5',
+                     'XB4GS9ShBRE',
+                     'mv2HUxq3B53']
+
+  task:
+    type: "ObjectNav-v1"
+    end_on_success: True
+    reward_measure: "distance_to_goal_reward"
+    success_measure: "spl"
+    goal_sensor_uuid: "objectgoal"
+    measurements:
+      distance_to_goal:
+        type: "DistanceToGoal"
+        distance_to: VIEW_POINTS
+      success:
+        type: "Success"
+        success_distance: 0.1
+      spl:
+        type: "SPL"
+      softspl:
+        type: "SoftSPL"
+    lab_sensors:
+      gps_sensor:
+        type: "GPSSensor"
+      compass_sensor:
+        type: "CompassSensor"
+      objectgoal_sensor:
+        type: "ObjectGoalSensor"
+        goal_spec: "TASK_CATEGORY_ID"
+        goal_spec_max_val: 6
+    actions:
+      stop:
+        type: "StopAction"
+        agent_index: 0
+      move_forward:
+        type: "MoveForwardAction"
+        agent_index: 0
+      turn_left:
+        type: "TurnLeftAction"
+        agent_index: 0
+      turn_right:
+        type: "TurnRightAction"
+        agent_index: 0
