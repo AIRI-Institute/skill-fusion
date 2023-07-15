@@ -32,8 +32,8 @@ from gym.spaces import Box, Dict, Discrete
 from EXPLORE_policy import ResNetPolicy as EX_Policy
 from GR_policy import PointNavResNetPolicy as GR_Policy
 
-#import sys
-#sys.path.append('/root/exploration_ros_free')
+import sys
+sys.path.append('/root/exploration_ros_free/habitat_map')
 from semantic_predictor_oneformer_multicat import SemanticPredictor
 from hab_base_utils_common import batch_obs
 
