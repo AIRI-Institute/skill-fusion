@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/root/exploration_ros_free/habitat_map')
+sys.path.append('/root/skillfusion/habitat_map')
 sys.path.append('/root/oneformer_agent')
 sys.path.append('/root')
 
@@ -18,7 +18,7 @@ from gym.spaces import Box, Dict, Discrete
 import habitat
 from habitat.core.agent import Agent
 from habitat import make_dataset
-from exploration_ros_free.semexp.arguments import get_args as get_args_env
+from skillfusion.semexp.arguments import get_args as get_args_env
 from habitat.utils.visualizations import maps
 from habitat.tasks.utils import cartesian_to_polar
 from habitat.utils.geometry_utils import quaternion_rotate_vector
@@ -163,13 +163,7 @@ class Agent_hlpo(Agent):
             backbone = 'resnet18',
             normalize_visual_inputs=True)
         
-        pretrained_state = torch.load('/root/exploration_ros_free/weights/goalreacher_model_4.pth', map_location="cpu")
-        #pretrained_state = torch.load('/root/exploration_ros_free/weights/goalreacher_may21_65.pth', map_location="cpu")
-        #pretrained_state = torch.load('/root/weights/8901_gr_OP_train_aug29.pth', map_location="cpu")
-        #pretrained_state = torch.load('/root/weights/8902_gr_CLIP_train_aug29.pth', map_location="cpu")
-        #pretrained_state = torch.load('/root/weights/8903_ACTION5_CLIP_aug30.pth', map_location="cpu")
-        #pretrained_state = torch.load('/root/weights/8906_CLIP_RGB_train_aug30.pth', map_location="cpu")
-        #pretrained_state = {k[len("actor_critic.") :]: v for k, v in pretrained_state["state_dict"].items()}          
+        pretrained_state = torch.load('/root/skillfusion/weights/goalreacher_model_4.pth', map_location="cpu")        
         self.actor_critic_gr.load_state_dict(pretrained_state)
         self.actor_critic_gr.to(self.device)
         self.actor_critic_gr.eval()
@@ -192,7 +186,7 @@ class Agent_hlpo(Agent):
                     num_recurrent_layers=1,
                     backbone='resnet18',
                 )
-        pretrained_state = torch.load('/root/exploration_ros_free/weights/explore_model_2.pth', map_location="cpu")
+        pretrained_state = torch.load('/root/skillfusion/weights/explore_model_2.pth', map_location="cpu")
         #pretrained_state = {k[len("actor_critic.") :]: v for k, v in pretrained_state["state_dict"].items()} 
         self.actor_critic_3fusion.load_state_dict(pretrained_state)
         self.actor_critic_3fusion.to(self.device)
@@ -211,8 +205,8 @@ class Agent_hlpo(Agent):
                                  'sofa':['television receiver','crt screen','screen'],
                                 }
         
-        config_file = '/root/exploration_ros_free/weights/config_oneformer_ade20k.yaml'
-        checkpoint_file = '/root/exploration_ros_free/weights/model_0299999.pth'
+        config_file = '/root/skillfusion/weights/config_oneformer_ade20k.yaml'
+        checkpoint_file = '/root/skillfusion/weights/model_0299999.pth'
         #self.model = init_segmentor(config_file, checkpoint_file, device='cuda:0')
         # Build a model
         cfg = get_cfg()
@@ -266,7 +260,7 @@ class Agent_hlpo(Agent):
         
         
         # FBE PART
-        fin = open('/root/exploration_ros_free/config.yaml', 'r')
+        fin = open('/root/skillfusion/config.yaml', 'r')
         config = yaml.safe_load(fin)
         fin.close()
 
