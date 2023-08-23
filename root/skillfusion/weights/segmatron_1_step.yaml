@@ -1,5 +1,5 @@
 MODEL:
-  TYPE: "oneformer_interactron_random"
+  TYPE: "segmatron_random"
   CONFIG: ./weights/config_oneformer_ade20k.yaml
   WEIGHTS: ../../outputs/hm3d2_ade20k_640k_bs4/model_0159999.pth
   NUM_CLASSES: 150

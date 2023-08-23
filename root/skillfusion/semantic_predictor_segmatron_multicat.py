@@ -2,7 +2,7 @@ import numpy as np
 import torch
 import cv2
 import sys
-sys.path.append('/root/interactron_agent')
+sys.path.append('/root/segmatron_agent')
 from torch.nn import functional as F
 from config_utils import (
     get_config,
@@ -212,11 +212,11 @@ class SemanticPredictor():
                                 }
         
         # Initialize semantic predictor
-        cfg = get_config("weights/config_single_frame.yaml")
+        cfg = get_config("weights/segmatron_1_step.yaml")
         self.num_actions = cfg.MODEL.NUM_ACTIONS
         self.model = build_model(cfg)
         self.model.load_state_dict(
-                        torch.load("weights/single_frame_best_fwIoU.pt", map_location=torch.device('cpu'))['model'], strict=True)
+                        torch.load("weights/segmatron_mlp_best_fwIoU_1_step.pt", map_location=torch.device('cpu'))['model'], strict=True)
         device = torch.cuda.current_device()
         self.model.to(device)
         self.model.eval()
@@ -224,10 +224,11 @@ class SemanticPredictor():
         self.frames = []
         print('CLSS:', self.clss)
         self.count = 0
-        
-        
+        self.delayed = True # if True, use image to predict segmentation for [t-(NUM_ACTIONS-1)] frame.
+                            # if False, predict segmentation for the image - current frame t.
+
     def __call__(self, image, objectgoal=None):
-        self.count += 1
+        self.count +=1
         semantic_mask = None
         after_crossover = self.crossover[self.objgoal_to_cat[objectgoal]]
         #self.subgoal_names = self.object_extention[self.objgoal_to_cat[objectgoal]]
@@ -235,6 +236,7 @@ class SemanticPredictor():
         obs_semantic = np.ones((640,480,1))
 
         image = Image.fromarray(image)
+        image.save(f"/root/exploration_ros_free/fbe_poni_exploration_maps_4_steps/attempt2/{self.count}.jpg")
         image = np.array(image.resize((240,320)))
         image = torch.as_tensor(np.ascontiguousarray(image.transpose(2, 0, 1)))
 
@@ -251,14 +253,22 @@ class SemanticPredictor():
         if len_frames < self.num_actions:
             self.frames = [image for i in range(self.num_actions)]
         else:
-            self.frames.pop(-1)
-            self.frames.insert(0,image)
+            if self.delayed:
+                self.frames.pop(0)
+                self.frames.append(image) # prediction for the frame [t - (NUM_ACTIONS-1)]
+            else:
+                self.frames.pop(-1)
+                self.frames.insert(0, image) # prediction for the current frame t
         item = {
             "frames": torch.stack([torch.stack(self.frames)]),
             "height": [[320]],
             "width": [[320]],
             "task": [["The task is semantic"]]
         }
+        # for i in range(2):
+        #     image = Image.fromarray(torch.stack([torch.stack(self.frames)])[0,i,:,:,:].cpu().numpy().transpose(1, 2, 0))
+        #     image.save(f"/root/exploration_ros_free/fbe_poni_exploration_maps_4_steps/attempt2/{self.count}_frame_{i}.jpg")
+        #exit()
         print("Frames shape", item["frames"].shape)
         result = self.model.predict(item)
         mask_cls_results = result["pred_logits"][0][0]
@@ -293,6 +303,7 @@ class SemanticPredictor():
             for seg_index in segformer_index:
                 multiclass_prediction[:, :, i] += (result[0] == seg_index).astype(float)
             multiclass_prediction.astype(bool).astype(float)
-        #img = Image.fromarray(semantic_mask)
-        #img.save(f"/root/exploration_ros_free/fbe_poni_exploration_maps_4_steps/attempt2/{self.count}.png")
+        # img = Image.fromarray(semantic_mask.astype(np.uint8)*255).convert("L")
+        # img.save(f"/root/exploration_ros_free/fbe_poni_exploration_maps_4_steps/attempt2/{self.count}.png")
+
         return multiclass_prediction, semantic_mask

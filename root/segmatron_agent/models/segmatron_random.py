@@ -22,7 +22,7 @@ from detectron2.data import MetadataCatalog
 
 from models.new_transformer import SemanticMultiStepTransformer
 
-from utils.meta_utils import get_parameters, clone_parameters, sgd_step, set_parameters, detach_parameters, \
+from meta_utils import get_parameters, clone_parameters, sgd_step, set_parameters, detach_parameters, \
     detach_gradients
 
 

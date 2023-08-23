@@ -17,3 +17,5 @@ Available options:
 
 - **Single Frame Baseline** weights/config_single_frame.yaml, weights: https://drive.google.com/file/d/1N4DeNte-nr7Yn8DBef52nV6zGHA19WW0/view?usp=drive_link
 - **SegmATRon 1 step** weights/segmatron_1_step.yaml, weights: https://drive.google.com/file/d/1oqSR7CThQvE9eJdib3nG93OAMuibACxG/view?usp=drive_link
+
+To control real-time or delayed semantic predictions use the parameter self.delayed in SemanticPredictor() initialization. 
