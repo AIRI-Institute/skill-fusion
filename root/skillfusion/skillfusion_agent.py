@@ -22,7 +22,7 @@ from GR_policy import PointNavResNetPolicy as GR_Policy
 import sys
 sys.path.append('/root/skillfusion')
 sys.path.append('/root/skillfusion/habitat_map')
-from semantic_predictor_oneformer_multicat import SemanticPredictor
+from semantic_predictor_segmatron_multicat import SemanticPredictor
 from hab_base_utils_common import batch_obs
 
 import gc

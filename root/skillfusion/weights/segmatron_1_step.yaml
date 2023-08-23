@@ -1,0 +1,64 @@
+MODEL:
+  TYPE: "oneformer_interactron_random"
+  CONFIG: ./weights/config_oneformer_ade20k.yaml
+  WEIGHTS: ../../outputs/hm3d2_ade20k_640k_bs4/model_0159999.pth
+  NUM_CLASSES: 150
+  INPUT_RESOLUTION: 320
+  BACKBONE: "resnet50"
+  SET_COST_CLASS: 1.0
+  SET_COST_BBOX: 5.0
+  SET_COST_GIOU: 2.0
+  TEST_RESOLUTION: 300
+  PREDICT_ACTIONS: False
+  NUM_LAYERS: 4
+  NUM_HEADS: 8
+  EMBEDDING_DIM: 512
+  BLOCK_SIZE: 2060
+  IMG_FEATURE_SIZE: 256
+  OUTPUT_SIZE: 512
+  MASK_EMB_SIZE: 256
+  EMBEDDING_PDROP: 0.1
+  RESIDUAL_PDROP: 0.1
+  ATTENTION_PDROP: 0.1
+  ADAPTIVE_LR: 1e-3
+  NUM_ACTIONS: 2
+  ADAPTIVE_BACKBONE: True
+DATASET:
+  TRAIN:
+    TYPE: "multistep"
+    MODE: "train"
+    ANNOTATION_ROOT: "/data/interactron_ade_4_steps/annotations/interactron_v1_train-Copy2.json"
+    IMAGE_ROOT: "/data/interactron_ade_4_steps/train"
+  TEST:
+    TYPE: "multistep"
+    MODE: "test"
+    ANNOTATION_ROOT: "/data/interactron_ade_4_steps/annotations/interactron_v1_val-Copy1.json"
+    IMAGE_ROOT: "/data/interactron_ade_4_steps/val"
+TRAINER:
+  TYPE: "interactron_random"
+  BATCH_SIZE: 1
+  NUM_WORKERS: 1
+  MAX_EPOCHS: 60
+  START_EPOCH: 0
+  SAVE_WINDOW: 10
+  DETECTOR_LR: 1e-5
+  SUPERVISOR_LR: 1e-4
+  BETA1: 0.9
+  BETA2: 0.95
+  MOMENTUM: 0.9
+  GRAD_NORM_CLIP: 1.0
+  WEIGHT_DECAY: 0.1
+  OPTIM_TYPE: "Adam"
+  LR_DECAY: False
+  WARMUP_TOKENS: 0
+  FINAL_TOKENS: 1.0e7
+  OUTPUT_DIRECTORY: "training_results/segmatron_4_steps"
+  RESUME: False
+  CHECKPOINT: "training_results/segmatron_light/06-20-2023:12:55:56/detector_0.pt"
+EVALUATOR:
+  TYPE: "random_policy_evaluator"
+  BATCH_SIZE: 1
+  NUM_WORKERS: 1
+  OUTPUT_DIRECTORY: "evaluation_results/segmatron_4_steps"
+#  CHECKPOINT: "training_results/segmatron_light/06-18-2023:16:41:16/detector_35.pt"
+  CHECKPOINT: "training_results/segmatron_4_steps/07-03-2023:15:22:00/detector_25.pt"

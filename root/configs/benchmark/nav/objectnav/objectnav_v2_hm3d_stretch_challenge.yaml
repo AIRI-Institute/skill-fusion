@@ -9,7 +9,8 @@ defaults:
 
 habitat:
   environment:
-    max_episode_seconds: 500
+    max_episode_steps: 500
+    max_episode_seconds: 1500
     iterator_options:
       shuffle: False
 
