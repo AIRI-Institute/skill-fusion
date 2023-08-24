@@ -139,8 +139,6 @@ class SkillFusionAgent(habitat.Agent):
         self.goal_coords = []
         self.depths = []
         self.obs_maps = []
-        self.agent_positions = []
-        self.goal_coords_ij = []
         self.paths = []
         self.goal = None
         self.path = None
@@ -212,8 +210,6 @@ class SkillFusionAgent(habitat.Agent):
         self.depths = []
         self.action_track = []
         self.obs_maps = []
-        self.agent_positions = []
-        self.goal_coords_ij = []
         self.paths = []
         self.exploration.reset()
         self.path_planner.reset()
@@ -466,12 +462,12 @@ class SkillFusionAgent(habitat.Agent):
             self.rl_escape_steps = 0
             
             
-    def act_rl_escape(self, action_rl_gr):
+    def act_rl_escape(self, action_rl_gr, action_rl):
         if self.skil_goalreacher and action_rl_gr != HabitatSimActions.stop and \
            not (action_rl_gr == HabitatSimActions.look_down and self.tilt_angle > 0) and \
            not (action_rl_gr == HabitatSimActions.look_up and self.tilt_angle == 0):
             print('Step with RL goalreacher to escape')
-            self.action_track.append(action_rl_gr)
+            self.action_track.append((str(action_rl_gr), 'RL GoalReacher Escape'))
             self.step_gr += 1
             print('Action RL Goalreacher:', action_rl_gr)
             if action_rl_gr == HabitatSimActions.look_down:
@@ -486,13 +482,13 @@ class SkillFusionAgent(habitat.Agent):
                 self.exploration.sem_map_module.agent_view_angle = 0
             return action_rl_gr
         else:
-            self.action_track.append(action_rl)
+            self.action_track.append((str(action_rl), 'RL Escape'))
             print('Action RL escape:', action_rl)
             return action_rl
         
         
     def update_from_goalreacher(self, action_rl_gr):
-        self.action_track.append(action_rl_gr)
+        self.action_track.append((str(action_rl_gr), 'RL GoalReacher'))
         self.step_gr += 1
         print('Action RL Goalreacher:', action_rl_gr)
         if action_rl_gr == HabitatSimActions.look_down:
@@ -517,6 +513,7 @@ class SkillFusionAgent(habitat.Agent):
         semantic_prediction, semantic_mask = self.semantic_predictor(observations['rgb'], observations['objectgoal'][0])
         
         semantic_map = self.exploration.get_semantic_map(observations)
+        self.semantic_maps.append(semantic_map)
         self.exploration.update(observations, semantic_prediction)
         if np.sum(semantic_mask) > 300 or semantic_map.max() > 0:
             self.skil_goalreacher = True
@@ -529,10 +526,27 @@ class SkillFusionAgent(habitat.Agent):
                 self.steps_wo_goal = 0
         if self.skil_goalreacher:
             action_rl_gr = self.act_rl_goalreacher(observations, semantic_mask[np.newaxis, ...])
+        else:
+            action_rl_gr = None
 
         observations['rgb'][semantic_mask > 0] = [255, 0, 0]
+        self.rgbs.append(observations['rgb'].astype(np.uint8))
+        self.depths.append(observations['depth'])
         
         self.detect_and_update_stuck()
+        
+        if self.goal is not None:
+            self.goal_coords.append(self.goal)
+        else:
+            self.goal_coords.append((-1000, -1000))
+        if len(self.exploration.obs_maps) == 0:
+            self.obs_maps.append(np.zeros((480, 480)))
+        else:
+            self.obs_maps.append(self.exploration.obs_maps[-1])
+        if self.path is not None:
+            self.paths.append(self.path)
+        else:
+            self.paths.append([])
 
         # If we reached objectgoal, stop
         if self.goal_reached(observations):
@@ -567,7 +581,7 @@ class SkillFusionAgent(habitat.Agent):
         
         # If we stuck, escape with RL
         if self.escape_from_stuck:
-            action_rl_escape = self.act_rl_escape(action_rl_gr)
+            action_rl_escape = self.act_rl_escape(action_rl_gr, action_rl)
             return {'action': action_rl_escape}
             
         # If we in proper conditions for RL goalreacher, step with it
@@ -587,6 +601,6 @@ class SkillFusionAgent(habitat.Agent):
             action_type = 'PONI'
         else:
             action_type = 'FBE Goalreacher'
-        self.action_track.append(action_fbe)
+        self.action_track.append((str(action_fbe), 'FBE'))
         print('Action FBE:', action_fbe)
         return {'action': action_fbe}

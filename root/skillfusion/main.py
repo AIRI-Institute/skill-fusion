@@ -21,6 +21,8 @@ import os
 import yaml
 import argparse
 
+import subprocess
+
 DEFAULT_RATE = 30
 DEFAULT_AGENT_TYPE = 'keyboard'
 DEFAULT_GOAL_RADIUS = 0.25
@@ -136,6 +138,8 @@ class HabitatRunner():
             if action == HabitatSimActions.stop:
                 finished = True
                 break
+            #if step == 50:
+            #    break
 
         # Calculate and show metrics
         metrics = self.env.task.measurements.get_metrics()
@@ -153,11 +157,43 @@ class HabitatRunner():
         print('Average SPL:', np.mean(self.spls))
         print('Average softSPL:', np.mean(self.softspls))
         print('Number of false goal detections:', self.fake_finishes)
+        
+        save_dir = 'skillfusion_maps/episode_{}_{}_{}_{}'.format(ii, objectgoal_name, metrics['success'], round(metrics['spl'], 3))
+        if not os.path.exists(save_dir):
+            os.mkdir(save_dir)
+        #top_down_map = draw_top_down_map(self.env.info, observations['heading'][0], observations['rgb'][0].shape[0])
+        #imsave(os.path.join(save_dir, 'top_down_map.png'), top_down_map)
+        np.savez(os.path.join(save_dir, 'semantic_maps.npz'), self.agent.semantic_maps)
+        np.savez(os.path.join(save_dir, 'rgbs.npz'), self.agent.rgbs)
+        np.savez(os.path.join(save_dir, 'depths.npz'), self.agent.depths)
+        np.savetxt(os.path.join(save_dir, 'poses.txt'), self.agent.robot_pose_track)
+        np.savetxt(os.path.join(save_dir, 'goal_coords.txt'), self.agent.goal_coords)
+        np.savez(os.path.join(save_dir, 'actions.txt'), self.agent.action_track)
+        np.savez(os.path.join(save_dir, 'obs_maps.npz'), self.agent.obs_maps)
+        fout = open(os.path.join(save_dir, 'results.txt'), 'w')
+        print('Success: {}'.format(metrics['success']), file=fout)
+        print('SPL: {}'.format(metrics['spl']), file=fout)
+        print('SoftSPL: {}'.format(metrics['soft_spl']), file=fout)
+        fout.close()
+        fout = open(os.path.join(save_dir, 'path_to_goal.txt'), 'w')
+        for path in self.agent.paths:
+            for x, y in path:
+                print(x, y, end=' ', file=fout)
+            print('', file=fout)
+        fout.close()
+        
+        subprocess.run(['python', 'create_gif.py', save_dir, 'skillfusion_results'])
+        for file in os.listdir(save_dir):
+            if file != 'results.txt':
+                try:
+                    os.remove(os.path.join(save_dir, file))
+                except IsADirectoryError:
+                    pass
                 
 
 def main():
     runner = HabitatRunner()
-    for i in runner.eval_episodes:
+    for i in runner.eval_episodes[3:]:
         runner.run_episode(i)
     fout = open('fbe_maps/results.txt', 'w')
     print('Success: {}'.format(np.mean(runner.successes)), file=fout)

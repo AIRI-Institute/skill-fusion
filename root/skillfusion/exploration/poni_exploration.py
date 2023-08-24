@@ -441,6 +441,8 @@ class PoniExploration:
         traversible = 1.0 - cv2.dilate(grid[x1:x2, y1:y2], self.selem)
         traversible[self.collision_map[gx1:gx2, gy1:gy2][x1:x2, y1:y2] == 1] = 0
         traversible[self.visited[gx1:gx2, gy1:gy2][x1:x2, y1:y2] == 1] = 1
+        #print('Traversible:', type(traversible), traversible.shape)
+        #self.obs_maps.append(traversible)
 
         # Note: Unlike _get_stg, no boundary is added here since we only want
         # to determine reachability.
@@ -509,6 +511,7 @@ class PoniExploration:
         traversible = 1.0 - cv2.dilate(grid[x1:x2, y1:y2], self.selem)
         traversible[self.collision_map[gx1:gx2, gy1:gy2][x1:x2, y1:y2] == 1] = 0
         traversible[self.visited[gx1:gx2, gy1:gy2][x1:x2, y1:y2] == 1] = 1
+        self.obs_maps.append(1 - traversible)
 
         traversible[
             int(start[0] - x1) - 1 : int(start[0] - x1) + 2,
@@ -629,7 +632,7 @@ class PoniExploration:
                 
         # Get pose prediction and global policy planning window
         start_x, start_y, start_o, gx1, gx2, gy1, gy2 = self.planner_inputs["pose_pred"]
-        self.curr_loc = [start_x, start_y, start_o]
+        #self.curr_loc = [start_x, start_y, start_o]
         map_pred = self.planner_inputs["map_pred"]
         gx1, gx2, gy1, gy2 = int(gx1), int(gx2), int(gy1), int(gy2)
         planning_window = [gx1, gx2, gy1, gy2]
@@ -678,14 +681,21 @@ class PoniExploration:
         self.planner_inputs["pose_pred"] = self.planner_pose_inputs[0]
         self.planner_inputs["goal"] = goal_maps[0]  # global_goals[e]
         
+        #obs_map = self.local_map[0, 0, :, :].cpu().numpy()
+        #exp_map = self.local_map[0, 1, :, :].cpu().numpy()
+        #self.obs_maps.append(obs_map)# * np.rint(exp_map))
+        
         
     def check_and_draw_collisions(self):
         if self.last_loc is None:
             self.last_loc = self.curr_loc
             return
+        #print('Last loc:', self.last_loc)
+        #print('Curr loc:', self.curr_loc)
         args = self.args
         x1, y1, t1 = self.last_loc
         x2, y2, _ = self.curr_loc
+        #print('Collision')
         #print('x1 y1 x2 y2:', x1, y1, x2, y2)
         buf = 4
         length = 2
@@ -867,8 +877,6 @@ class PoniExploration:
         self.fmm_dists = None
         if self.needs_dist_maps:
             self.planner_inputs = {}
-            obs_map = self.local_map[0, 0, :, :].cpu().numpy()
-            exp_map = self.local_map[0, 1, :, :].cpu().numpy()
             # set unexplored to navigable by default
             self.planner_inputs["map_pred"] = obs_map * np.rint(exp_map)
             self.planner_inputs["pose_pred"] = self.planner_pose_inputs[0]
