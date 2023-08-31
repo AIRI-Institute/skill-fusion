@@ -91,7 +91,7 @@ class HabitatRunner():
                 '+habitat_baselines.rl.policy.action_distribution_type=categorical', 
                 '+habitat_baselines.load_resume_state_config=True',
                 #"+benchmark/nav/" + args.task + "=" + os.path.basename(benchmark_config_path),
-                #"+data/scene_datasets/hm3d_v0.2/val=/data/scene_datasets/hm3d_v0.2/val",
+                "habitat.dataset.scenes_dir=/data/scene_datasets",
                 "habitat/task/actions=" + args.action_space,
                 "habitat.dataset.split=val",
                 "habitat.dataset.data_path=/data/datasets/objectnav/hm3d/v2/val/val.json.gz",
@@ -213,7 +213,7 @@ class HabitatRunner():
         np.savetxt(os.path.join(self.top_down_map_save_path, 'trajectories', 'episode_{}_{}.txt'.format(ii, objectgoal_name)), np.array(agent_trajectory))
         """
         
-        save_dir = 'fbe_poni_exploration_maps/episode_{}_{}_{}_{}'.format(ii, objectgoal_name, metrics['success'], round(metrics['spl'], 3))
+        save_dir = 'skillfusion_maps/episode_{}_{}_{}_{}'.format(ii, objectgoal_name, metrics['success'], round(metrics['spl'], 3))
         if not os.path.exists(save_dir):
             os.mkdir(save_dir)
         #top_down_map = draw_top_down_map(self.env.info, observations['heading'][0], observations['rgb'][0].shape[0])
@@ -222,12 +222,16 @@ class HabitatRunner():
         np.savez(os.path.join(save_dir, 'semantic_maps.npz'), self.agent.semantic_maps)
         np.savez(os.path.join(save_dir, 'rgbs.npz'), self.agent.rgbs)
         np.savez(os.path.join(save_dir, 'depths.npz'), self.agent.depths)
+        np.savez(os.path.join(save_dir, 'depths_for_map.npz'), self.agent.depths_for_map)
         np.savetxt(os.path.join(save_dir, 'poses.txt'), self.agent.robot_pose_track)
         np.savetxt(os.path.join(save_dir, 'goal_coords.txt'), self.agent.goal_coords)
         np.savez(os.path.join(save_dir, 'actions.txt'), self.agent.action_track)
         np.savez(os.path.join(save_dir, 'obs_maps.npz'), self.agent.obs_maps)
         np.savetxt(os.path.join(save_dir, 'agent_positions.txt'), self.agent.agent_positions)
         np.savetxt(os.path.join(save_dir, 'goal_coords_ij.txt'), self.agent.goal_coords_ij)
+        np.savez(os.path.join(save_dir, 'agent_views.txt'), self.agent.agent_views)
+        np.savetxt(os.path.join(save_dir, 'st_poses.txt'), self.agent.st_poses)
+        np.savetxt(os.path.join(save_dir, 'pose_shifts.txt'), self.agent.pose_shifts)
         fout = open(os.path.join(save_dir, 'results.txt'), 'w')
         print('Success: {}'.format(metrics['success']), file=fout)
         print('SPL: {}'.format(metrics['spl']), file=fout)
@@ -240,7 +244,7 @@ class HabitatRunner():
             print('', file=fout)
         fout.close()
         
-        subprocess.run(['python', 'create_gif.py', save_dir, 'fbe_poni_exploration_results/attempt2'])
+        subprocess.run(['python', 'create_gif.py', save_dir, 'skillfusion_results'])
         for file in os.listdir(save_dir):
             if file != 'results.txt':
                 try:
@@ -251,7 +255,7 @@ class HabitatRunner():
 
 def main():
     runner = HabitatRunner()
-    for i in runner.eval_episodes:#[12:]:
+    for i in runner.eval_episodes:
         runner.run_episode(i)
     fout = open('fbe_maps/results.txt', 'w')
     print('Success: {}'.format(np.mean(runner.successes)), file=fout)

@@ -4,7 +4,6 @@ from habitat.config import DictConfig
 from habitat.sims.habitat_simulator.actions import HabitatSimActions
 from exploration.frontier.poni_exploration import PoniExploration
 from planners.astar.astar_planner import AStarPlanner
-from habitat_map.mapper import Mapper
 import yaml
 
 from torchvision import transforms
@@ -71,31 +70,9 @@ class GreedyPathFollowerAgent(habitat.Agent):
         self.max_d_angle = follower_config['max_d_angle']
         self.finish_radius = config['task']['finish_radius']
 
-        # Initialize mapper
-        mapper_config = config['mapper']
-        self.mapper = Mapper(obstacle_inflation=mapper_config['obstacle_inflation'],
-                             semantic_inflation=mapper_config['semantic_inflation'],
-                             vision_range=mapper_config['vision_range'],
-                             semantic_vision_range=mapper_config['semantic_vision_range'],
-                             map_size_cm=mapper_config['map_size_cm'],
-                             map_resolution=mapper_config['map_resolution_cm'],
-                             semantic_threshold=mapper_config['semantic_threshold'],
-                             semantic_decay=mapper_config['semantic_decay'])
-
-        # Initialize exploration
+        args = parse_args_from_config(config['args'])
         exploration_config = config['exploration']
-        if exploration_config['type'] == 'frontier':
-            self.exploration = FrontierExploration(self.mapper,
-                                           potential_scale=exploration_config['potential_scale'],
-                                           orientation_scale=exploration_config['orientation_scale'],
-                                           gain_scale=exploration_config['gain_scale'],
-                                           min_frontier_size=exploration_config['min_frontier_size'])
-        elif exploration_config['type'] == 'poni':
-            args = parse_args_from_config(config['args'])
-            self.exploration = PoniExploration(args)
-        else:
-            print('UNKNOWN EXPLORATION TYPE!!!')
-            self.exploration = None
+        self.exploration = PoniExploration(args)
         self.timeout = exploration_config['timeout']
         self.gr_timeout = exploration_config['gr_timeout']
 
@@ -103,18 +80,8 @@ class GreedyPathFollowerAgent(habitat.Agent):
         planner_config = config['path_planner']
         self.planner_frequency = planner_config['frequency']
         planner_type = planner_config['type']
-        if planner_type == 'theta_star':
-            self.path_planner = ThetaStarPlanner(self.mapper.mapper,
-                                                 agent_radius=planner_config['agent_radius'],
-                                                 reach_radius=planner_config['reach_radius'],
-                                                 allow_diagonal=planner_config['allow_diagonal'])
-        elif planner_type == 'a_star':
-            self.path_planner = AStarPlanner(#self.mapper,
-                                             reach_radius=planner_config['reach_radius'] / self.exploration.args.map_resolution * 100.,
-                                             allow_diagonal=planner_config['allow_diagonal'])
-        else:
-            print('PATH PLANNER TYPE {} IS NOT DEFINED!!!'.format(planner_type))
-            self.path_planner = None
+        self.path_planner = AStarPlanner(reach_radius=planner_config['reach_radius'] / self.exploration.args.map_resolution * 100.,
+                                         allow_diagonal=planner_config['allow_diagonal'])
 
         # Initialize RL params
         self.p240 = transforms.Compose([transforms.ToPILImage(),
@@ -173,6 +140,7 @@ class GreedyPathFollowerAgent(habitat.Agent):
         self.actor_critic_gr.eval()
         
         self.semantic_predictor = SemanticPredictor()
+        self.semantic_threshold = config['mapper']['semantic_threshold']
 
         # Initialize common params
         self.step = 0
@@ -188,10 +156,14 @@ class GreedyPathFollowerAgent(habitat.Agent):
         self.rgbs = []
         self.goal_coords = []
         self.depths = []
+        self.depths_for_map = []
         self.obs_maps = []
         self.agent_positions = []
         self.goal_coords_ij = []
         self.paths = []
+        self.pose_shifts = []
+        self.st_poses = []
+        self.agent_views = []
         self.goal = None
         self.path = None
         self.objgoal_found = False
@@ -221,13 +193,11 @@ class GreedyPathFollowerAgent(habitat.Agent):
 
     def goal_reached(self, observations):
         x, y = observations['gps']
-        #y_cell, x_cell = self.mapper.world_to_map(x, y)
         y_cell, x_cell = self.exploration.world_to_map(x, y)
-        #semantic_map = self.mapper.semantic_map
         cn = self.cat_to_coco[self.goal_id_to_cat[observations['objectgoal'][0]]] + 4
         semantic_map = self.exploration.local_map[0, cn, :, :].cpu().numpy()
-        semantic_map[semantic_map < self.mapper.semantic_threshold] = 0
-        semantic_map[semantic_map >= self.mapper.semantic_threshold] = 1
+        semantic_map[semantic_map < self.semantic_threshold] = 0
+        semantic_map[semantic_map >= self.semantic_threshold] = 1
         i, j = (semantic_map > 0).nonzero()
         #print('I, J:', y_cell, x_cell)
         if len(i) > 0:
@@ -269,14 +239,17 @@ class GreedyPathFollowerAgent(habitat.Agent):
         self.semantic_maps = []
         self.rgbs = []
         self.depths = []
+        self.depths_for_map = []
         self.action_track = []
         self.obs_maps = []
         self.agent_positions = []
         self.goal_coords_ij = []
         self.paths = []
+        self.pose_shifts = []
+        self.st_poses = []
+        self.agent_views = []
         self.exploration.reset()
         self.path_planner.reset()
-        self.mapper.reset()
         self.goal = None
         self.path = None
         self.objgoal_found = False
@@ -290,7 +263,6 @@ class GreedyPathFollowerAgent(habitat.Agent):
         self.steps_wo_goal = 0
         self.tilt_angle = 0
         self.exploration.sem_map_module.agent_view_angle = 0
-        self.mapper.mapper.agent_view_angle = 0
         self.critic_values = []        
         gc.collect()
         
@@ -303,13 +275,13 @@ class GreedyPathFollowerAgent(habitat.Agent):
         convolution = convolve2d(obstacle_map, kernel, mode='same')
         obstacle_map[convolution == 0] = 0
         i, j = (obstacle_map > 0).nonzero()
+        obstacle_map = np.maximum(obstacle_map, self.exploration.collision_map)
         k = 3
         for di in range(-k, k + 1):
             for dj in range(-k, k + 1):
                 ii = np.clip(i + di, 0, obstacle_map.shape[0] - 1)
                 jj = np.clip(j + dj, 0, obstacle_map.shape[1] - 1)
                 obstacle_map[ii, jj] = np.maximum(obstacle_map[ii, jj], 0.5)
-        obstacle_map = np.maximum(obstacle_map, self.exploration.collision_map)
         explored_map = self.exploration.local_map[0, 1, :, :].cpu().numpy()
         full_map = np.concatenate([np.expand_dims(explored_map, 2), np.expand_dims(obstacle_map, 2)], axis=2)
         return full_map
@@ -353,7 +325,6 @@ class GreedyPathFollowerAgent(habitat.Agent):
                 self.goal = None
                 self.step_to_goal = 0
                 if self.objgoal_found:
-                    self.mapper.reset()
                     self.step = 0
             
             
@@ -427,9 +398,8 @@ class GreedyPathFollowerAgent(habitat.Agent):
         
         cn = self.cat_to_coco[self.goal_id_to_cat[observations['objectgoal'][0]]] + 4
         semantic_map = self.exploration.local_map[0, cn, :, :].cpu().numpy()
-        semantic_map[semantic_map < self.mapper.semantic_threshold] = 0
-        semantic_map[semantic_map >= self.mapper.semantic_threshold] = 1
-        #semantic_map[semantic_map < self.mapper.semantic_threshold] = 0
+        semantic_map[semantic_map < self.semantic_threshold] = 0
+        semantic_map[semantic_map >= self.semantic_threshold] = 1
         
         # If we found objectgoal, cancel current intermediate goal to move to the objectgoal immediately
         if not self.objgoal_found and semantic_map.max() > 0:
@@ -445,14 +415,11 @@ class GreedyPathFollowerAgent(habitat.Agent):
             #print('Robot x and y:', robot_x, robot_y)
             #print('Goal x and y:', self.goal)
             #print('PATH:', self.path)
-            #semantic_map = self.mapper.semantic_map
             i, j = (semantic_map > 0).nonzero()
             if len(i) > 0:
-                #y_cell, x_cell = self.mapper.world_to_map(robot_x, robot_y)
                 y_cell, x_cell = self.exploration.world_to_map(robot_x, robot_y)
                 dst = np.sqrt((y_cell - i) ** 2 + (x_cell - j) ** 2)
                 min_id = dst.argmin()
-                #self.goal = self.mapper.map_to_world(i[min_id], j[min_id])
                 self.goal = self.exploration.map_to_world(i[min_id], j[min_id])
                 self.create_path_by_planner(observations)
                 return self.get_path_following_action(observations)                
@@ -532,23 +499,19 @@ class GreedyPathFollowerAgent(habitat.Agent):
         self.robot_pose_track.append((robot_x, robot_y, robot_angle))
         action_rl = self.act_rl(observations)
         if observations['objectgoal'][0] in [2, 4]:
-            self.mapper.erosion_size = 2
             self.exploration.sem_map_module.erosion_size = 3
         else:
-            self.mapper.erosion_size = 3
             self.exploration.sem_map_module.erosion_size = 5
         
         # Update obstacle map and semantic map
         semantic_prediction, semantic_mask = self.semantic_predictor(observations['rgb'], observations['objectgoal'][0])
         
-        #self.mapper.step(observations, semantic_mask)
-        #self.maps.append(self.mapper.mapper.map[:, :, 1])
+        self.exploration.update(observations, semantic_prediction)
         cn = self.cat_to_coco[self.goal_id_to_cat[observations['objectgoal'][0]]] + 4
         semantic_map = self.exploration.local_map[0, cn, :, :].cpu().numpy()
-        semantic_map[semantic_map < self.mapper.semantic_threshold] = 0
-        semantic_map[semantic_map >= self.mapper.semantic_threshold] = 1
+        semantic_map[semantic_map < self.semantic_threshold] = 0
+        semantic_map[semantic_map >= self.semantic_threshold] = 1
         self.semantic_maps.append(semantic_map)
-        self.exploration.update(observations, semantic_prediction)
         if np.sum(semantic_mask) > 300 or semantic_map.max() > 0:
             self.skil_goalreacher = True
             if self.step_gr >= self.gr_timeout or semantic_map.max() > 0:
@@ -564,6 +527,11 @@ class GreedyPathFollowerAgent(habitat.Agent):
         observations['rgb'][semantic_mask > 0] = [255, 0, 0]
         self.rgbs.append(observations['rgb'].astype(np.uint8))
         self.depths.append(observations['depth'])
+        
+        self.pose_shifts.append(self.exploration.sem_map_module.pose_shifts[-1])
+        self.st_poses.append(self.exploration.sem_map_module.st_poses[-1])
+        self.agent_views.append(self.exploration.sem_map_module.agent_views[-1])
+        self.depths_for_map.append(self.exploration.sem_map_module.depths[-1])
 
         # Detect stuck
         self.stuck = False
@@ -584,17 +552,12 @@ class GreedyPathFollowerAgent(habitat.Agent):
         if self.steps_in_stuck > 12 or (not self.skil_goalreacher and self.exploration.replan):
         #if not self.skil_goalreacher and self.exploration.replan:
             self.escape_from_stuck = True
-        #if self.skil_goalreacher and self.mapper.semantic_map.max() > 0:
         #    self.escape_from_stuck = False
         #    self.rl_escape_steps = 0
         self.rl_escape_steps += 1
         if self.rl_escape_steps > 10 or (self.skil_goalreacher and self.rl_escape_steps > 5):
             self.escape_from_stuck = False
             self.rl_escape_steps = 0
-
-        # If we stuck, draw obstacle
-        if self.stuck:
-            self.mapper.draw_obstacle_ahead(observations)
         
         if self.goal is not None:
             self.goal_coords.append(self.goal)
@@ -604,10 +567,6 @@ class GreedyPathFollowerAgent(habitat.Agent):
             self.goal_coords_ij.append(self.exploration.global_goals[0])
         else:
             self.goal_coords_ij.append((240, 240))
-        #if len(self.exploration.obs_maps) == 0:
-        #    self.obs_maps.append(np.zeros((480, 480)))
-        #else:
-        #    self.obs_maps.append(self.exploration.obs_maps[-1])
         self.obs_maps.append(self.get_obstacle_map()[:, :, 1])
         if len(self.exploration.agent_positions) == 0:
             self.agent_positions.append([240, 240, 0])
@@ -627,7 +586,6 @@ class GreedyPathFollowerAgent(habitat.Agent):
         if self.stuck and self.tilt_angle == 0:
             action = HabitatSimActions.look_down
             self.tilt_angle = 30
-            self.mapper.mapper.agent_view_angle = -30
             self.exploration.sem_map_module.agent_view_angle = -30
             print('TILT DOWN')
             self.action_track.append((str(action), 'TILT DOWN'))
@@ -636,7 +594,6 @@ class GreedyPathFollowerAgent(habitat.Agent):
         if self.steps_after_stuck > 5 and self.tilt_angle > 0:
             action = HabitatSimActions.look_up
             self.tilt_angle = 0
-            self.mapper.mapper.agent_view_angle = 0
             self.exploration.sem_map_module.agent_view_angle = 0
             print('TILT UP')
             self.action_track.append((str(action), 'TILT UP'))
@@ -645,8 +602,6 @@ class GreedyPathFollowerAgent(habitat.Agent):
         self.step += 1
         #print('Critic value:', self.critic_values[-1])
         #print('Poni value:', self.exploration.goal_pf)
-        #print('Exploration cost:', self.exploration.goal_cost)
-        #print('Values:', (self.goal_cost_threshold - self.exploration.goal_cost) * self.goal_cost_scale, self.critic_values[-1])
         #if self.exploration.goal_pf < self.critic_values[-1] / 3 and not self.skil_goalreacher:
         if self.critic_values[-1] > 2 and not self.skil_goalreacher:
         #if not self.skil_goalreacher:
@@ -665,13 +620,11 @@ class GreedyPathFollowerAgent(habitat.Agent):
                     assert self.tilt_angle == 0
                     print('TILT DOWN WITH RL GOALREACHER')
                     self.tilt_angle = 30
-                    self.mapper.mapper.agent_view_angle = -30
                     self.exploration.sem_map_module.agent_view_angle = -30
                 if action_rl_gr == HabitatSimActions.look_up:
                     assert self.tilt_angle > 0
                     print('TILT UP WITH RL GOALREACHER')
                     self.tilt_angle = 0
-                    self.mapper.mapper.agent_view_angle = 0
                     self.exploration.sem_map_module.agent_view_angle = 0
                 return {'action': action_rl_gr}
             else:
@@ -693,13 +646,11 @@ class GreedyPathFollowerAgent(habitat.Agent):
                 assert self.tilt_angle == 0
                 print('TILT DOWN WITH RL GOALREACHER')
                 self.tilt_angle = 30
-                self.mapper.mapper.agent_view_angle = -30
                 self.exploration.sem_map_module.agent_view_angle = -30
             if action_rl_gr == HabitatSimActions.look_up:
                 assert self.tilt_angle > 0
                 print('TILT UP WITH RL GOALREACHER')
                 self.tilt_angle = 0
-                self.mapper.mapper.agent_view_angle = 0
                 self.exploration.sem_map_module.agent_view_angle = 0
             return {'action': action_rl_gr}
         action_fbe = self.act_fbe(observations, semantic_prediction)

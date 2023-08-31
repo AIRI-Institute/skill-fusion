@@ -50,7 +50,7 @@ visualization:
 args:
   split: 'val'
   total_num_scenes: 1
-  pf_model_path: '/root/exploration_ros_free/pretrained_models/gibson_models/poni_seed_234.ckpt'
+  pf_model_path: '/root/PONI/pretrained_models/gibson_models/poni_seed_234.ckpt'
   eval: 1
   global_downscaling: 1
   min_depth: 0.5
