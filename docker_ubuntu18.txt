@@ -1,0 +1,292 @@
+IMAGE          CREATED         CREATED BY                                      SIZE      COMMENT
+ea786979e8b1   3 days ago      /bin/sh -c #(nop)  ENTRYPOINT ["/startup.sh"]   0B        
+5f924160adb2   3 days ago      /bin/sh -c #(nop) WORKDIR /                     0B        
+68261eb303e3   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c chmod 777 …   55B       
+c884b9a1c256   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c chmod 777 …   219B      
+9797eb1eb2af   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c chmod 777 …   469B      
+3cf1a6c534ce   3 days ago      /bin/sh -c #(nop)  ENV JUPYTER_TOKEN=longpas…   0B        
+ce4a74bdebdb   3 days ago      /bin/sh -c #(nop)  ENV JUPYTER_PASSWORD=long…   0B        
+a966e9e2a81c   3 days ago      /bin/sh -c #(nop)  ENV SHELL=/bin/bash          0B        
+c0857f19b5c7   3 days ago      /bin/sh -c #(nop)  ENV HOME=/                   0B        
+994a34142b46   3 days ago      /bin/sh -c #(nop) COPY dir:8c57b163e6d7ec3a3…   2.03MB    
+bbe80eb15b6d   3 days ago      /bin/sh -c #(nop)  EXPOSE 6006                  0B        
+901f4edf1b85   3 days ago      /bin/sh -c #(nop)  EXPOSE 8888                  0B        
+3c2a629793d6   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   18.1MB    
+53e5f0ff4a8b   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   131MB     
+8de8c1a2ec15   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   701kB     
+f77b2106473f   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   1.34MB    
+0ae06742e3d0   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   15.3MB    
+88e8d1126919   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   10.3MB    
+8792b01b3ed8   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   111kB     
+916864bec90d   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   34.1kB    
+c2b262308e57   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   10.9MB    
+6b18f986e35d   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   0B        
+dd6b302fd322   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   6.75MB    
+43ec6c784cdb   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   57.7kB    
+b75f91f425ab   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   2.66MB    
+956ed36b28a5   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   469kB     
+24ac21db4197   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   9.01MB    
+0f97bed1fec0   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   0B        
+3ad8fed83307   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   1.89MB    
+3e6fc6adaebf   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   65.4MB    
+4d2b4b855056   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   0B        
+03fdefd6bda5   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   0B        
+2242cc1aace9   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   0B        
+5c9c5dfef8f8   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c /bin/bash …   1.77GB    
+6ee2a2ca2fb8   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c /bin/bash …   1.03GB    
+5b17bd3c92f6   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c g++ --vers…   0B        
+25468382952b   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c gcc --vers…   0B        
+f3d55f8c57a9   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c update-alt…   46.7kB    
+23e57237c5ed   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt instal…   0B        
+f93454c208c8   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get -y…   0B        
+d2a449f1cf5c   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get up…   523kB     
+cee2fad48473   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c gcc --vers…   0B        
+01201011c601   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt update…   4.32GB    
+dd6b5438e2d6   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c wget -qO /…   331B      
+76d90a674536   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c wget -qO -…   3.8kB     
+648599049a87   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get in…   8.14MB    
+677feaa6665a   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get up…   517kB     
+76c350ffcc31   3 days ago      /bin/sh -c #(nop) COPY file:3f3dcfcdcccb48d8…   140B      
+e1e5847c502c   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt list -…   0B        
+16bc0bd57bb7   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c git clone …   74.3MB    
+bad6ffa55396   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c /bin/bash …   28.3MB    
+65c7785bff8c   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt instal…   145MB     
+798b5ab7e0cd   3 days ago      /bin/sh -c #(nop) WORKDIR /                     0B        
+91954d1ad3ef   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c python set…   118MB     
+880b109ab902   3 days ago      /bin/sh -c #(nop) WORKDIR /AdelaiDet            0B        
+cf60b8eb76fc   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c ls            0B        
+8d58f8762b00   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c git clone …   1.47MB    
+301edb442156   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   193MB     
+e90cf5226202   3 days ago      /bin/sh -c #(nop)  ENV TORCH_CUDA_ARCH_LIST=…   0B        
+97bcc3f04b35   3 days ago      /bin/sh -c #(nop)  ARG TORCH_CUDA_ARCH_LIST=…   0B        
+5c7db43ec405   3 days ago      /bin/sh -c #(nop)  ENV FORCE_CUDA=1             0B        
+2e5154ac384c   3 days ago      /bin/sh -c #(nop) WORKDIR /                     0B        
+6036f8130c24   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c git reset …   3.69MB    
+63e58c751ba2   3 days ago      /bin/sh -c #(nop) WORKDIR /detectron2_repo      0B        
+fde414913310   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c git clone …   10.3MB    
+9c1430017bf9   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   883kB     
+6fc9357cebf8   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   75.8MB    
+bd1d993fda67   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   6.68GB    
+aa504a117e07   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c /bin/bash …   242MB     
+f48764a07fb3   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c git clone …   59.4MB    
+7466d67e839c   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c /bin/bash …   7.46GB    
+8b31cc6e0df0   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c git clone …   156MB     
+93f4f1c83cca   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c gcc --vers…   0B        
+617fd432e0ec   4 days ago      /bin/sh -c #(nop) WORKDIR /                     0B        
+0d5ceefe27cd   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   29MB      
+9cca52cb2908   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c locale-gen…   1.69MB    
+3c284b40572b   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c DEBIAN_FRO…   20.3MB    
+6574821e7565   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get in…   251MB     
+ebdcc2dc46e1   4 days ago      /bin/sh -c #(nop) WORKDIR /root                 0B        
+03f05ec278b0   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c /bin/bash …   283MB     
+d355ca4e7079   4 days ago      /bin/sh -c #(nop)  ENV PYTHONPATH=/opt/conda…   0B        
+34a05f5d55a8   4 days ago      /bin/sh -c #(nop)  ENV PATH=/opt/conda/envs/…   0B        
+119000cc28e3   4 days ago      /bin/sh -c #(nop)  ENV LANG=C.UTF-8 LC_ALL=C…   0B        
+9b54ca413daf   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c conda crea…   397MB     
+9f1c7ff88e6d   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c conda inst…   251MB     
+269bfaba463f   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c cmake --ve…   0B        
+f53121b6770a   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get in…   564MB     
+7eca613dd100   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt policy…   0B        
+9271e6bf3d03   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get up…   525kB     
+1ca001b11767   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-key ad…   0B        
+130b5715670f   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c dpkg -i te…   1.5GB     
+0c61acfaf83b   4 days ago      /bin/sh -c #(nop) COPY file:4dc6399d9ba8b130…   1.5GB     
+c7bfc85a24f7   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c version="7…   5.8GB     
+8180ee489f9b   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get up…   8.56MB    
+df8a2586f3db   4 days ago      /bin/sh -c #(nop) WORKDIR /                     0B        
+d392add5e51a   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get up…   6.21GB    
+5dab9f997596   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c cd /opt   …   75.6MB    
+5466f11f8d06   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get up…   278MB     
+48e526811377   4 days ago      /bin/sh -c #(nop)  ENV DISPLAY=:1               0B        
+a6c61918ff99   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c chmod +x /…   18.7kB    
+7128c5cea95a   4 days ago      /bin/sh -c #(nop) ADD 616a3fd4fc8e3ba54bec86…   18.7kB    
+95728b251e5f   4 days ago      /bin/sh -c #(nop)  ARG TINI_VERSION=v0.9.0      0B        
+2203ecec9157   4 days ago      /bin/sh -c apt-get update && DEBIAN_FRONTEND…   272MB     
+e8f01aa6b5ec   4 days ago      /bin/sh -c wget --quiet https://repo.anacond…   1.3GB     
+1582894d9cc4   4 days ago      /bin/sh -c #(nop)  ENV PATH=/opt/conda/bin:/…   0B        
+e7ae984aa297   4 days ago      /bin/sh -c cmake --version                      0B        
+cfec3e081512   4 days ago      /bin/sh -c /bin/bash -c '. cd /; wget https:…   351MB     
+8f6264882e83   5 days ago      /bin/sh -c apt install -y libprotobuf-dev pr…   70.8MB    
+d2df86c05682   5 days ago      /bin/sh -c apt-get update                       516kB     
+2753822491da   5 days ago      /bin/sh -c dpkg --add-architecture i386         11B       
+3a77045e691b   5 days ago      /bin/sh -c update-alternatives --install /us…   25.8kB    
+562ef43aa778   5 days ago      /bin/sh -c apt install -y gcc-9 g++-9           130MB     
+040ca105ae3c   5 days ago      /bin/sh -c apt update                           516kB     
+77a2d670d6a6   5 days ago      /bin/sh -c add-apt-repository ppa:ubuntu-too…   72.8MB    
+c92df8f8232b   6 months ago    /bin/sh -c apt-get update && DEBIAN_FRONTEND…   1.58GB    
+37819ecd3274   6 months ago    /bin/sh -c apt-get update --fix-missing &&  …   117MB     
+30d72b6323f2   6 months ago    /bin/sh -c #(nop)  ENV PATH=/opt/conda/bin:/…   0B        
+990dd1608a6b   6 months ago    /bin/sh -c #(nop)  ENV LANG=C.UTF-8 LC_ALL=C…   0B        
+b53825283a47   17 months ago   COPY 10_nvidia.json /usr/share/glvnd/egl_ven…   107B      buildkit.dockerfile.v0
+<missing>      17 months ago   RUN /bin/sh -c apt-get update && apt-get ins…   225MB     buildkit.dockerfile.v0
+<missing>      17 months ago   LABEL maintainer=NVIDIA CORPORATION <cudatoo…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   ENV LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gn…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   RUN /bin/sh -c echo "/usr/local/nvidia/lib" …   92B       buildkit.dockerfile.v0
+<missing>      17 months ago   ENV NVIDIA_DRIVER_CAPABILITIES=compute,utili…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   ENV NVIDIA_VISIBLE_DEVICES=all                  0B        buildkit.dockerfile.v0
+<missing>      17 months ago   RUN /bin/sh -c dpkg --add-architecture i386 …   17.1MB    buildkit.dockerfile.v0
+<missing>      17 months ago   LABEL maintainer=NVIDIA CORPORATION <cudatoo…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   RUN /bin/sh -c apt-get update && apt-get ins…   2.36GB    buildkit.dockerfile.v0
+<missing>      17 months ago   ENV NCCL_VERSION=2.7.8                          0B        buildkit.dockerfile.v0
+<missing>      17 months ago   LABEL maintainer=NVIDIA CORPORATION <cudatoo…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   ENV NVIDIA_REQUIRE_CUDA=cuda>=11.1 brand=tes…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   ENV NVIDIA_DRIVER_CAPABILITIES=compute,utili…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   ENV NVIDIA_VISIBLE_DEVICES=all                  0B        buildkit.dockerfile.v0
+<missing>      17 months ago   ENV LD_LIBRARY_PATH=/usr/local/nvidia/lib:/u…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   ENV PATH=/usr/local/nvidia/bin:/usr/local/cu…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   RUN /bin/sh -c echo "/usr/local/nvidia/lib" …   46B       buildkit.dockerfile.v0
+<missing>      17 months ago   RUN /bin/sh -c apt-get update && apt-get ins…   32.7MB    buildkit.dockerfile.v0
+<missing>      17 months ago   ENV CUDA_VERSION=11.1.0                         0B        buildkit.dockerfile.v0
+<missing>      17 months ago   RUN /bin/sh -c apt-get update && apt-get ins…   16.5MB    buildkit.dockerfile.v0
+<missing>      17 months ago   LABEL maintainer=NVIDIA CORPORATION <cudatoo…   0B        buildkit.dockerfile.v0
+<missing>      18 months ago   /bin/sh -c #(nop)  CMD ["/bin/bash"]            0B        
+<missing>      18 months ago   /bin/sh -c mkdir -p /run/systemd && echo 'do…   7B        
+<missing>      18 months ago   /bin/sh -c [ -z "$(apt-get indextargets)" ]     0B        
+<missing>      18 months ago   /bin/sh -c set -xe   && echo '#!/bin/sh' > /…   745B      
+<missing>      18 months ago   /bin/sh -c #(nop) ADD file:4974bb5483c392fb5…   63.2MB    
+IMAGE          CREATED         CREATED BY                                      SIZE      COMMENT
+ea786979e8b1   3 days ago      /bin/sh -c #(nop)  ENTRYPOINT ["/startup.sh"]   0B        
+5f924160adb2   3 days ago      /bin/sh -c #(nop) WORKDIR /                     0B        
+68261eb303e3   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c chmod 777 …   55B       
+c884b9a1c256   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c chmod 777 …   219B      
+9797eb1eb2af   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c chmod 777 …   469B      
+3cf1a6c534ce   3 days ago      /bin/sh -c #(nop)  ENV JUPYTER_TOKEN=longpas…   0B        
+ce4a74bdebdb   3 days ago      /bin/sh -c #(nop)  ENV JUPYTER_PASSWORD=long…   0B        
+a966e9e2a81c   3 days ago      /bin/sh -c #(nop)  ENV SHELL=/bin/bash          0B        
+c0857f19b5c7   3 days ago      /bin/sh -c #(nop)  ENV HOME=/                   0B        
+994a34142b46   3 days ago      /bin/sh -c #(nop) COPY dir:8c57b163e6d7ec3a3…   2.03MB    
+bbe80eb15b6d   3 days ago      /bin/sh -c #(nop)  EXPOSE 6006                  0B        
+901f4edf1b85   3 days ago      /bin/sh -c #(nop)  EXPOSE 8888                  0B        
+3c2a629793d6   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   18.1MB    
+53e5f0ff4a8b   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   131MB     
+8de8c1a2ec15   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   701kB     
+f77b2106473f   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   1.34MB    
+0ae06742e3d0   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   15.3MB    
+88e8d1126919   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   10.3MB    
+8792b01b3ed8   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   111kB     
+916864bec90d   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   34.1kB    
+c2b262308e57   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   10.9MB    
+6b18f986e35d   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   0B        
+dd6b302fd322   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   6.75MB    
+43ec6c784cdb   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   57.7kB    
+b75f91f425ab   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   2.66MB    
+956ed36b28a5   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   469kB     
+24ac21db4197   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   9.01MB    
+0f97bed1fec0   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   0B        
+3ad8fed83307   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   1.89MB    
+3e6fc6adaebf   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   65.4MB    
+4d2b4b855056   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   0B        
+03fdefd6bda5   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   0B        
+2242cc1aace9   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   0B        
+5c9c5dfef8f8   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c /bin/bash …   1.77GB    
+6ee2a2ca2fb8   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c /bin/bash …   1.03GB    
+5b17bd3c92f6   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c g++ --vers…   0B        
+25468382952b   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c gcc --vers…   0B        
+f3d55f8c57a9   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c update-alt…   46.7kB    
+23e57237c5ed   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt instal…   0B        
+f93454c208c8   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get -y…   0B        
+d2a449f1cf5c   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get up…   523kB     
+cee2fad48473   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c gcc --vers…   0B        
+01201011c601   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt update…   4.32GB    
+dd6b5438e2d6   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c wget -qO /…   331B      
+76d90a674536   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c wget -qO -…   3.8kB     
+648599049a87   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get in…   8.14MB    
+677feaa6665a   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get up…   517kB     
+76c350ffcc31   3 days ago      /bin/sh -c #(nop) COPY file:3f3dcfcdcccb48d8…   140B      
+e1e5847c502c   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt list -…   0B        
+16bc0bd57bb7   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c git clone …   74.3MB    
+bad6ffa55396   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c /bin/bash …   28.3MB    
+65c7785bff8c   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt instal…   145MB     
+798b5ab7e0cd   3 days ago      /bin/sh -c #(nop) WORKDIR /                     0B        
+91954d1ad3ef   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c python set…   118MB     
+880b109ab902   3 days ago      /bin/sh -c #(nop) WORKDIR /AdelaiDet            0B        
+cf60b8eb76fc   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c ls            0B        
+8d58f8762b00   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c git clone …   1.47MB    
+301edb442156   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   193MB     
+e90cf5226202   3 days ago      /bin/sh -c #(nop)  ENV TORCH_CUDA_ARCH_LIST=…   0B        
+97bcc3f04b35   3 days ago      /bin/sh -c #(nop)  ARG TORCH_CUDA_ARCH_LIST=…   0B        
+5c7db43ec405   3 days ago      /bin/sh -c #(nop)  ENV FORCE_CUDA=1             0B        
+2e5154ac384c   3 days ago      /bin/sh -c #(nop) WORKDIR /                     0B        
+6036f8130c24   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c git reset …   3.69MB    
+63e58c751ba2   3 days ago      /bin/sh -c #(nop) WORKDIR /detectron2_repo      0B        
+fde414913310   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c git clone …   10.3MB    
+9c1430017bf9   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   883kB     
+6fc9357cebf8   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   75.8MB    
+bd1d993fda67   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   6.68GB    
+aa504a117e07   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c /bin/bash …   242MB     
+f48764a07fb3   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c git clone …   59.4MB    
+7466d67e839c   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c /bin/bash …   7.46GB    
+8b31cc6e0df0   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c git clone …   156MB     
+93f4f1c83cca   3 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c gcc --vers…   0B        
+617fd432e0ec   4 days ago      /bin/sh -c #(nop) WORKDIR /                     0B        
+0d5ceefe27cd   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c pip instal…   29MB      
+9cca52cb2908   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c locale-gen…   1.69MB    
+3c284b40572b   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c DEBIAN_FRO…   20.3MB    
+6574821e7565   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get in…   251MB     
+ebdcc2dc46e1   4 days ago      /bin/sh -c #(nop) WORKDIR /root                 0B        
+03f05ec278b0   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c /bin/bash …   283MB     
+d355ca4e7079   4 days ago      /bin/sh -c #(nop)  ENV PYTHONPATH=/opt/conda…   0B        
+34a05f5d55a8   4 days ago      /bin/sh -c #(nop)  ENV PATH=/opt/conda/envs/…   0B        
+119000cc28e3   4 days ago      /bin/sh -c #(nop)  ENV LANG=C.UTF-8 LC_ALL=C…   0B        
+9b54ca413daf   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c conda crea…   397MB     
+9f1c7ff88e6d   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c conda inst…   251MB     
+269bfaba463f   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c cmake --ve…   0B        
+f53121b6770a   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get in…   564MB     
+7eca613dd100   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt policy…   0B        
+9271e6bf3d03   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get up…   525kB     
+1ca001b11767   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-key ad…   0B        
+130b5715670f   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c dpkg -i te…   1.5GB     
+0c61acfaf83b   4 days ago      /bin/sh -c #(nop) COPY file:4dc6399d9ba8b130…   1.5GB     
+c7bfc85a24f7   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c version="7…   5.8GB     
+8180ee489f9b   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get up…   8.56MB    
+df8a2586f3db   4 days ago      /bin/sh -c #(nop) WORKDIR /                     0B        
+d392add5e51a   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get up…   6.21GB    
+5dab9f997596   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c cd /opt   …   75.6MB    
+5466f11f8d06   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c apt-get up…   278MB     
+48e526811377   4 days ago      /bin/sh -c #(nop)  ENV DISPLAY=:1               0B        
+a6c61918ff99   4 days ago      |1 TINI_VERSION=v0.9.0 /bin/sh -c chmod +x /…   18.7kB    
+7128c5cea95a   4 days ago      /bin/sh -c #(nop) ADD 616a3fd4fc8e3ba54bec86…   18.7kB    
+95728b251e5f   4 days ago      /bin/sh -c #(nop)  ARG TINI_VERSION=v0.9.0      0B        
+2203ecec9157   4 days ago      /bin/sh -c apt-get update && DEBIAN_FRONTEND…   272MB     
+e8f01aa6b5ec   4 days ago      /bin/sh -c wget --quiet https://repo.anacond…   1.3GB     
+1582894d9cc4   4 days ago      /bin/sh -c #(nop)  ENV PATH=/opt/conda/bin:/…   0B        
+e7ae984aa297   4 days ago      /bin/sh -c cmake --version                      0B        
+cfec3e081512   4 days ago      /bin/sh -c /bin/bash -c '. cd /; wget https:…   351MB     
+8f6264882e83   5 days ago      /bin/sh -c apt install -y libprotobuf-dev pr…   70.8MB    
+d2df86c05682   5 days ago      /bin/sh -c apt-get update                       516kB     
+2753822491da   5 days ago      /bin/sh -c dpkg --add-architecture i386         11B       
+3a77045e691b   5 days ago      /bin/sh -c update-alternatives --install /us…   25.8kB    
+562ef43aa778   5 days ago      /bin/sh -c apt install -y gcc-9 g++-9           130MB     
+040ca105ae3c   5 days ago      /bin/sh -c apt update                           516kB     
+77a2d670d6a6   5 days ago      /bin/sh -c add-apt-repository ppa:ubuntu-too…   72.8MB    
+c92df8f8232b   6 months ago    /bin/sh -c apt-get update && DEBIAN_FRONTEND…   1.58GB    
+37819ecd3274   6 months ago    /bin/sh -c apt-get update --fix-missing &&  …   117MB     
+30d72b6323f2   6 months ago    /bin/sh -c #(nop)  ENV PATH=/opt/conda/bin:/…   0B        
+990dd1608a6b   6 months ago    /bin/sh -c #(nop)  ENV LANG=C.UTF-8 LC_ALL=C…   0B        
+b53825283a47   17 months ago   COPY 10_nvidia.json /usr/share/glvnd/egl_ven…   107B      buildkit.dockerfile.v0
+<missing>      17 months ago   RUN /bin/sh -c apt-get update && apt-get ins…   225MB     buildkit.dockerfile.v0
+<missing>      17 months ago   LABEL maintainer=NVIDIA CORPORATION <cudatoo…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   ENV LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gn…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   RUN /bin/sh -c echo "/usr/local/nvidia/lib" …   92B       buildkit.dockerfile.v0
+<missing>      17 months ago   ENV NVIDIA_DRIVER_CAPABILITIES=compute,utili…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   ENV NVIDIA_VISIBLE_DEVICES=all                  0B        buildkit.dockerfile.v0
+<missing>      17 months ago   RUN /bin/sh -c dpkg --add-architecture i386 …   17.1MB    buildkit.dockerfile.v0
+<missing>      17 months ago   LABEL maintainer=NVIDIA CORPORATION <cudatoo…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   RUN /bin/sh -c apt-get update && apt-get ins…   2.36GB    buildkit.dockerfile.v0
+<missing>      17 months ago   ENV NCCL_VERSION=2.7.8                          0B        buildkit.dockerfile.v0
+<missing>      17 months ago   LABEL maintainer=NVIDIA CORPORATION <cudatoo…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   ENV NVIDIA_REQUIRE_CUDA=cuda>=11.1 brand=tes…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   ENV NVIDIA_DRIVER_CAPABILITIES=compute,utili…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   ENV NVIDIA_VISIBLE_DEVICES=all                  0B        buildkit.dockerfile.v0
+<missing>      17 months ago   ENV LD_LIBRARY_PATH=/usr/local/nvidia/lib:/u…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   ENV PATH=/usr/local/nvidia/bin:/usr/local/cu…   0B        buildkit.dockerfile.v0
+<missing>      17 months ago   RUN /bin/sh -c echo "/usr/local/nvidia/lib" …   46B       buildkit.dockerfile.v0
+<missing>      17 months ago   RUN /bin/sh -c apt-get update && apt-get ins…   32.7MB    buildkit.dockerfile.v0
+<missing>      17 months ago   ENV CUDA_VERSION=11.1.0                         0B        buildkit.dockerfile.v0
+<missing>      17 months ago   RUN /bin/sh -c apt-get update && apt-get ins…   16.5MB    buildkit.dockerfile.v0
+<missing>      17 months ago   LABEL maintainer=NVIDIA CORPORATION <cudatoo…   0B        buildkit.dockerfile.v0
+<missing>      18 months ago   /bin/sh -c #(nop)  CMD ["/bin/bash"]            0B        
+<missing>      18 months ago   /bin/sh -c mkdir -p /run/systemd && echo 'do…   7B        
+<missing>      18 months ago   /bin/sh -c [ -z "$(apt-get indextargets)" ]     0B        
+<missing>      18 months ago   /bin/sh -c set -xe   && echo '#!/bin/sh' > /…   745B      
+<missing>      18 months ago   /bin/sh -c #(nop) ADD file:4974bb5483c392fb5…   63.2MB    
