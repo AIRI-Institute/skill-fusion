@@ -19,4 +19,11 @@ Available options:
 - **SegmATRon 1 step** weights/segmatron_1_step.yaml, weights: https://drive.google.com/file/d/1oqSR7CThQvE9eJdib3nG93OAMuibACxG/view?usp=drive_link
 - **SegmATRon 2 steps** weights/segmatron_2_step.yaml, weights: https://disk.yandex.ru/d/a-LWtayiJf54VA
 - **SegmATRon 4 steps** weights/segmatron_4_steps.yaml, weights: https://disk.yandex.ru/d/goW34Me8jbme9A
-To control real-time or delayed semantic predictions use the parameter self.delayed in SemanticPredictor() initialization. 
+To control real-time or delayed semantic predictions use config_poni_exploration.yaml:
+
+```bash
+semantic_predictor:
+  config_path: 'weights/segmatron_1_step.yaml'
+  weights: 'weights/segmatron_1_steps_15.pt'
+  delayed: False
+```
