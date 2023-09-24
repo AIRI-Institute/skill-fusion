@@ -168,3 +168,4 @@ cython_debug/
 *.npz
 skillfusion_maps/
 top_down_maps*/
+*.pth
