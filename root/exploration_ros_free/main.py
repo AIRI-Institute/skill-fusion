@@ -164,7 +164,7 @@ class HabitatRunner():
         save_dir = 'observations_dataset_15/episode_{}_{}'.format(ii, objectgoal_name)
         if not os.path.exists(save_dir):
             os.mkdir(save_dir)
-        save = True
+        save = False
 
         self.agent.reset()
 
