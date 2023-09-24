@@ -2,7 +2,8 @@ import numpy as np
 import torch
 import cv2
 import sys
-sys.path.append('/root/oneformer_agent')
+sys.path.append('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/oneformer_agent')
+from torch.nn import functional as F
 from train_net import Trainer
 from detectron2.config import get_cfg
 from detectron2.checkpoint import DetectionCheckpointer
@@ -227,8 +228,8 @@ class SemanticPredictor():
                                 }
         
         # Initialize semantic predictor
-        config_file = '/root/exploration_ros_free/weights/config_oneformer_ade20k.yaml'
-        checkpoint_file = '/root/exploration_ros_free/weights/model_0299999.pth'
+        config_file = '/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/weights/config_oneformer_ade20k.yaml'
+        checkpoint_file = '/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/weights/model_0299999.pth'
         #self.model = init_segmentor(config_file, checkpoint_file, device='cuda:0')
         # Build a model
         cfg = get_cfg()
@@ -255,17 +256,27 @@ class SemanticPredictor():
         #self.subgoal_names = self.object_extention[self.objgoal_to_cat[objectgoal]]
         self.segformer_index = [i for i,x in enumerate(self.clss) if x in after_crossover]
         obs_semantic = np.ones((640,480,1))
+        image = torch.as_tensor(np.ascontiguousarray(image.transpose(2, 0, 1)))
+        image_size = (image.shape[-2], image.shape[-1])
+        padding_size = [
+            0,
+            640 - image_size[1],
+            0,
+            640 - image_size[0],
+        ]
+        image = F.pad(image, padding_size, value=128).contiguous()
         item = [{
-            "image": torch.from_numpy(np.moveaxis(image, -1, 0)),
+            "image": image,
             "height": 640,
-            "width": 480,
-            "task": "semantic"
+            "width": 640,
+            "task": "The task is semantic"
         }]
         with torch.no_grad():
             result = self.model(item)
             result = result[0]["sem_seg"].cpu().numpy()
             result[result < 0.5] = 0
             result = np.argmax(result, axis=0)
+            result = result[:, :480]
         ################################## FOR SEGFORMER B5  second lane
         if objectgoal is not None:
             after_crossover = self.crossover[self.objgoal_to_cat[objectgoal]]

@@ -1,7 +1,7 @@
 import sys
-sys.path.append('/root/exploration_ros_free/habitat_map')
-sys.path.append('/root/oneformer_agent')
-sys.path.append('/root')
+sys.path.append('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/habitat_map')
+sys.path.append('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/oneformer_agent')
+sys.path.append('/home/AI/yudin.da/zemskova_ts/skill-fusion/root')
 
 import argparse
 import os
@@ -163,7 +163,7 @@ class Agent_hlpo(Agent):
             backbone = 'resnet18',
             normalize_visual_inputs=True)
         
-        pretrained_state = torch.load('/root/exploration_ros_free/weights/goalreacher_model_4.pth', map_location="cpu")
+        pretrained_state = torch.load('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/weights/goalreacher_model_4.pth', map_location="cpu")
         #pretrained_state = torch.load('/root/exploration_ros_free/weights/goalreacher_may21_65.pth', map_location="cpu")
         #pretrained_state = torch.load('/root/weights/8901_gr_OP_train_aug29.pth', map_location="cpu")
         #pretrained_state = torch.load('/root/weights/8902_gr_CLIP_train_aug29.pth', map_location="cpu")

@@ -2,7 +2,7 @@ import numpy as np
 import torch
 import cv2
 import sys
-sys.path.append('/root/oneformer_agent')
+sys.path.append('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/oneformer_agent')
 from train_net import Trainer
 from detectron2.config import get_cfg
 from detectron2.checkpoint import DetectionCheckpointer
@@ -226,8 +226,8 @@ class SemanticPredictor():
                                 }
         
         # Initialize semantic predictor
-        config_file = '/root/skillfusion/weights/config_oneformer_ade20k.yaml'
-        checkpoint_file = '/root/skillfusion/weights/model_0299999.pth'
+        config_file = '/home/AI/yudin.da/zemskova_ts/skill-fusion/root/skillfusion/weights/config_oneformer_ade20k.yaml'
+        checkpoint_file = '/home/AI/yudin.da/zemskova_ts/skill-fusion/root/skillfusion/weights/model_0299999.pth'
         #self.model = init_segmentor(config_file, checkpoint_file, device='cuda:0')
         # Build a model
         cfg = get_cfg()

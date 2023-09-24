@@ -157,6 +157,7 @@ def draw_top_down_map(info, heading, output_size):
     top_down_map = maps.colorize_topdown_map(
         info["top_down_map"]["map"], info["top_down_map"]["fog_of_war_mask"]
     )
+    print(top_down_map.shape)
     original_map_size = top_down_map.shape[:2]
     map_scale = np.array(
         (1, original_map_size[1] * 1.0 / original_map_size[0])
@@ -165,7 +166,7 @@ def draw_top_down_map(info, heading, output_size):
     # OpenCV expects w, h but map size is in h, w
     top_down_map = cv2.resize(top_down_map, (new_map_size[1], new_map_size[0]))
 
-    map_agent_pos = info["top_down_map"]["agent_map_coord"]
+    map_agent_pos = info["top_down_map"]["agent_map_coord"][0]
     map_agent_pos = np.round(
         map_agent_pos * new_map_size / original_map_size
     ).astype(np.int32)

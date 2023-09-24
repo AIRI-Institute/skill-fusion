@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 import sys
-sys.path.append('/root')
+sys.path.append('/home/AI/yudin.da/zemskova_ts/skill-fusion/root')
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -73,8 +73,8 @@ class HabitatRunner():
             help="Modify config options from command line",
         )
 
-        benchmark_config_path =  "/root/configs/benchmark/nav/objectnav/objectnav_v2_hm3d_stretch_challenge.yaml"
-        args = parser.parse_args('--evaluation local --model-path objectnav_baseline_habitat_navigation_challenge_2023.pth --input-type rgbd --task objectnav --action_space discrete_waypoint_controller --task-config /root/configs/ddppo_objectnav_v2_hm3d_stretch.yaml'.split())
+        benchmark_config_path =  "/home/AI/yudin.da/zemskova_ts/skill-fusion/root/configs/benchmark/nav/objectnav/objectnav_v2_hm3d_stretch_challenge.yaml"
+        args = parser.parse_args('--evaluation local --model-path objectnav_baseline_habitat_navigation_challenge_2023.pth --input-type rgbd --task objectnav --action_space discrete_waypoint_controller --task-config /home/AI/yudin.da/zemskova_ts/skill-fusion/root/configs/ddppo_objectnav_v2_hm3d_stretch.yaml'.split())
         
         register_hydra_plugin(HabitatChallengeConfigPlugin)
         overrides = args.overrides + [
@@ -89,7 +89,7 @@ class HabitatRunner():
                 "+random_seed=7",
             ]
         print('OVERRIDES:', overrides)
-        os.environ["CHALLENGE_CONFIG_FILE"] = "/root/configs/benchmark/nav/objectnav/objectnav_v2_hm3d_stretch_challenge.yaml"
+        os.environ["CHALLENGE_CONFIG_FILE"] = "/home/AI/yudin.da/zemskova_ts/skill-fusion/root/configs/benchmark/nav/objectnav/objectnav_v2_hm3d_stretch_challenge.yaml"
 
         # Now define the config for the sensor
         habitat_path = '/home/kirill/habitat-lab/data'

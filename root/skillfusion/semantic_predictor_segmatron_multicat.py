@@ -2,7 +2,7 @@ import numpy as np
 import torch
 import cv2
 import sys
-sys.path.append('/root/segmatron_agent')
+sys.path.append('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/segmatron_agent')
 from torch.nn import functional as F
 from config_utils import (
     get_config,
@@ -236,7 +236,7 @@ class SemanticPredictor():
         obs_semantic = np.ones((640,480,1))
 
         image = Image.fromarray(image)
-        image.save(f"/root/exploration_ros_free/fbe_poni_exploration_maps_4_steps/attempt2/{self.count}.jpg")
+        image.save(f"/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/fbe_poni_exploration_maps_4_steps/attempt2/{self.count}.jpg")
         image = np.array(image.resize((240,320)))
         image = torch.as_tensor(np.ascontiguousarray(image.transpose(2, 0, 1)))
 
@@ -267,7 +267,7 @@ class SemanticPredictor():
         }
         # for i in range(2):
         #     image = Image.fromarray(torch.stack([torch.stack(self.frames)])[0,i,:,:,:].cpu().numpy().transpose(1, 2, 0))
-        #     image.save(f"/root/exploration_ros_free/fbe_poni_exploration_maps_4_steps/attempt2/{self.count}_frame_{i}.jpg")
+        #     image.save(f"/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/fbe_poni_exploration_maps_4_steps/attempt2/{self.count}_frame_{i}.jpg")
         #exit()
         print("Frames shape", item["frames"].shape)
         result = self.model.predict(item)
@@ -304,6 +304,6 @@ class SemanticPredictor():
                 multiclass_prediction[:, :, i] += (result[0] == seg_index).astype(float)
             multiclass_prediction.astype(bool).astype(float)
         # img = Image.fromarray(semantic_mask.astype(np.uint8)*255).convert("L")
-        # img.save(f"/root/exploration_ros_free/fbe_poni_exploration_maps_4_steps/attempt2/{self.count}.png")
+        # img.save(f"/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/fbe_poni_exploration_maps_4_steps/attempt2/{self.count}.png")
 
         return multiclass_prediction, semantic_mask

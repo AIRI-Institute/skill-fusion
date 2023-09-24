@@ -1,0 +1,2368 @@
+	raw_category	category	mpcat40	ade20k	ade20k_net					
+0	",1"	unknown	unlabeled	unlabeled	unlabeled					
+1	",4"	unknown	unlabeled	unlabeled	unlabeled					
+2	",5"	unknown	unlabeled	unlabeled	unlabeled					
+3	",6"	unknown	unlabeled	unlabeled	unlabeled					
+4	/unknown/ probably decoration	unknown	unlabeled	unlabeled	unlabeled					
+5	acoustic panel	acoustic panel	misc	wall	"awning, sunshade, sunblind"					
+6	advertisement	advertisement	misc	"poster, posting, placard, notice, bill, card"	"poster, posting, placard, notice, bill, card"					
+7	aemchair	armchair	chair	armchair	armchair					
+8	affice chair	office chair	chair	chair	chair					
+9	air conditioner	air conditioner	objects	radiator	"washer, automatic washer, washing machine"					
+10	air conditioning	air conditioning	objects	radiator	water					
+11	air duct	air duct	misc	radiator	radiator					
+12	air freshener	air freshener	objects	radiator	shower					
+13	air heater	air heater	misc	radiator	stove					
+14	air hockey	air hockey	objects	arcade machine	sea					
+15	air purifier	air purifier	objects	radiator	water					
+16	air refresher	air refresher	objects	radiator	"ottoman, pouf, pouffe, puff, hassock"					
+17	air vent	air vent	misc	"hood, exhaust hood"	"hood, exhaust hood"					
+18	air vent fan	air vent fan	objects	fan	fan					
+19	air vent installation	air vent installation	misc	"hood, exhaust hood"	"hood, exhaust hood"					
+20	aisle frame	aisle frame	misc	"screen door, screen"	"screen door, screen"					
+21	alarm	alarm	objects	clock	"washer, automatic washer, washing machine"					
+22	alarm clock	alarm clock	objects	clock	clock					
+23	alarm control	alarm control	misc	clock	monitor					
+24	alarm controller	alarm controller	misc	computer	computer					
+25	album	album	objects	book	"rock, stone"					
+26	albums	albums	objects	book	"rock, stone"					
+27	alcohol bottles	alcohol bottles	objects	bottle	"glass, drinking glass"					
+28	american flag	american flag	misc	flag	flag					
+29	amp	amplifier	objects	radiator	radiator					
+30	amplifier	amplifier	objects	radiator	radiator					
+31	antique clock	antique clock	objects	clock	clock					
+32	antique telehone	antique telephone	objects	"buffet, counter, sideboard"	"buffet, counter, sideboard"					
+33	antique telephone	antique telephone	objects	"buffet, counter, sideboard"	"buffet, counter, sideboard"					
+34	antlers	antlers	misc	tree	tree					
+35	apple	apple	objects	"food, solid food"	flower					
+36	appliance	appliance	misc	dishwasher	dishwasher					
+37	apron	apron	misc	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+38	aquarium	aquarium	misc	fountain	fountain					
+39	arcade	arcade	misc	arcade machine	arcade machine					
+40	arcade game	arcade game	misc	arcade machine	arcade machine					
+41	arch	arch	misc	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+42	archway	archway	door	door	"stairway, staircase"					
+43	arm chair	armchair	chair	armchair	armchair					
+44	armchair	armchair	chair	armchair	armchair					
+45	armchir	armchair	chair	armchair	armchair					
+46	art	picture	picture	"painting, picture"	"painting, picture"					
+47	art frame	art frame	misc	sculpture	sculpture					
+48	art piece	art piece	misc	sculpture	sculpture					
+49	art work	artwork	picture	"painting, picture"	"painting, picture"					
+50	art/clutter	art/clutter	misc	"case, display case, showcase, vitrine"	"painting, picture"					
+51	art/muscle shell	art/muscle shell	misc	"case, display case, showcase, vitrine"	"painting, picture"					
+52	art/statue	art/statue	misc	sculpture	"painting, picture"					
+53	artframe	art frame	misc	sculpture	sculpture					
+54	artwork	artwork	picture	"painting, picture"	"painting, picture"					
+55	artwork frame	artwork frame	misc	sculpture	sculpture					
+56	ashtray	ashtray	objects	tray	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+57	attic door	attic door	misc	door	door					
+58	attic entrance	attic entrance	misc	door	"stairway, staircase"					
+59	attic hatch	attic hatch	misc	radiator	radiator					
+60	audio cable	audio cable	misc	"awning, sunshade, sunblind"	tv					
+61	audio cables	audio cables	misc	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+62	audio player	audio player	objects	computer	fan					
+63	axe	axe	objects	unlabeled	fan					
+64	baby chair	baby chair	misc	seat	chair					
+65	baby changing station	baby changing station	misc	table	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+66	baby changing table	baby changing table	misc	table	table					
+67	baby seat	baby seat	misc	seat	seat					
+68	backpack	backpack	objects	bag	bag					
+69	backrest	backrest	objects	seat	swivel chair					
+70	backsplash	backsplash	misc	countertop	countertop					
+71	bad	unknown	unlabeled	unlabeled	unlabeled					
+72	badside cabinet	bedside cabinet	chest_of_drawers	cabinet	cabinet					
+73	bag	bag	objects	bag	bag					
+74	bag with sheets	bag with sheets	objects	bag	bag					
+75	bag with something	bag with something	objects	bag	bag					
+76	bags	bags	objects	bag	bag					
+77	balcony	balcony	misc	"bannister, banister, balustrade, balusters, handrail"	"stairway, staircase"					
+78	balcony railing	balcony railing	misc	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+79	balcony reiling	balcony railing	misc	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+80	balk	ball	misc	ball	ball					
+81	ball	ball	misc	ball	ball					
+82	ball chair	ball chair	chair	chair	ball					
+83	ball pool	ball pool	objects	ball	ball					
+84	ball pouffe	ball pouffe	seating	seat	ball					
+85	balustrade	balustrade	railing	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+86	banister	banister	railing	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+87	banner	banner	misc	"poster, posting, placard, notice, bill, card"	"poster, posting, placard, notice, bill, card"					
+88	bar	bar	objects	bar	bar					
+89	bar cabinet	bar cabinet	cabinet	cabinet	cabinet					
+90	bar chair	bar chair	chair	chair	chair					
+91	bar soap	bar soap	misc	bar	bar					
+92	barbecue	barbecue	misc	"buffet, counter, sideboard"	"buffet, counter, sideboard"					
+93	barbell	barbell	gym_equipment	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+94	barrel	barrel	misc	"barrel, cask"	"barrel, cask"					
+95	bascet	basket	objects	"basket, handbasket"	"basket, handbasket"					
+96	base	base	misc	"base, pedestal, stand"	"base, pedestal, stand"					
+97	baseball bat	baseball bat	objects	ball	ball					
+98	baseball cap	baseball cap	objects	clothes	trade name					
+99	baseboard	baseboard	wall	wall	countertop					
+100	basin	basin	sink	sink	lake					
+101	basin faucet	basin faucet	objects	sink	water					
+102	basket	basket	objects	"basket, handbasket"	"basket, handbasket"					
+103	basket /w books	basket with books	objects	"basket, handbasket"	"basket, handbasket"					
+104	basket of fruits	basket of fruits	objects	"basket, handbasket"	"basket, handbasket"					
+105	basket of something	basket of something	misc	"basket, handbasket"	"basket, handbasket"					
+106	basket of towels	basket of towels	misc	"basket, handbasket"	"basket, handbasket"					
+107	basket with clothes	basket with clothes	objects	"basket, handbasket"	"basket, handbasket"					
+108	basket wqith clothes	basket with clothes	objects	"basket, handbasket"	"basket, handbasket"					
+109	basketball hoop	basketball hoop	gym_equipment	"basket, handbasket"	"basket, handbasket"					
+110	basketballs	basketballs	objects	"plaything, toy"	"plaything, toy"					
+111	baskets	baskets	objects	"basket, handbasket"	"basket, handbasket"					
+112	bat tube	bath tub	bathtub	tub	tub					
+113	bath	bath	bathtub	tub	tub					
+114	bath bar	bath bar	misc	bar	bar					
+115	bath cabinet	bath cabinet	cabinet	cabinet	cabinet					
+116	bath carpet	bath carpet	floor	rug	rug					
+117	bath cosmetics	bath cosmetics	objects	tub	tub					
+118	bath curtain	bath curtain	curtain	curtain	curtain					
+119	bath curtain bar	bath curtain bar	misc	bar	curtain					
+120	bath dial	bath dial	misc	tub	tub					
+121	bath door	bath door	door	door	door					
+122	bath door frame	bath door frame	door	door	door					
+123	bath faucet	bath faucet	objects	tub	tub					
+124	bath floor	bath floor	floor	floor	floor					
+125	bath grab bar	bath grab bar	misc	bar	bar					
+126	bath hanger	bath hanger	objects	tub	tub					
+127	bath mat	bath mat	floor	floor	tub					
+128	bath shelf	bath shelf	shelving	shelf	shelf					
+129	bath shower	bath shower	shower	shower	shower					
+130	bath side table	bath side table	table	table	table					
+131	bath sink	bath sink	misc	sink	sink					
+132	bath tap	bath tap	objects	tub	tub					
+133	bath towel	bath towel	towel	towel	towel					
+134	bath towels	bath towels	towel	towel	towel					
+135	bath tub	bath tub	bathtub	tub	tub					
+136	bath tube	bath tub	bathtub	tub	tub					
+137	bath utensil	bath utensil	misc	tub	tub					
+138	bath wall	bath wall	misc	wall	wall					
+139	bathmat	bathmat	floor	rug	"ottoman, pouf, pouffe, puff, hassock"					
+140	bathrobe	bathrobe	clothes	clothes	towel					
+141	bathroom  mat	bathroom mat	floor	floor	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+142	bathroom accessory	bathroom accessory	clothes	clothes	shower					
+143	bathroom art	bathroom art	objects	"painting, picture"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+144	bathroom cabinet	bathroom cabinet	cabinet	cabinet	cabinet					
+145	bathroom cabinet door	bathroom cabinet door	misc	cabinet	door					
+146	bathroom cabinet drawer	bathroom cabinet drawer	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	cabinet					
+147	bathroom cabint	bathroom cabinet	cabinet	cabinet	cabinet					
+148	bathroom counter	bathroom counter	counter	counter	counter					
+149	bathroom floor	bathroom floor	floor	floor	floor					
+150	bathroom glass	bathroom glass	objects	"glass, drinking glass"	"glass, drinking glass"					
+151	bathroom mat	bathroom mat	floor	floor	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+152	bathroom mirror	mirror	mirror	mirror	mirror					
+153	bathroom rug	bathroom rug	floor	rug	rug					
+154	bathroom shelf	bathroom shelf	shelving	shelf	shelf					
+155	bathroom stuff	bathroom stuff	objects	cabinet	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+156	bathroom towel	bathroom towel	towel	towel	towel					
+157	bathroom utencills	bathroom utensils	objects	cabinet	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+158	bathroom utencils	bathroom utensil	objects	cabinet	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+159	bathroom utensil	bathroom utensil	objects	cabinet	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+160	bathroom wall	bathroom wall	wall	wall	wall					
+161	bathroom window	bathroom window	window	window	window					
+162	bathtub	bathtub	bathtub	tub	tub					
+163	bathtub knob	bathtub knob	misc	tub	tub					
+164	bathtub platform	bathtub platform	misc	tub	tub					
+165	bathtub tap	bathtub tap	objects	tub	tub					
+166	bathtub utensil	bathtub utensil	misc	tub	tub					
+167	bathtube	bathtub	bathtub	tub	tub					
+168	batroom art	bathroom art	objects	"painting, picture"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+169	beam	beam	beam	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+170	bean bag chair	bean bag chair	chair	chair	bag					
+171	beanbag	beanbag	chair	chair	sofa					
+172	beanbag chair	beanbag chair	chair	chair	chair					
+173	bed	bed	bed	bed	bed					
+174	bed base	bed base	bed	bed	bed					
+175	bed cabinet	bed cabinet	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	cabinet					
+176	bed cabinet lamp	bed cabinet lamp	lighting	lamp	lamp					
+177	bed comforter	bed comforter	misc	seat	bed					
+178	bed curtain	bed curtain	misc	curtain	curtain					
+179	bed for pet	bed for pet	misc	seat	bed					
+180	bed frame	bedframe	bed	bed	"bannister, banister, balustrade, balusters, handrail"					
+181	bed ladder	bed ladder	stairs	stairs	bed					
+182	bed lamp	bedside lamp	lighting	lamp	lamp					
+183	bed light	bed light	misc	lamp	bed					
+184	bed sheet	bed sheet	bed	bed	bed					
+185	bed small	bed small	misc	bed	bed					
+186	bed stand	bed stand	misc	bed	bed					
+187	bed table	bed table	table	table	bed					
+188	bedding	bedding	objects	clothes	bed					
+189	bedframe	bedframe	bed	bed	"bannister, banister, balustrade, balusters, handrail"					
+190	bedpost	bedpost	bed	bed	"bannister, banister, balustrade, balusters, handrail"					
+191	bedroom ceiling	bedroom ceiling	misc	ceiling	ceiling					
+192	bedroom table	bedroom table	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	table					
+193	bedside cabinet	bedside cabinet	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	cabinet					
+194	bedside cabinet door	bedside cabinet door	misc	cabinet	cabinet					
+195	bedside cabinet drawer	bedside cabinet drawer	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	cabinet					
+196	bedside lamp	bedside lamp	lighting	lamp	lamp					
+197	bedside table	bedside table	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	lamp					
+198	beer crate	beer crate	misc	bottle	bottle					
+199	bell	bell	misc	clock	clock					
+200	belt	belt	misc	clothes	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+201	bench	bench	seating	bench	bench					
+202	beside table	bedside table	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	table					
+203	bicycle	bicycle	objects	bicycle	bicycle					
+204	bicycle helmet	bicycle helmet	objects	bicycle	bicycle					
+205	bicycle helmets	bicycle helmets	objects	bicycle	bicycle					
+206	bidet	bidet	toilet	"toilet, can, commode, crapper, pot, potty, stool, throne"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+207	big bag	big bag	objects	bag	bag					
+208	bike	bicycle	objects	bag	bag					
+209	billiard balls	billiard balls	objects	"pool table, billiard table, snooker table"	"pool table, billiard table, snooker table"					
+210	billiard cue	billiard cue	objects	"pool table, billiard table, snooker table"	"pool table, billiard table, snooker table"					
+211	billiard cues	billiard cues	objects	"pool table, billiard table, snooker table"	"pool table, billiard table, snooker table"					
+212	bin	bin	objects	"basket, handbasket"	"pool table, billiard table, snooker table"					
+213	binder	binder	misc	bookcase	tray					
+214	binders	binders	misc	bookcase	bookcase					
+215	birdhouse	birdhouse	misc	bookcase	sculpture					
+216	brackboard	blackboard	objects	"signboard, sign"	"ottoman, pouf, pouffe, puff, hassock"					
+217	blackboard	blackboard	objects	"signboard, sign"	"ottoman, pouf, pouffe, puff, hassock"					
+218	blanket	blanket	objects	"blanket, cover"	"blanket, cover"					
+219	blanket basket	blanket basket	objects	"basket, handbasket"	"basket, handbasket"					
+220	blankets	blankets	objects	"blanket, cover"	"blanket, cover"					
+221	blind	blinds	blinds	"blind, screen"	fireplace					
+222	blinder	blinds	blinds	"blind, screen"	fireplace					
+223	blinds	blinds	blinds	"blind, screen"	fireplace					
+224	blouse	blouse	clothes	clothes	"wardrobe, closet, press"					
+225	board	board	board_panel	bulletin board	bulletin board					
+226	board game	board game	misc	"plaything, toy"	bulletin board					
+227	board games	board games	misc	"plaything, toy"	bulletin board					
+228	board with keys	board with keys	objects	bulletin board	bulletin board					
+229	boards	boards	board_panel	bulletin board	bulletin board					
+230	boat model	boat model	misc	boat	boat					
+231	boiler	boiler	misc	stove	stove					
+232	bojler	boiler	misc	stove	stove					
+233	bonsai tree	bonsai tree	misc	tree	tree					
+234	book	book	objects	book	book					
+235	book cabinet	book cabinet	cabinet	book	cabinet					
+236	book display	book display	misc	book	book					
+237	book rack	book rack	misc	book	book					
+238	book shape	bookshelf	shelving	bookcase	bookcase					
+239	book shelf	bookshelf	shelving	bookcase	bookcase					
+240	bookcase	bookshelf	shelving	bookcase	bookcase					
+241	books	book	objects	book	book					
+242	bookshelf	bookshelf	shelving	bookcase	bookcase					
+243	bookstand	bookstand	shelving	bookcase	bookcase					
+244	bootles	bottles	objects	bottle	bottle					
+245	boots	boots	objects	clothes	clothes					
+246	bottle	bottle	objects	bottle	bottle					
+247	bottle dispenser	bottle dispenser	objects	bottle	bottle					
+248	bottle of  soap	bottle of soap	misc	bottle	bottle					
+249	bottle of detergent	bottle of detergent	misc	bottle	bottle					
+250	bottle of soap	bottle of soap	misc	bottle	bottle					
+251	bottle of water	bottle of water	objects	bottle	bottle					
+252	bottle of wine	bottle of wine	objects	bottle	bottle					
+253	bottle opener	bottle opener	misc	unlabeled	bottle					
+254	bottlels	bottles	objects	bottle	bottle					
+255	bottles	bottles	objects	bottle	bottle					
+256	bottles of water	bottles of water	objects	bottle	bottle					
+257	bottles of wine	bottles of wine	misc	bottle	bottle					
+258	bottom of stairs	bottom of stairs	misc	stairs	bottle					
+259	bouquet	bouquet	objects	flower	flower					
+260	bowl	bowl	objects	vase	vase					
+261	bowl of fruit	bowl of fruit	objects	vase	vase					
+262	bowl of fruits	bowl of fruits	objects	vase	vase					
+263	bowl of sweets	bowl of sweets	objects	vase	vase					
+264	bowl with sweets	bowl with sweets	objects	vase	"food, solid food"					
+265	bowls	bowls	objects	vase	"pool table, billiard table, snooker table"					
+266	box	box	objects	box	box					
+267	box with books	box with books	misc	box	box					
+268	box /w books	box with books	misc	box	box					
+269	box /w shoes	box with shoes	misc	box	box					
+270	box /w toys	box with toys	misc	box	box					
+271	box of  tissues	box of tissues	misc	box	box					
+272	box of food	box of food	misc	box	box					
+273	box of fruit	box of fruit	misc	box	box					
+274	box of paper	box of paper	misc	box	box					
+275	box of something	box of something	misc	box	box					
+276	box of tissue	box of tissue	misc	box	box					
+277	box of tissues	box of tissues	misc	box	box					
+278	box pen	box pen	misc	box	box					
+279	box tissues	box of tissues	misc	box	box					
+280	box with jewellery	box with jewelry	misc	box	box					
+281	box with photos	box with photos	misc	box	box					
+282	box with tea	box with tea	misc	box	box					
+283	boxes	boxes	objects	box	box					
+284	boxes /w books	boxes with books	misc	box	box					
+285	boxing ring	boxing ring	objects	"pool table, billiard table, snooker table"	"pool table, billiard table, snooker table"					
+286	bread	bread	misc	"food, solid food"	"food, solid food"					
+287	bread bin	bread bin	misc	tray	tray					
+288	bread box	bread box	misc	tray	box					
+289	breadbox	breadbox	misc	tray	tray					
+290	breifcase	briefcase	objects	bag	bag					
+291	bricks	bricks	misc	"rock, stone"	"rock, stone"					
+292	bridge	bridge	misc	"bridge, span"	"bridge, span"					
+293	briefcase	briefcase	objects	bag	bag					
+294	brochure	brochure	objects	"poster, posting, placard, notice, bill, card"	"poster, posting, placard, notice, bill, card"					
+295	brochures	brochures	objects	"poster, posting, placard, notice, bill, card"	"poster, posting, placard, notice, bill, card"					
+296	broom	broom	objects	"bannister, banister, balustrade, balusters, handrail"	rug					
+297	broom stick	broomstick	misc	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+298	broomstick	broomstick	misc	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+299	brtochure	brochure	objects	"poster, posting, placard, notice, bill, card"	"poster, posting, placard, notice, bill, card"					
+300	brush	brush	objects	unlabeled	"palm, palm tree"					
+301	brushes	brushes	objects	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+302	bucket	bucket	objects	"basket, handbasket"	"basket, handbasket"					
+303	buckets	buckets	objects	"basket, handbasket"	"basket, handbasket"					
+304	buffet	buffet	counter	"buffet, counter, sideboard"	"buffet, counter, sideboard"					
+305	bulletin board	bulletin board	tv_monitor	bulletin board	bulletin board					
+306	bunk bed	bunk bed	bed	bed	bed					
+307	bureau	bureau	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+308	bust	bust	objects	sculpture	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+309	button	button	misc	"screen door, screen"	"screen door, screen"					
+310	cabidet	cabinet	cabinet	cabinet	cabinet					
+311	cabient	cabinet	cabinet	cabinet	cabinet					
+312	cabiinet	cabinet	cabinet	cabinet	cabinet					
+313	cabinet	cabinet	cabinet	cabinet	cabinet					
+314	cabinet  door	cabinet door	misc	cabinet	cabinet					
+315	cabinet /otherroom	cabinet /otherroom	cabinet	cabinet	cabinet					
+316	cabinet /w clutter	cabinet /w clutter	cabinet	cabinet	cabinet					
+317	cabinet /w cluttered art	cabinet /w cluttered art	misc	cabinet	cabinet					
+318	cabinet clutter	cabinet clutter	misc	cabinet	cabinet					
+319	cabinet counter	cabinet counter	misc	cabinet	cabinet					
+320	cabinet door	cabinet door	misc	cabinet	cabinet					
+321	cabinet drawer	cabinet drawer	cabinet	cabinet	cabinet					
+322	cabinet kitchen	cabinet kitchen	cabinet	cabinet	cabinet					
+323	cabinet mirror	cabinet mirror	cabinet	cabinet	cabinet					
+324	cabinet parts	cabinet parts	cabinet	cabinet	cabinet					
+325	cabinet table	cabinet table	table	table	cabinet					
+326	cable	cable	misc	unlabeled	tv					
+327	cables	cables	misc	unlabeled	"bannister, banister, balustrade, balusters, handrail"					
+328	cage	cage	objects	animal	tub					
+329	cailing lamp	ceiling lamp	lighting	lamp	lamp					
+330	cair	chair	chair	chair	chair					
+331	cake	cake	misc	"food, solid food"	tray					
+332	calander	calendar	misc	"poster, posting, placard, notice, bill, card"	bulletin board					
+333	calculator	calculator	appliances	computer	computer					
+334	calendar	calendar	misc	"poster, posting, placard, notice, bill, card"	bulletin board					
+335	camera	camera	objects	computer	crt screen					
+336	camping chair	camping chair	chair	chair	chair					
+337	can	can	objects	"tank, storage tank"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+338	can of paint	can of paint	misc	"tank, storage tank"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+339	canal	canal	misc	river	river					
+340	candel	candle	objects	chandelier	lamp					
+341	candelabra	candelabra	objects	chandelier	chandelier					
+342	candle	candle	objects	chandelier	lamp					
+343	candle holder	candle holder	objects	chandelier	lamp					
+344	candle stand	candle stand	objects	chandelier	"base, pedestal, stand"					
+345	candles	candle	objects	chandelier	lamp					
+346	candlestick	candlestick	objects	chandelier	chandelier					
+347	canister	canister	misc	chandelier	chandelier					
+348	canoe	canoe	objects	boat	boat					
+349	canopy	canopy	misc	canopy	canopy					
+350	cans	cans	objects	"tank, storage tank"	bottle					
+351	cans of paint	cans of paint	objects	"tank, storage tank"	bottle					
+352	canvas	canvas	misc	"painting, picture"	"painting, picture"					
+353	cap	cap	clothes	clothes	ceiling					
+354	car	car	objects	car	car					
+355	car model	car model	objects	car	car					
+356	carboard box	cardboard box	misc	box	box					
+357	card	card	misc	"poster, posting, placard, notice, bill, card"	"poster, posting, placard, notice, bill, card"					
+358	cardboard	cardboard	misc	"poster, posting, placard, notice, bill, card"	"ottoman, pouf, pouffe, puff, hassock"					
+359	cardboard box	cardboard box	misc	box	box					
+360	cardboardbox	cardboard box	misc	box	box					
+361	carpet	carpet	floor	rug	rug					
+362	carpet roll	carpet roll	misc	rug	rug					
+363	cart	cart	objects	"poster, posting, placard, notice, bill, card"	truck					
+364	cartboard	cardboard	misc	"poster, posting, placard, notice, bill, card"	"ottoman, pouf, pouffe, puff, hassock"					
+365	case	case	misc	"case, display case, showcase, vitrine"	"case, display case, showcase, vitrine"					
+366	cases	cases	misc	"case, display case, showcase, vitrine"	"case, display case, showcase, vitrine"					
+367	cash register	cash register	objects	"poster, posting, placard, notice, bill, card"	"poster, posting, placard, notice, bill, card"					
+368	casket	casket	misc	box	vase					
+369	cat	cat	misc	animal	animal					
+370	cat bed	cat bed	bed	bed	bed					
+371	cat food	cat food	misc	"food, solid food"	"food, solid food"					
+372	cat food bag	cat food bag	misc	bag	bag					
+373	cat litter box	cat litter box	toilet	"toilet, can, commode, crapper, pot, potty, stool, throne"	box					
+374	cat tree	cat tree	objects	tree	tree					
+375	cats toilet	cat toilet	toilet	"toilet, can, commode, crapper, pot, potty, stool, throne"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+376	cd	cd	objects	computer	tv					
+377	cd player	cd player	appliances	computer	fan					
+378	cd's	cds	objects	computer	tv					
+379	cds	cds	objects	computer	tv					
+380	cebinet	cabinet	cabinet	cabinet	cabinet					
+381	ceiiling	ceiling	ceiling	ceiling	ceiling					
+382	ceiling balk	unknown	unlabeled	unlabeled	unlabeled					
+383	ceiilng	ceiling	ceiling	ceiling	ceiling					
+384	ceiliing	ceiling	ceiling	ceiling	ceiling					
+385	ceiliing lamp	ceiling lamp	lighting	lamp	lamp					
+386	ceiling	ceiling	ceiling	ceiling	ceiling					
+387	ceiling  lamp	ceiling lamp	lighting	lamp	lamp					
+388	ceiling  light	ceiling light	lighting	ceiling	ceiling					
+389	ceiling  vent	ceiling vent	misc	ceiling	ceiling					
+390	ceiling /otheroom	ceiling	ceiling	ceiling	ceiling					
+391	ceiling /otherroom	ceiling	ceiling	ceiling	ceiling					
+392	ceiling air vent	ceiling vent	misc	"hood, exhaust hood"	ceiling					
+393	ceiling arch	ceiling arch	ceiling	ceiling	ceiling					
+394	ceiling bedroom	ceiling bedroom	misc	ceiling	ceiling					
+395	ceiling boarder	ceiling boarder	misc	ceiling	ceiling					
+396	ceiling border	ceiling border	ceiling	ceiling	ceiling					
+397	ceiling chasis	ceiling chassis	ceiling	ceiling	ceiling					
+398	ceiling corridor	ceiling corridor	misc	ceiling	ceiling					
+399	ceiling decorative lamp	ceiling decorative lamp	lighting	lamp	lamp					
+400	ceiling dome	ceiling dome	misc	ceiling	ceiling					
+401	ceiling door	ceiling door	misc	ceiling	ceiling					
+402	ceiling duck	ceiling duct	ceiling	ceiling	ceiling					
+403	ceiling duct	ceiling duct	ceiling	ceiling	ceiling					
+404	ceiling fan	ceiling fan	objects	fan	fan					
+405	ceiling fan lamp	ceiling fan lamp	lighting	fan	lamp					
+406	ceiling fan vent	ceiling fan vent	misc	fan	ceiling					
+407	ceiling fire detector	ceiling fire detector	objects	ceiling	ceiling					
+408	ceiling fixture	ceiling fixture	misc	ceiling	ceiling					
+409	ceiling floor	ceiling floor	floor	ceiling	ceiling					
+410	ceiling hanger	ceiling hanger	objects	ceiling	ceiling					
+411	ceiling ladder	ceiling ladder	objects	ceiling	ceiling					
+412	ceiling lamp	ceiling lamp	lighting	lamp	lamp					
+413	ceiling lamp hanger	ceiling lamp hanger	lighting	lamp	lamp					
+414	ceiling lamp rail	ceiling lamp rail	lighting	lamp	lamp					
+415	ceiling lan	ceiling fan	objects	fan	fan					
+416	ceiling light	ceiling light	lighting	lamp	ceiling					
+417	ceiling light fixture connection	ceiling light fixture connection	misc	lamp	ceiling					
+418	ceiling llower	ceiling lower	misc	ceiling	ceiling					
+419	ceiling lower	ceiling lower	misc	ceiling	ceiling					
+420	ceiling molding	ceiling molding	misc	ceiling	ceiling					
+421	ceiling panel	ceiling panel	ceiling	ceiling	ceiling					
+422	ceiling pipe	ceiling pipe	ceiling	ceiling	ceiling					
+423	ceiling pipes	ceiling pipe	ceiling	ceiling	ceiling					
+424	ceiling support	ceiling support	ceiling	ceiling	ceiling					
+425	ceiling under staircase	ceiling under staircase	misc	"stairway, staircase"	"stairway, staircase"					
+426	ceiling under stairs	ceiling under stairs	misc	stairs	stairs					
+427	ceiling vent	ceiling vent	misc	ceiling	ceiling					
+428	ceiling wall	ceiling wall	misc	ceiling	ceiling					
+429	ceiling window	ceiling window	misc	ceiling	ceiling					
+430	ceiling/ wall west	ceiling/west wall	misc	ceiling	ceiling					
+431	ceiling/ west wall	ceiling/west wall	misc	ceiling	ceiling					
+432	ceiling/west wall	ceiling/west wall	misc	ceiling	ceiling					
+433	ceilling	ceiling	ceiling	ceiling	ceiling					
+434	ceilling lamp	ceiling lamp	lighting	lamp	lamp					
+435	celing	ceiling	ceiling	ceiling	ceiling					
+436	celing lamp	ceiling lamp	lighting	lamp	lamp					
+437	celing lower	ceiling lower	misc	ceiling	ceiling					
+438	central heating furnace	central heating furnace	appliances	stove	stove					
+439	ceramics	ceramics	objects	vase	"painting, picture"					
+440	cerpet	carpet	floor	rug	rug					
+441	certain	curtain	curtain	curtain	curtain					
+442	chain	chain	objects	"food, solid food"	"food, solid food"					
+443	chair	chair	chair	chair	chair					
+444	chair /otherroom	chair	chair	chair	chair					
+445	chair /w clutter	chair /w clutter	chair	chair	chair					
+446	chair stand	chair stand	misc	chair	chair					
+447	chaise	chaise	chair	chair	"ottoman, pouf, pouffe, puff, hassock"					
+448	chaise longue	chaise longue	sofa	sofa	"ottoman, pouf, pouffe, puff, hassock"					
+449	chamber pot	chamber pot	toilet	"toilet, can, commode, crapper, pot, potty, stool, throne"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+450	chandelier	chandelier	lighting	chandelier	chandelier					
+451	changing table	changing table	table	table	table					
+452	charger	charger	objects	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+453	chasis	chassis	objects	radiator	radiator					
+454	chess	chess	misc	"pool table, billiard table, snooker table"	"pool table, billiard table, snooker table"					
+455	chest	chest	misc	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+456	chest bench	chest bench	misc	bench	bench					
+457	chest drawer	chest drawer	misc	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+458	chest drawers	chest of drawers	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+459	chest of drawer	chest of drawer	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+460	chest of drawers	chest of drawers	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+461	chest of drawres	chest of drawers	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+462	chest of dreawers	chest of drawers	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+463	chiar	chair	chair	chair	chair					
+464	child car seat	child car seat	objects	seat	seat					
+465	chimney	chimney	misc	fireplace	fireplace					
+466	christmas tree	christmas tree	misc	tree	tree					
+467	cieling	ceiling	ceiling	ceiling	ceiling					
+468	circular sofa	circular sofa	sofa	sofa	sofa					
+469	clarinet	clarinet	objects	"plaything, toy"	"painting, picture"					
+470	cleaner	cleaner	objects	bottle	"washer, automatic washer, washing machine"					
+471	cleaner bottle	cleaner bottle	objects	bottle	bottle					
+472	cleaner brush	cleaner brush	objects	unlabeled	"washer, automatic washer, washing machine"					
+473	cleaning clutter	cleaning clutter	misc	bottle	trash can					
+474	cleaning fluid	cleaning fluid	objects	bottle	"washer, automatic washer, washing machine"					
+475	cleaning liquid	cleaning liquid	objects	bottle	"washer, automatic washer, washing machine"					
+476	cleaning paper	cleaning paper	objects	"poster, posting, placard, notice, bill, card"	"washer, automatic washer, washing machine"					
+477	cleaning paste	cleaning paste	objects	bottle	"washer, automatic washer, washing machine"					
+478	cleaning powders/ liquids	cleaning powders/ liquids	objects	bottle	"washer, automatic washer, washing machine"					
+479	cleaning sponge	cleaning sponge	objects	unlabeled	"washer, automatic washer, washing machine"					
+480	cleaning spray	cleaning spray	objects	bottle	"washer, automatic washer, washing machine"					
+481	clock	clock	objects	clock	clock					
+482	closet	closet	cabinet	"wardrobe, closet, press"	"wardrobe, closet, press"					
+483	closet area for hanging clothes	closet area for hanging clothes	misc	"wardrobe, closet, press"	"wardrobe, closet, press"					
+484	closet door	closet door	door	"wardrobe, closet, press"	"wardrobe, closet, press"					
+485	closet floor	closet floor	misc	"wardrobe, closet, press"	"wardrobe, closet, press"					
+486	closet mirror wall	closet mirror wall	misc	mirror	"wardrobe, closet, press"					
+487	closet rod	closet rod	objects	"wardrobe, closet, press"	"wardrobe, closet, press"					
+488	closet shelf	closet shelf	shelving	shelf	"wardrobe, closet, press"					
+489	closet shelving	closet shelving	misc	shelf	"wardrobe, closet, press"					
+490	closet storage area	closet storage area	misc	"wardrobe, closet, press"	"wardrobe, closet, press"					
+491	clotes dryer	clothes dryer	appliances	clothes	clothes					
+492	cloth	cloth	objects	clothes	"blanket, cover"					
+493	cloth dryer	cloth dryer	appliances	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+494	cloth hanger	cloth hanger	objects	bar	"ottoman, pouf, pouffe, puff, hassock"					
+495	cloth hangers	cloth hangers	objects	bar	"ottoman, pouf, pouffe, puff, hassock"					
+496	cloth holder	cloth holder	objects	bar	towel					
+497	clothes	clothes	clothes	clothes	clothes					
+498	clothes  rack	clothes rack	misc	clothes	clothes					
+499	clothes bag	clothes bag	misc	bag	clothes					
+500	clothes container	clothes container	misc	box	clothes					
+501	clothes dryer	clothes dryer	appliances	"washer, automatic washer, washing machine"	clothes					
+502	clothes hamper	clothes hamper	objects	bar	clothes					
+503	clothes hanger	clothes hanger	objects	bar	clothes					
+504	clothes hanger rod	clothes hanger rod	objects	bar	clothes					
+505	clothes on shelf	clothes on shelf	clothes	clothes	shelf					
+506	clothes rack	clothes rack	misc	bar	clothes					
+507	clothing stand	clothing stand	misc	bar	clothes					
+508	clutter	clutter	misc	trash can	trash can					
+509	coach	coach	misc	ball	ball					
+510	coaster	coaster	objects	arcade machine	arcade machine					
+511	coat	coat	clothes	clothes	clothes					
+512	coat hanger	coat hanger	objects	bar	bag					
+513	coat rack	coat rack	misc	"base, pedestal, stand"	pillow					
+514	cofee table	coffee machine	appliances	computer	coffee table					
+515	coffe machine	coffee machine	appliances	computer	coffee table					
+516	coffe table	coffee table	table	coffee table	coffee table					
+517	coffee machine	coffee machine	appliances	computer	coffee table					
+518	coffee maker	coffee maker	appliances	computer	coffee table					
+519	coffee mug	coffee mug	objects	vase	coffee table					
+520	coffee table	coffee table	table	coffee table	coffee table					
+521	coffie machine	coffee machine	appliances	computer	coffee table					
+522	coffiee machine	coffee machine	appliances	computer	coffee table					
+523	coffiee table	coffee table	table	coffee table	coffee table					
+524	coffy table	coffee table	table	coffee table	coffee table					
+525	column	column	misc	"column, pillar"	"column, pillar"					
+526	compound wall	compound wall	misc	wall	wall					
+527	compressor	compressor	appliances	radiator	radiator					
+528	computer	computer	objects	computer	computer					
+529	computer chair	computer chair	chair	chair	chair					
+530	computer desk	computer desk	table	desk	desk					
+531	computer equipment	computer equipment	misc	computer	computer					
+532	computer mouse	computer mouse	objects	computer	computer					
+533	computer tower	computer tower	objects	computer	tower					
+534	condensation furnace	condensation furnace	objects	computer	radiator					
+535	condiment	condiment	misc	"food, solid food"	"food, solid food"					
+536	cone	cone	misc	tray	tray					
+537	conference phone	conference phone	appliances	computer	"wardrobe, closet, press"					
+538	console	console	objects	arcade machine	arcade machine					
+539	console pad	console pad	objects	arcade machine	arcade machine					
+540	console pad charger	console pad charger	misc	arcade machine	"awning, sunshade, sunblind"					
+541	construction stuff	construction stuff	misc	building	building					
+542	container	container	objects	"tank, storage tank"	bottle					
+543	containers	containers	objects	"tank, storage tank"	"refrigerator, icebox"					
+544	control	control	objects	computer	monitor					
+545	control panel	control panel	objects	computer	"awning, sunshade, sunblind"					
+546	controller	controller	objects	computer	arcade machine					
+547	coocker	cooker	objects	stove	stove					
+548	cooffe machine	coffee machine	appliances	computer	coffee table					
+549	cookbook	cook book	objects	book	book					
+550	cooker	cooker	objects	stove	stove					
+551	cooker hood	cooker hood	appliances	"hood, exhaust hood"	"hood, exhaust hood"					
+552	cookies	cookies	misc	"food, solid food"	tray					
+553	copier	copier	objects	computer	computer					
+554	copier machine	copier machine	misc	computer	arcade machine					
+555	cork board	cork board	objects	bulletin board	"glass, drinking glass"					
+556	cornice	cornice	misc	"stairway, staircase"	"stairway, staircase"					
+557	cosmetic	cosmetic	objects	"wardrobe, closet, press"	"wardrobe, closet, press"					
+558	cosmetics	cosmetics	objects	"wardrobe, closet, press"	clothes					
+559	couch	couch	sofa	sofa	sofa					
+560	counter	counter	counter	counter	counter					
+561	counter desk	counter desk	table	desk	desk					
+562	counter door	counter door	misc	counter	door					
+563	countertop	countertop	counter	countertop	countertop					
+564	countertop /otherroom	countertop /otherroom	counter	countertop	countertop					
+565	countertop item	countertop item	misc	countertop	countertop					
+566	courtain	curtain	curtain	curtain	curtain					
+567	cover	cover	misc	"blanket, cover"	"blanket, cover"					
+568	cradle	cradle	bed	bed	cradle					
+569	crate	crate	objects	"wardrobe, closet, press"	tub					
+570	crayon	crayon	objects	"painting, picture"	"painting, picture"					
+571	crib	crib	misc	bed	sofa					
+572	cross	cross	objects	"bridge, span"	"bridge, span"					
+573	cross-trainer	cross-trainer	gym_equipment	"bridge, span"	"bridge, span"					
+574	crutches	crutches	objects	"bridge, span"	stairs					
+575	cuddly toy	cuddly toy	misc	"plaything, toy"	"plaything, toy"					
+576	cup	cup	objects	bottle	bottle					
+577	cupboard	cabinet	cabinet	cabinet	cabinet					
+578	cups	cups	objects	bottle	bottle					
+579	curatin	curtain	curtain	curtain	curtain					
+580	curb	curb	objects	counter	counter					
+581	curtain	curtain	curtain	curtain	curtain					
+582	curtain  rod	curtain rod	curtain	curtain	curtain					
+583	curtain /otheroom	curtain	curtain	curtain	curtain					
+584	curtain bar	curtain bar	curtain	curtain	curtain					
+585	curtain box	curtain box	curtain	curtain	curtain					
+586	curtain hanger	curtain hanger	curtain	curtain	curtain					
+587	curtain rail	curtain rail	misc	bar	curtain					
+588	curtain rod	curtain rod	curtain	curtain	curtain					
+589	curtain rod cover	curtain rod cover	curtain	curtain	curtain					
+590	curtain valence	curtain valence	curtain	curtain	curtain					
+591	curtains	curtain	curtain	curtain	curtain					
+592	cushiom	cushion	cushion	cushion	cushion					
+593	cushion	cushion	cushion	cushion	cushion					
+594	cutlery	cutlery	objects	bottle	dishwasher					
+595	cutting board	cutting board	objects	bulletin board	bulletin board					
+596	cutting boards	cutting board	objects	bulletin board	bulletin board					
+597	cyp	cyp	misc	bulletin board	bulletin board					
+598	dacorative plant	decorative plant	plant	plant	plant					
+599	dartboard	dartboard	objects	"pool table, billiard table, snooker table"	"pool table, billiard table, snooker table"					
+600	deccoration	decoration	objects	sconce	sconce					
+601	deck chair	deck chair	chair	chair	chair					
+602	decoartive plate	decorative plate	misc	plate	plate					
+603	decoder	decoder	misc	computer	crt screen					
+604	decooration	decoration	objects	sconce	sconce					
+605	decor	decor	objects	sconce	"wardrobe, closet, press"					
+606	decor plate	decorative plate	misc	plate	plate					
+607	decoratinon	decoration	objects	sconce	sconce					
+608	decoratiom	decoration	objects	sconce	sconce					
+609	decoration	decoration	objects	sconce	sconce					
+610	decoration bowl	decorative bowl	objects	vase	vase					
+611	decoration plan	decorative plant	misc	sconce	plant					
+612	decoration plant	decorative plant	misc	sconce	plant					
+613	decoration window	decorative window	misc	window	window					
+614	decorations	decoration	objects	sconce	sconce					
+615	decorative bottle	decorative bottle	objects	bottle	bottle					
+616	decorative bowl	decorative bowl	objects	vase	vase					
+617	decorative ceramic	decorative ceramic	objects	plate	sconce					
+618	decorative cloth	decorative cloth	objects	clothes	sconce					
+619	decorative dinnerware	decorative dinnerware	objects	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+620	decorative frame	decorative frame	objects	sconce	sconce					
+621	decorative lamp	decorative lamp	objects	lamp	lamp					
+622	decorative lantern	decorative lantern	objects	sconce	sconce					
+623	decorative mask	decorative mask	objects	sconce	sconce					
+624	decorative pl;ant	decorative plant	misc	plant	plant					
+625	decorative plant	decorative plant	misc	plant	plant					
+626	decorative plants	decorative plant	misc	plant	plant					
+627	decorative plate	decorative plate	misc	plate	plate					
+628	decorative quilt	decorative quilt	misc	"painting, picture"	"painting, picture"					
+629	decorative tray	decorative tray	objects	tray	tray					
+630	decorative vase	decorative vase	objects	vase	vase					
+631	decorative vessel	decorative vessel	objects	vase	ship					
+632	decoratrion	decoration	objects	sconce	sconce					
+633	decoratrive plant	decorative plant	misc	plant	plant					
+634	decorayion	decoration	objects	sconce	sconce					
+635	decotarion	decoration	objects	sconce	sconce					
+636	decration	decoration	objects	sconce	sconce					
+637	dehumidifier	dehumidifier	objects	dishwasher	dishwasher					
+638	den	den	misc	"hovel, hut, hutch, shack, shanty"	"hovel, hut, hutch, shack, shanty"					
+639	desk	desk	table	desk	desk					
+640	desk cabinet	desk cabinet	cabinet	cabinet	cabinet					
+641	desk chair	desk chair	chair	chair	desk					
+642	desk clutter	desk clutter	misc	desk	desk					
+643	desk door	desk door	cabinet	cabinet	desk					
+644	desk lamp	desk lamp	lighting	lamp	lamp					
+645	desk organizer	desk organizer	objects	desk	desk					
+646	detergent bottle	detergent bottle	objects	bottle	bottle					
+647	detergent bottles	detergent bottle	objects	bottle	bottle					
+648	detergents	detergent	misc	bottle	dishwasher					
+649	device	device	misc	computer	computer					
+650	device/ probably paper shredder	device	misc	computer	computer					
+651	dining chair	dining chair	chair	chair	chair					
+652	dining table	dining table	table	table	table					
+653	dinner chair	dinner chair	chair	chair	chair					
+654	dinner table	dinner table	table	table	table					
+655	dinnerware	dinnerware	objects	vase	vase					
+656	dinnerware decoration	decorative dinnerware	objects	vase	"bannister, banister, balustrade, balusters, handrail"					
+657	diplom	diploma	misc	"poster, posting, placard, notice, bill, card"	"poster, posting, placard, notice, bill, card"					
+658	diploma	diploma	misc	"poster, posting, placard, notice, bill, card"	"poster, posting, placard, notice, bill, card"					
+659	dirt ground	dirt ground	misc	"earth, ground"	"earth, ground"					
+660	dish	dish	objects	plate	"buffet, counter, sideboard"					
+661	dish cabinet	dish cabinet	cabinet	cabinet	cabinet					
+662	dish dryer	dish dryer	appliances	oven	oven					
+663	dish rack	dish rack	objects	oven	oven					
+664	dish washer	dishwasher	appliances	dishwasher	dishwasher					
+665	dish with food	dish	objects	plate	"buffet, counter, sideboard"					
+666	dishawasher	dishwasher	appliances	dishwasher	dishwasher					
+667	dishes	dishes	objects	plate	"buffet, counter, sideboard"					
+668	dishes dryer	dish dryer	appliances	oven	oven					
+669	dishrag	dishrag	objects	"ottoman, pouf, pouffe, puff, hassock"	"ottoman, pouf, pouffe, puff, hassock"					
+670	dishwasher	dishwasher	appliances	dishwasher	dishwasher					
+671	dishwasher machine	dishwasher	appliances	dishwasher	dishwasher					
+672	disk	dish	objects	plate	"buffet, counter, sideboard"					
+673	dispenser	dispenser	objects	bottle	bottle					
+674	display	display	tv_monitor	crt screen	"case, display case, showcase, vitrine"					
+675	display cabinet	display cabinet	cabinet	cabinet	cabinet					
+676	display case	display case	objects	"case, display case, showcase, vitrine"	"case, display case, showcase, vitrine"					
+677	display of pictures	display of pictures	picture	"case, display case, showcase, vitrine"	"case, display case, showcase, vitrine"					
+678	display table	display table	table	table	table					
+679	document	document	misc	"poster, posting, placard, notice, bill, card"	bulletin board					
+680	document holder	document holder	objects	bookcase	person					
+681	documents	document	misc	"poster, posting, placard, notice, bill, card"	bulletin board					
+682	dog bed	dog bed	bed	bed	bed					
+683	dog leash	dog leash	misc	animal	animal					
+684	dog toy	dog toy	objects	"plaything, toy"	"plaything, toy"					
+685	doile	doily	misc	"ottoman, pouf, pouffe, puff, hassock"	"ottoman, pouf, pouffe, puff, hassock"					
+686	doily	doily	misc	"ottoman, pouf, pouffe, puff, hassock"	"ottoman, pouf, pouffe, puff, hassock"					
+687	doll	doll	objects	"plaything, toy"	"plaything, toy"					
+688	dool	doll	objects	"plaything, toy"	"plaything, toy"					
+689	door	door	door	door	door					
+690	door  frame	door frame	door	door	door					
+691	door  hinge	door hinge	misc	door	door					
+692	door /otherroom	door /otherroom	door	door	door					
+693	door cabinet	door cabinet	cabinet	cabinet	cabinet					
+694	door drame	door frame	door	door	door					
+695	door f	door frame	door	door	door					
+696	door fame	door frame	door	door	door					
+697	door fframe	door frame	door	door	door					
+698	door frame	door frame	door	door	door					
+699	door framr	door frame	door	door	door					
+700	door handle	door handle	misc	door	door					
+701	door hanger	door handle	misc	door	door					
+702	door hine	door hinge	misc	door	door					
+703	door hinge	door hinge	misc	door	door					
+704	door kinge	door hinge	misc	door	door					
+705	door knob	door knob	misc	door	door					
+706	door mat	doormat	floor	rug	"plaything, toy"					
+707	door rame	door frame	door	door	door					
+708	door slide	sliding door	door	door	door					
+709	door stoper	door stopper	misc	door	door					
+710	door stopper	door stopper	misc	door	door					
+711	door stoppper	door stopper	misc	door	door					
+712	door window	door window	misc	door	window					
+713	door/window	door/window	misc	door	window					
+714	door/window frame	door/window frame	misc	door	window					
+715	doorbell	doorbell	misc	door	door					
+716	doorf rame	door frame	door	door	door					
+717	doorframe	door frame	door	door	door					
+718	doormat	doormat	floor	rug	"plaything, toy"					
+719	doorpost	doorpost	objects	door	wall					
+720	doors	door	door	door	door					
+721	doorstep	doorstep	objects	stairs	door					
+722	doorway	doorway	door	"stairway, staircase"	"stairway, staircase"					
+723	dorr	door	door	door	door					
+724	double armchair	double armchair	chair	armchair	armchair					
+725	drain	drain	objects	sink	sink					
+726	drainage	drainage	misc	water	water					
+727	drainpipe	drainpipe	objects	water	"stairway, staircase"					
+728	draw	draw	objects	"pool table, billiard table, snooker table"	"pool table, billiard table, snooker table"					
+729	drawer	drawer	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+730	drawer cabinet	drawer cabinet	cabinet	cabinet	cabinet					
+731	drawer cart	drawer cart	objects	"chest of drawers, chest, bureau, dresser"	tray					
+732	drawer desk	drawer desk	misc	desk	desk					
+733	drawer sink table	drawer sink table	misc	table	table					
+734	drawers	drawers	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+735	drawers for clothes	drawers for clothes	misc	"wardrobe, closet, press"	clothes					
+736	drawing	drawing	misc	"painting, picture"	"painting, picture"					
+737	dreser	dresser	chest_of_drawers	"wardrobe, closet, press"	"chest of drawers, chest, bureau, dresser"					
+738	dress	dress	clothes	clothes	"wardrobe, closet, press"					
+739	dresser	dresser	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+740	dressing table	dressing table	table	table	table					
+741	dried flowers	dried flowers	objects	flower	flower					
+742	drill	drill	misc	field	field					
+743	drum	drum	objects	"plaything, toy"	"rock, stone"					
+744	drums	drum	objects	"plaything, toy"	"rock, stone"					
+745	dryer	clothes dryer	appliances	clothes	clothes					
+746	drywall board	drywall board	misc	countertop	countertop					
+747	drywall boards	drywall board	misc	countertop	countertop					
+748	duct	duct	misc	radiator	radiator					
+749	dumb bell	dumbbell	gym_equipment	unlabeled	swivel chair					
+750	dumb-bells	dumbbell	gym_equipment	unlabeled	swivel chair					
+751	dumbbel	dumbbell	gym_equipment	unlabeled	swivel chair					
+752	dumbbell	dumbbell	gym_equipment	unlabeled	swivel chair					
+753	dumbbell handles	dumbbell	gym_equipment	unlabeled	swivel chair					
+754	dumbbells	dumbbell	gym_equipment	unlabeled	swivel chair					
+755	dust bin	dustbin	objects	trash can	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+756	dustbin	dustbin	objects	trash can	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+757	dustpan	dustpan	objects	trash can	rug					
+758	duvet	duvet	misc	cushion	pillow					
+759	dvd	dvd	objects	computer	tv					
+760	dvd movies	dvd	objects	computer	tv					
+761	dvd player	dvd player	objects	computer	tv					
+762	dvds	dvd	objects	computer	tv					
+763	easel	easel	shelving	shelf	"painting, picture"					
+764	easels	easel	shelving	shelf	"painting, picture"					
+765	easy chair	easy chair	chair	chair	chair					
+766	electric box	electric box	misc	box	box					
+767	electric cable	electric cable	misc	rail	rail					
+768	electric cord	electric cord	misc	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+769	electric device	electric device	misc	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+770	electric drums	electric drum	objects	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+771	electric freshener	electric freshener	appliances	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+772	electric guitar	electric guitar	objects	"rock, stone"	"rock, stone"					
+773	electric guitar pack	electric guitar	objects	"rock, stone"	"rock, stone"					
+774	electric heater	electric heater	appliances	radiator	stove					
+775	electric hub	electric hub	objects	rail	rail					
+776	electric installation	electric installation	misc	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+777	electric kettle	electric kettle	appliances	stove	stove					
+778	electric outlet	electric outlet	objects	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+779	electric percussion	electric percussion	appliances	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+780	electric plug	electric plug	objects	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+781	electric toothbrush	electric toothbrush	appliances	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+782	electric wire	electric wire	misc	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+783	electric wire casing	electric wire casing	misc	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+784	electrical box	electrical box	objects	box	box					
+785	electrical controller	electrical controller	misc	microwave	microwave					
+786	electrical device	electrical device	misc	microwave	microwave					
+787	electrical installation	electrical installation	misc	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+788	electrical switchboard	electrical switchboard	misc	microwave	microwave					
+789	electricity box	electricity box	misc	box	box					
+790	electronics	electronics	misc	computer	computer					
+791	elephant sculpture	elephant sculpture	misc	sculpture	sculpture					
+792	elevator	elevator	misc	"escalator, moving staircase, moving stairway"	"escalator, moving staircase, moving stairway"					
+793	elevator door	elevator door	door	door	door					
+794	emergency sign	emergency sign	misc	"signboard, sign"	"signboard, sign"					
+795	end table	end table	table	table	table					
+796	entertainment set	entertainment set	misc	"case, display case, showcase, vitrine"	"case, display case, showcase, vitrine"					
+797	entrance arch	entrance arch	misc	"stairway, staircase"	"stairway, staircase"					
+798	entry phone	entry phone	objects	computer	computer					
+799	excercise mat	exercise mat	gym_equipment	"toilet, can, commode, crapper, pot, potty, stool, throne"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+800	excersie ball	exercise ball	gym_equipment	ball	ball					
+801	excersie equipment	exercise equipment	gym_equipment	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+802	exercise ball	exercise ball	gym_equipment	ball	ball					
+803	exercise bike	exercise bike	gym_equipment	bicycle	bicycle					
+804	exercise equipment	exercise equipment	gym_equipment	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+805	exercise ladder	exercise ladder	gym_equipment	"escalator, moving staircase, moving stairway"	"escalator, moving staircase, moving stairway"					
+806	exercise machine	exercise machine	misc	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+807	exercise mat	exercise mat	gym_equipment	"toilet, can, commode, crapper, pot, potty, stool, throne"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+808	exercise mat roll	exercise mat roll	misc	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+809	exercising blocks	exercising blocks	gym_equipment	building	building					
+810	exhaust pipe	exhaust pipe	misc	"hood, exhaust hood"	"hood, exhaust hood"					
+811	exhibition panel	exhibition panel	misc	"case, display case, showcase, vitrine"	"case, display case, showcase, vitrine"					
+812	exhibition picture	exhibition picture	picture	"painting, picture"	"painting, picture"					
+813	exhibition table	exhibition table	table	table	table					
+814	exhibition window	exhibition window	window	window	window					
+815	exhibition window frame	exhibition window frame	window	window	window					
+816	exit sign	exit sign	misc	"signboard, sign"	"signboard, sign"					
+817	extension cord	extension cord	misc	"palm, palm tree"	"palm, palm tree"					
+818	extension lead	extension lead	misc	cushion	cushion					
+819	extinguisher	fire extinguisher	objects	stove	stove					
+820	extractor	extractor	misc	radiator	radiator					
+821	extractor hood	extractor hood	misc	"hood, exhaust hood"	"hood, exhaust hood"					
+822	eyeglasses	eyeglasses	objects	clothes	clothes					
+823	fan	fan	objects	fan	fan					
+824	fan-coil	fan coil	objects	fan	fan					
+825	fan air vent	fan air vent	misc	fan	fan					
+826	fans	fan	objects	fan	fan					
+827	faucet	faucet	objects	sink	dishwasher					
+828	fence	fence	misc	fence	fence					
+829	fframe	frame	misc	"bridge, span"	"bridge, span"					
+830	figure	figure	misc	"painting, picture"	"painting, picture"					
+831	figurine	figurine	misc	sculpture	sculpture					
+832	file	file	misc	"case, display case, showcase, vitrine"	"case, display case, showcase, vitrine"					
+833	file binder	file binder	misc	tray	tray					
+834	file cabinet	file cabinet	cabinet	cabinet	cabinet					
+835	files	file	misc	"case, display case, showcase, vitrine"	"case, display case, showcase, vitrine"					
+836	fire alarm	fire alarm	objects	stove	stove					
+837	fire detector	fire detector	objects	stove	stove					
+838	fire etenguisher	fire extinguisher	objects	stove	stove					
+839	fire extinguisher	fire extinguisher	objects	stove	stove					
+840	fire pit	fire pit	objects	stove	stove					
+841	fire screen	fire screen	objects	"screen door, screen"	"screen door, screen"					
+842	fire sprinkler	fire sprinkler	misc	stove	stove					
+843	firebox	firebox	objects	fireplace	fireplace					
+844	fireplace	fireplace	fireplace	fireplace	fireplace					
+845	fireplace brush	fireplace brush	misc	fireplace	fireplace					
+846	fireplace floor	fireplace floor	misc	fireplace	fireplace					
+847	fireplace mirror	fireplace mirror	misc	fireplace	fireplace					
+848	fireplace sconce	fireplace sconce	misc	fireplace	fireplace					
+849	fireplace shelf	fireplace shelf	misc	fireplace	fireplace					
+850	fireplace tool set	fireplace tool set	misc	fireplace	fireplace					
+851	fireplace utensil	fireplace utensil	misc	fireplace	fireplace					
+852	fireplace wall	fireplace wall	misc	fireplace	fireplace					
+853	firewood	firewood	misc	stove	stove					
+854	firewood bag	firewood bag	misc	bag	bag					
+855	firewood chest	firewood chest	misc	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+856	firewood holder	firewood holder	misc	stove	stove					
+857	fish tank	fish tank	misc	"tank, storage tank"	"tank, storage tank"					
+858	fishing pole	fishing pole	misc	pole	pole					
+859	fishing rod	fishing rod	misc	boat	boat					
+860	fitness ball	fitness ball	gym_equipment	ball	ball					
+861	flag	flag	misc	flag	flag					
+862	flashlight	flashlight	objects	lamp	stove					
+863	floer	floor	floor	floor	floor					
+864	floor	floor	floor	floor	floor					
+865	floor  lamp	floor lamp	lighting	lamp	lamp					
+866	floor  mat	floor mat	floor	floor	floor					
+867	floor  vent	floor vent	misc	"hood, exhaust hood"	floor					
+868	floor /otherroom	floor /otherroom	floor	floor	floor					
+869	floor /outside	floor /outside	floor	floor	floor					
+870	floor lamp	floor lamp	lighting	lamp	lamp					
+871	floor mat	floor mat	floor	floor	floor					
+872	floor stand	floor stand	misc	"base, pedestal, stand"	floor					
+873	floor vent	floor vent	misc	"hood, exhaust hood"	floor					
+874	floormat	floor mat	floor	floor	floor					
+875	florr	floor	floor	floor	floor					
+876	flower	flower	plant	plant	flower					
+877	flower  vase	flower vase	objects	vase	vase					
+878	flower pot	flowerpot	objects	pot	vase					
+879	flower stand	flower stand	misc	"base, pedestal, stand"	flower					
+880	flower vase	flower vase	objects	vase	vase					
+881	flowerbed	flowerbed	objects	vase	tree					
+882	flowerpot	flowerpot	objects	pot	vase					
+883	flowers	flowers	plant	plant	flower					
+884	flowers in vase	flower vase	objects	vase	vase					
+885	fluorescent light	fluorescent light	misc	light	light					
+886	flush	flush	misc	sink	sink					
+887	flush button	flush button	misc	sink	"screen door, screen"					
+888	flush buttons	flush button	misc	sink	"screen door, screen"					
+889	flush push	flush push	misc	sink	sink					
+890	folded chair	folded chair	chair	chair	chair					
+891	folded chairs	folded chair	chair	chair	chair					
+892	folded table	folded table	table	table	table					
+893	folder	folder	objects	tray	tray					
+894	folders	folder	objects	tray	tray					
+895	folding chair	folding chair	chair	chair	chair					
+896	folding stand	folding stand	misc	"base, pedestal, stand"	"base, pedestal, stand"					
+897	food	food	misc	"food, solid food"	"food, solid food"					
+898	food processor	food processor	appliances	"food, solid food"	"food, solid food"					
+899	food stand	food stand	misc	"food, solid food"	"food, solid food"					
+900	food tray	food tray	objects	tray	tray					
+901	foor frame	floor frame	floor	floor	floor					
+902	foor lamp	floor lamp	lighting	lamp	lamp					
+903	foosball game table	foosball game table	table	"pool table, billiard table, snooker table"	"pool table, billiard table, snooker table"					
+904	foosball table	foosball table	table	table	table					
+905	foot rest	footrest	stool	stool	swivel chair					
+906	foot spa	foot spa	misc	tub	tub					
+907	foot stand	foot stand	misc	"base, pedestal, stand"	"base, pedestal, stand"					
+908	football	football	objects	ball	ball					
+909	footrest	footrest	stool	stool	swivel chair					
+910	footstool	footstool	stool	stool	sofa					
+911	fork	fork	objects	plate	tray					
+912	frame	frame	misc	"bridge, span"	"bridge, span"					
+913	frame door	frame	misc	"bridge, span"	"bridge, span"					
+914	frame part	frame	misc	"bridge, span"	"bridge, span"					
+915	framed document	document	misc	bulletin board	bulletin board					
+916	framed mirror	mirror	mirror	mirror	mirror					
+917	framed photo	photo	picture	"painting, picture"	"painting, picture"					
+918	framed photos	photos	picture	"painting, picture"	"painting, picture"					
+919	framed picture	picture	picture	"painting, picture"	"painting, picture"					
+920	framed pictures	pictures	picture	"painting, picture"	"painting, picture"					
+921	framed text	framed text	misc	"painting, picture"	crt screen					
+922	freezer	freezer	appliances	"refrigerator, icebox"	"refrigerator, icebox"					
+923	fridge	refrigerator	appliances	"refrigerator, icebox"	"refrigerator, icebox"					
+924	fruit	fruit	objects	"food, solid food"	flower					
+925	fruit bowl	fruit bowl	objects	vase	vase					
+926	fruits	fruit	objects	"food, solid food"	flower					
+927	frying pan	frying pan	objects	oven	oven					
+928	fume cupboard	fume cupboard	misc	"wardrobe, closet, press"	"wardrobe, closet, press"					
+929	fur	fur	misc	animal	animal					
+930	fur carpet	fur carpet	floor	rug	rug					
+931	furnace	furnace	misc	stove	stove					
+932	furniture	furniture	furniture	"ottoman, pouf, pouffe, puff, hassock"	sofa					
+933	furniture parts	furniture	furniture	"ottoman, pouf, pouffe, puff, hassock"	sofa					
+934	fuse box	fuse box	misc	box	box					
+935	fuse panel	fuse panel	misc	lamp	lamp					
+936	game board	game board	objects	bulletin board	bulletin board					
+937	game console	game console	objects	arcade machine	arcade machine					
+938	gap	gap	objects	"bridge, span"	"bridge, span"					
+939	garage door	garage door	door	door	door					
+940	garage door frame	garage door frame	misc	door	door					
+941	garage door motor	garage door motor	misc	door	door					
+942	garage door opener	garage door opener	misc	door	door					
+943	garage door opener bar	garage door opener bar	misc	door	door					
+944	garage door opener motor	garage door opener motor	misc	door	door					
+945	garage door opener railing	garage door opener railing	misc	door	door					
+946	garage door railing	garage door railing	misc	door	door					
+947	garage light	garage light	misc	light	light					
+948	garden bench	garden bench	seating	bench	bench					
+949	garden chair	garden chair	chair	chair	chair					
+950	garden deck	garden deck	misc	canopy	canopy					
+951	garden hose	hose	misc	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+952	garden swing	swing	objects	ball	ball					
+953	gas box	gas box	objects	box	box					
+954	gas container	gas container	objects	"tank, storage tank"	"tank, storage tank"					
+955	gas furnace	gas furnace	appliances	stove	stove					
+956	gas meter	gas meter	misc	"tank, storage tank"	water					
+957	gate	gate	misc	door	door					
+958	gauge	gauge	misc	monitor	monitor					
+959	gift	gift	misc	"plaything, toy"	"plaything, toy"					
+960	glass	glass	objects	"glass, drinking glass"	"glass, drinking glass"					
+961	glass bottle	bottle	objects	bottle	bottle					
+962	glass container	glass container	objects	"glass, drinking glass"	"glass, drinking glass"					
+963	glass door	glass door	door	"glass, drinking glass"	"glass, drinking glass"					
+964	glass pane	glass pane	misc	"glass, drinking glass"	"glass, drinking glass"					
+965	glasses	glasses	objects	"glass, drinking glass"	"glass, drinking glass"					
+966	globe	globe	misc	"earth, ground"	"earth, ground"					
+967	globe stand	globe stand	misc	"base, pedestal, stand"	"base, pedestal, stand"					
+968	glove	gloves	objects	towel	towel					
+969	gloves	gloves	objects	towel	towel					
+970	glue	glue	objects	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+971	goal	goalpost	objects	ball	ball					
+972	golf sticks	golf sticks	objects	"pool table, billiard table, snooker table"	"pool table, billiard table, snooker table"					
+973	grab bar	grab bar	misc	bar	bar					
+974	gramophone	gramophone	objects	"case, display case, showcase, vitrine"	"case, display case, showcase, vitrine"					
+975	grandfather clock	grandfather clock	objects	clock	clock					
+976	grass	grass	plant	plant	grass					
+977	grate	grate	misc	oven	oven					
+978	gravel	gravel	floor	floor	sand					
+979	grill	grill	misc	oven	oven					
+980	groceries	groceries	objects	"food, solid food"	"food, solid food"					
+981	guitar	guitar	objects	"rock, stone"	"rock, stone"					
+982	guitar amp	amplifier	objects	radiator	radiator					
+983	guitar amplifier	amplifier	objects	radiator	radiator					
+984	guitar box	amplifier	objects	radiator	radiator					
+985	guitar case	guitar case	objects	"case, display case, showcase, vitrine"	"case, display case, showcase, vitrine"					
+986	guitar case suit	guitar case cover	objects	"blanket, cover"	"blanket, cover"					
+987	guitar cases	guitar cases	objects	"case, display case, showcase, vitrine"	"case, display case, showcase, vitrine"					
+988	guitar frame	guitar frame	objects	sconce	sconce					
+989	guitar pedals	guitar pedals	objects	bicycle	bicycle					
+990	guitar stand	guitar stand	objects	"base, pedestal, stand"	"base, pedestal, stand"					
+991	guitar straps	guitar straps	objects	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+992	gun	gun	objects	"minibike, motorbike"	"minibike, motorbike"					
+993	gutter	gutter	misc	"sidewalk, pavement"	"sidewalk, pavement"					
+994	gym equipment	gym equipment	gym_equipment	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+995	gym mat	gym mat	floor	floor	floor					
+996	gym rope	gym rope	objects	stairs	stairs					
+997	gym stepper	gym stepper	objects	stairs	arcade machine					
+998	gym-equipment	gym equipment	gym_equipment	stairs	"washer, automatic washer, washing machine"					
+999	hair dryer	hair dryer	objects	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+1000	hairbrush	hair brush	objects	"washer, automatic washer, washing machine"	grass					
+1001	hairdryer	hair dryer	objects	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+1002	hammer	hammer	objects	"rock, stone"	"rock, stone"					
+1003	hammock	hammock	bed	bed	sofa					
+1004	hand cart	handcart	objects	van	van					
+1005	hand cloth	hand cloth	misc	towel	towel					
+1006	hand drier	hand dryer	objects	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+1007	hand soap	hand soap	objects	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+1008	hand towel	hand towel	objects	towel	towel					
+1009	handbag	handbag	objects	bag	bag					
+1010	handkerchiefs	handkerchiefs	objects	towel	towel					
+1011	handle	handle	objects	door	"mountain, mount"					
+1012	handrail	handrail	railing	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+1013	handhold	handrail	railing	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+1014	handshower	showerhead	shower	shower	"washer, automatic washer, washing machine"					
+1015	hanger	hanger	objects	bar	runway					
+1016	hangers	hanger	objects	bar	runway					
+1017	hanging clothes	hanging clothes	clothes	clothes	clothes					
+1018	hat	hat	clothes	clothes	towel					
+1019	hatch	hatch	misc	"hood, exhaust hood"	"hood, exhaust hood"					
+1020	hats	hats	objects	clothes	clothes					
+1021	headboard	headboard	bed	bed	"chest of drawers, chest, bureau, dresser"					
+1022	headphones	headphones	objects	computer	pillow					
+1023	headset	headset	objects	computer	swivel chair					
+1024	hearth	hearth	misc	fireplace	fireplace					
+1025	heat vent	vent	misc	"hood, exhaust hood"	"hood, exhaust hood"					
+1026	heater	heater	objects	stove	stove					
+1027	heater  piping	heater piping	misc	stove	stove					
+1028	heater piping	heater piping	misc	stove	stove					
+1029	heating furnace part	furnace	misc	stove	stove					
+1030	heating vent	vent	misc	"hood, exhaust hood"	"hood, exhaust hood"					
+1031	herb basket	basket	objects	"basket, handbasket"	"basket, handbasket"					
+1032	hi hat	hi-hat	objects	"basket, handbasket"	"basket, handbasket"					
+1033	hi hat stand	hi-hat stand	objects	"basket, handbasket"	"basket, handbasket"					
+1034	high chair	highchair	chair	chair	sofa					
+1035	high shelf	high shelf	misc	shelf	shelf					
+1036	highchair	highchair	chair	chair	sofa					
+1037	highchairs	highchair	chair	chair	sofa					
+1038	holder	holder	objects	bookcase	person					
+1039	holy cross	holy cross	misc	"hood, exhaust hood"	river					
+1040	hood	range hood	objects	"hood, exhaust hood"	"hood, exhaust hood"					
+1041	hook	hook	misc	bar	swivel chair					
+1042	hose	hose	misc	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+1043	hot drinks machine	beverage dispenser	objects	bottle	bottle					
+1044	hot water/cold water knob	hot water/cold water knob	misc	bottle	bottle					
+1045	hourglass	hourglass	objects	clock	sand					
+1046	hoverboard	hoverboard	objects	arcade machine	arcade machine					
+1047	hunting trophy	hunting trophy	misc	"buffet, counter, sideboard"	"buffet, counter, sideboard"					
+1048	hutch	hutch	misc	"hovel, hut, hutch, shack, shanty"	"hovel, hut, hutch, shack, shanty"					
+1049	ice maker	ice maker	objects	"refrigerator, icebox"	"glass, drinking glass"					
+1050	icebox	icebox	appliances	"refrigerator, icebox"	"refrigerator, icebox"					
+1051	identifier	identifier	misc	trade name	trade name					
+1052	image	picture	picture	"painting, picture"	"painting, picture"					
+1053	indow curtain	window curtain	curtain	curtain	curtain					
+1054	induction hob	stovetop	misc	stove	stove					
+1055	information	information	misc	trade name	computer					
+1056	insect door	door screen	door	door	"screen door, screen"					
+1057	door screen	door screen	door	door	"screen door, screen"					
+1058	installation	installation	objects	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+1059	instrument	instrument	objects	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+1060	iron	iron	objects	clothes	sand					
+1061	iron board	iron board	misc	bulletin board	bulletin board					
+1062	ironing board	ironing board	objects	bulletin board	bulletin board					
+1063	island	island	counter	"buffet, counter, sideboard"	kitchen island					
+1064	jacket	jacket	clothes	clothes	clothes					
+1065	jacuzzi	jacuzzi	misc	tub	tub					
+1066	jar	jar	objects	bottle	bottle					
+1067	jars	jars	objects	bottle	bottle					
+1068	jewellery	jewelry	objects	clothes	clothes					
+1069	jewellery ehibition	jewelry	objects	clothes	clothes					
+1070	jewellery exhibition	jewelry	objects	clothes	clothes					
+1071	jewellery exposition	jewelry	objects	clothes	clothes					
+1072	jewelry	jewelry	objects	clothes	clothes					
+1073	jewelry box	jewelry box	misc	box	box					
+1074	jewlery box	jewelry box	misc	box	box					
+1075	joga mat	yoga mat	misc	rug	sofa					
+1076	jug	jug	objects	bottle	bottle					
+1077	junk	junk	objects	trash can	trash can					
+1078	keg	keg	objects	bottle	bottle					
+1079	kegerator	keg	objects	bottle	bottle					
+1080	kettle	kettle	objects	stove	stove					
+1081	keyboard	keyboard	objects	computer	crt screen					
+1082	keyboard box	keyboard box	objects	box	box					
+1083	keyboard case suit	keyboard cover	objects	"blanket, cover"	"blanket, cover"					
+1084	keyboard piano	keyboard piano	objects	"plaything, toy"	crt screen					
+1085	keyboard stand	keyboard stand	objects	"base, pedestal, stand"	"base, pedestal, stand"					
+1086	keys	keys	objects	"plaything, toy"	door					
+1087	kitchen appliance	kitchen appliance	appliances	dishwasher	dishwasher					
+1088	kitchen board	cutting board	objects	bulletin board	bulletin board					
+1089	kitchen cabinet	kitchen cabinet	cabinet	cabinet	cabinet					
+1090	kitchen cabinet door	kitchen cabinet door	cabinet	cabinet	cabinet					
+1091	kitchen cabinet drawer	kitchen cabinet drawer	cabinet	cabinet	cabinet					
+1092	kitchen cabinet lower	kitchen cabinet lower	cabinet	cabinet	cabinet					
+1093	kitchen ceiling	kitchen ceiling	ceiling	ceiling	ceiling					
+1094	kitchen chair	kitchen chair	chair	chair	chair					
+1095	kitchen coocking cabinet	kitchen cabinet	cabinet	cabinet	cabinet					
+1096	kitchen counter	kitchen counter	counter	counter	counter					
+1097	kitchen counter support	kitchen counter support	misc	counter	counter					
+1098	kitchen countertop	kitchen counter	counter	counter	counter					
+1099	kitchen countertop item	kitchen countertop item	misc	countertop	countertop					
+1100	kitchen countertop items	kitchen countertop items	misc	countertop	countertop					
+1101	kitchen coutertop item	kitchen counter item	objects	counter	counter					
+1102	kitchen decoration	kitchen decoration	objects	kitchen island	kitchen island					
+1103	kitchen extractor	kitchen extractor	misc	stove	stove					
+1104	kitchen glowes	kitchen gloves	objects	clothes	stove					
+1105	kitchen handle	kitchen handle	objects	kitchen island	kitchen island					
+1106	kitchen hood	range hood	objects	"hood, exhaust hood"	"hood, exhaust hood"					
+1107	kitchen island	kitchen island	counter	kitchen island	kitchen island					
+1108	kitchen knife set	kitchen knife set	objects	plate	kitchen island					
+1109	kitchen lower cabinet	kitchen lower cabinet	cabinet	cabinet	cabinet					
+1110	kitchen lower shelf	kitchen lower shelf	shelving	shelf	shelf					
+1111	kitchen shelf	kitchen shelf	shelving	shelf	shelf					
+1112	kitchen sink	kitchen sink	sink	sink	sink					
+1113	kitchen sink cabinet	kitchen sink cabinet	cabinet	cabinet	cabinet					
+1114	kitchen sitting	kitchen seating	seating	seat	kitchen island					
+1115	kitchen stuff	clutter	misc	trash can	trash can					
+1116	kitchen table	kitchen table	table	table	table					
+1117	kitchen tools	kitchen utensils	objects	counter	kitchen island					
+1118	kitchen top	kitchen top	counter	counter	kitchen island					
+1119	kitchen towel	kitchen towel	objects	towel	towel					
+1120	kitchen untensils	kitchen utensils	objects	counter	kitchen island					
+1121	kitchen upper cabinet	kitchen cabinet	cabinet	cabinet	cabinet					
+1122	kitchen utensil	kitchen utensil	objects	counter	kitchen island					
+1123	kitchen utensils	kitchen utensils	objects	counter	kitchen island					
+1124	kitchen wall	kitchen wall	wall	wall	wall					
+1125	kitchen walll	kitchen wall	wall	wall	wall					
+1126	kitchenware	kitchenware	objects	countertop	countertop					
+1127	kitchhen cabinet door	kitchen cabinet door	cabinet	cabinet	cabinet					
+1128	kitcyhen cabinet	kitchen cabinet	cabinet	cabinet	cabinet					
+1129	knife	knife	objects	counter	"chest of drawers, chest, bureau, dresser"					
+1130	knife holder	knife holder	misc	counter	"chest of drawers, chest, bureau, dresser"					
+1131	knife set	knife set	objects	counter	"chest of drawers, chest, bureau, dresser"					
+1132	knife stand	knife stand	objects	"base, pedestal, stand"	"base, pedestal, stand"					
+1133	knob	knob	misc	radiator	radiator					
+1134	knofe set	knife set	objects	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+1135	l-shaped sofa	l-shaped sofa	sofa	sofa	"chest of drawers, chest, bureau, dresser"					
+1136	lace doily	lace doily	objects	towel	"ottoman, pouf, pouffe, puff, hassock"					
+1137	lacy doily	lace doily	objects	towel	"ottoman, pouf, pouffe, puff, hassock"					
+1138	ladder	ladder	stairs	stairs	"escalator, moving staircase, moving stairway"					
+1139	lamp	lamp	lighting	lamp	lamp					
+1140	lamp ceiling	ceiling lamp	lighting	lamp	lamp					
+1141	lamp desk	desk lamp	lighting	lamp	lamp					
+1142	lamp shade	lamp shade	lighting	lamp	lamp					
+1143	lamp stand	lamp stand	misc	lamp	lamp					
+1144	lamp table	lamp table	table	lamp	lamp					
+1145	lamps	lamp	lighting	lamp	lamp					
+1146	lampshade	lampshade	lighting	chandelier	chandelier					
+1147	landing	landing	floor	floor	plane					
+1148	lantern	lantern	lighting	lamp	lamp					
+1149	laptop	laptop	objects	computer	computer					
+1150	laundry	laundry	clothes	"washer, automatic washer, washing machine"	dishwasher					
+1151	laundry bag	laundry bag	misc	bag	bag					
+1152	laundry basket	laundry basket	objects	"basket, handbasket"	"basket, handbasket"					
+1153	laundry machine	laundry machine	misc	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+1154	launger	lounger	seating	seat	sofa					
+1155	lawn	lawn	floor	floor	grass					
+1156	lawn mower	lawn mower	objects	"washer, automatic washer, washing machine"	grass					
+1157	lawnmower	lawn mower	objects	"washer, automatic washer, washing machine"	grass					
+1158	leaflet	leaflets	objects	"poster, posting, placard, notice, bill, card"	"poster, posting, placard, notice, bill, card"					
+1159	leaflets	leaflets	objects	"poster, posting, placard, notice, bill, card"	"poster, posting, placard, notice, bill, card"					
+1160	led  tv	led tv	misc	tv	tv					
+1161	led tv	led tv	misc	tv	tv					
+1162	ledge	ledge	objects	"stairway, staircase"	"stairway, staircase"					
+1163	ledtv	led tv	misc	tv	tv					
+1164	leg rest	leg rest	misc	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+1165	letter	document	misc	bulletin board	bulletin board					
+1166	level	level	objects	stage	stage					
+1167	lid	lid	misc	"hood, exhaust hood"	"hood, exhaust hood"					
+1168	lids	lid	misc	"hood, exhaust hood"	"hood, exhaust hood"					
+1169	light	light	lighting	light	light					
+1170	light fixture	light fixture	lighting	light	light					
+1171	light switch	light switch	objects	light	light					
+1172	lighter	lighter	objects	light	light					
+1173	lighting fixture	lighting fixture	objects	light	street lamp					
+1174	lighting grid	lighting fixture	objects	light	street lamp					
+1175	lights	light	lighting	light	light					
+1176	liquid	liquid	misc	water	tub					
+1177	liquid container	liquid container	objects	bottle	bottle					
+1178	liquid cleaner	liquid cleaner	objects	bottle	water					
+1179	liquid soap	liquid soap	misc	bottle	tub					
+1180	lmap	lamp	lighting	lamp	lamp					
+1181	locker	locker	misc	"wardrobe, closet, press"	"wardrobe, closet, press"					
+1182	loft hatch	hatch	misc	"hood, exhaust hood"	"hood, exhaust hood"					
+1183	logs	firewood	misc	stove	stove					
+1184	lounge chair	lounge chair	chair	chair	chair					
+1185	lounger	lounger	seating	seat	sofa					
+1186	lower cabinet	lower cabinet	cabinet	cabinet	cabinet					
+1187	luggage	luggage	objects	bag	bag					
+1188	lundry basket	laundry basket	objects	"basket, handbasket"	"basket, handbasket"					
+1189	machine	machine	objects	arcade machine	arcade machine					
+1190	magazine	magazine	objects	book	"column, pillar"					
+1191	magazine rack	magazine rack	misc	book	"column, pillar"					
+1192	magazines	magazines	objects	book	book					
+1193	"magazines, albums"	magazines	objects	book	book					
+1194	"magazines, albums, bookshelf"	magazines	objects	book	book					
+1195	"magazines, books and albums"	magazines	objects	book	book					
+1196	magic marker	magic marker	objects	lamp	lamp					
+1197	magic marker box	magic marker box	objects	box	box					
+1198	mail	mail	objects	book	trash can					
+1199	mailbox	mailbox	objects	box	door					
+1200	make up accesories	makeup accessories	objects	"wardrobe, closet, press"	"wardrobe, closet, press"					
+1201	mannequin	mannequin	objects	person	"case, display case, showcase, vitrine"					
+1202	mantel	mantel	fireplace	"buffet, counter, sideboard"	"buffet, counter, sideboard"					
+1203	mantle	mantle	fireplace	fireplace	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1204	map	map	objects	"poster, posting, placard, notice, bill, card"	"painting, picture"					
+1205	mascot	mascot	objects	"plaything, toy"	"poster, posting, placard, notice, bill, card"					
+1206	mascots	mascots	objects	"plaything, toy"	"poster, posting, placard, notice, bill, card"					
+1207	mask decoration	decoration	objects	sconce	sconce					
+1208	massage bed	massage bed	bed	bed	bed					
+1209	mat	mat	floor	rug	pillow					
+1210	mat floor	mat	floor	rug	pillow					
+1211	material	material	misc	rug	sand					
+1212	mattress	bed	bed	bed	bed					
+1213	measuring tape	measuring tape	objects	rug	monitor					
+1214	medal	medal	objects	plate	"pool table, billiard table, snooker table"					
+1215	medal collection	medal collection	objects	plate	vase					
+1216	media console	media console	misc	arcade machine	"wardrobe, closet, press"					
+1217	medical lamp	medical lamp	lighting	lamp	lamp					
+1218	medical object	medical object	objects	lamp	person					
+1219	menu	menu	objects	"poster, posting, placard, notice, bill, card"	"buffet, counter, sideboard"					
+1220	menu board	menu board	objects	"poster, posting, placard, notice, bill, card"	bulletin board					
+1221	meshwork	meshwork	misc	"case, display case, showcase, vitrine"	"case, display case, showcase, vitrine"					
+1222	meter	meter	misc	unlabeled	street lamp					
+1223	microphone	microphone	objects	computer	swivel chair					
+1224	microphone accesory	microphone accessory	objects	computer	swivel chair					
+1225	microvawe	microwave	appliances	microwave	microwave					
+1226	microwave	microwave	appliances	microwave	microwave					
+1227	microweave	microwave	appliances	microwave	microwave					
+1228	midi keyboard	keyboard piano	objects	"plaything, toy"	crt screen					
+1229	mini fridge	mini fridge	appliances	"refrigerator, icebox"	"refrigerator, icebox"					
+1230	miocrowave	microwave	appliances	microwave	microwave					
+1231	mircowave	microwave	appliances	microwave	microwave					
+1232	miror	mirror	mirror	mirror	mirror					
+1233	mirror	mirror	mirror	mirror	mirror					
+1234	mirror /otherroom	mirror /otherroom	mirror	mirror	mirror					
+1235	mirror door	mirror door	misc	mirror	door					
+1236	mirror frame	mirror frame	mirror	mirror	mirror					
+1237	mirror stand	mirror	mirror	mirror	mirror					
+1238	mixer	mixer	misc	oven	oven					
+1239	mobile	mobile	objects	computer	computer					
+1240	model	model	objects	computer	"column, pillar"					
+1241	modem	modem	objects	computer	computer					
+1242	molding	molding	wall	wall	"glass, drinking glass"					
+1243	monitor	monitor	tv_monitor	monitor	monitor					
+1244	moose head/sculpture/hunting trophy	moose head/sculpture/hunting trophy	misc	sculpture	monitor					
+1245	mop	mop	objects	towel	"washer, automatic washer, washing machine"					
+1246	mortar	mortar	misc	arcade machine	arcade machine					
+1247	motion detector	motion detector	misc	computer	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+1248	motion sensor	motion detector	misc	computer	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+1249	motorcycle	motorcycle	objects	"minibike, motorbike"	"minibike, motorbike"					
+1250	mouse	mouse	objects	computer	computer					
+1251	mousepad	mousepad	objects	"ottoman, pouf, pouffe, puff, hassock"	"ottoman, pouf, pouffe, puff, hassock"					
+1252	mug	mug	objects	bottle	bottle					
+1253	multi-gym	gym equipment	gym_equipment	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+1254	music album shelf	music album shelf	shelving	shelf	shelf					
+1255	music player	music player	objects	computer	fan					
+1256	music stand	music equipment stand	objects	"base, pedestal, stand"	"base, pedestal, stand"					
+1257	musical equipment	music equipment	objects	computer	computer					
+1258	napkin	napkin	objects	"blanket, cover"	tray					
+1259	napkins	napkins	objects	"blanket, cover"	tray					
+1260	newspaper	newspaper	misc	"poster, posting, placard, notice, bill, card"	"column, pillar"					
+1261	newspaper basket	newspaper basket	objects	"basket, handbasket"	"basket, handbasket"					
+1262	niche	niche	wall	wall	"case, display case, showcase, vitrine"					
+1263	nighstand	nightstand	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+1264	night lamp	night lamp	lighting	lamp	lamp					
+1265	night stand	nightstand	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+1266	night table	nightstand	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+1267	nightsand	nightstand	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+1268	nightstand	nightstand	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+1269	nigtstand	nightstand	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+1270	note	note	objects	"poster, posting, placard, notice, bill, card"	"poster, posting, placard, notice, bill, card"					
+1271	notebook	notebook	objects	book	computer					
+1272	notebooks	notebooks	objects	book	computer					
+1273	notes	notes	objects	book	book					
+1274	noticeboard	note board	objects	bulletin board	bulletin board					
+1275	oar	oar	objects	boat	boat					
+1276	object	object	objects	sculpture	sky					
+1277	objects	objects	objects	sculpture	sculpture					
+1278	office chair	office chair	chair	chair	chair					
+1279	office wall	office wall	wall	wall	wall					
+1280	office drawer	drawers	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+1281	office phone	phone	objects	computer	computer					
+1282	office stuff	stationery	objects	clothes	clothes					
+1283	office table	office table	table	table	table					
+1284	office utensils	utensil	objects	tray	tray					
+1285	oil lamp	oil lamp	lighting	lamp	lamp					
+1286	organizer drawers	drawers	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+1287	ornament	ornament	objects	vase	vase					
+1288	ornament flower	flower	plant	plant	flower					
+1289	ornament plant	plant	plant	plant	plant					
+1290	ornamental plant	plant	plant	plant	plant					
+1291	ornamental plate	plate	objects	plate	plate					
+1292	ornaments	ornament	objects	vase	vase					
+1293	ottoman	ottoman	stool	"ottoman, pouf, pouffe, puff, hassock"	"ottoman, pouf, pouffe, puff, hassock"					
+1294	outflow	unknown	unlabeled	unlabeled	unlabeled					
+1295	outlet	outlet	objects	"road, route"	"road, route"					
+1296	outside	unknown	unlabeled	unlabeled	unlabeled					
+1297	oven	oven	appliances	oven	oven					
+1298	oven and stove	oven and stove	misc	oven	oven					
+1299	oven hood	range hood	objects	"hood, exhaust hood"	"hood, exhaust hood"					
+1300	oven vent	oven vent	misc	"hood, exhaust hood"	oven					
+1301	overhang	overhang	misc	ceiling	ceiling					
+1302	overlay	unknown	unlabeled	unlabeled	unlabeled					
+1303	package	package	objects	"poster, posting, placard, notice, bill, card"	"poster, posting, placard, notice, bill, card"					
+1304	pad	pad	misc	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+1305	painiting	painting	objects	"painting, picture"	"painting, picture"					
+1306	paint	unknown	unlabeled	unlabeled	unlabeled					
+1307	painting	painting	objects	"painting, picture"	"painting, picture"					
+1308	painting  frame	painting frame	misc	"painting, picture"	"painting, picture"					
+1309	painting /otherroom	painting /otherroom	objects	"painting, picture"	"painting, picture"					
+1310	painting frame	painting frame	misc	"painting, picture"	"painting, picture"					
+1311	painting roll	painting roll	objects	"painting, picture"	"painting, picture"					
+1312	painting rolls	painting rolls	objects	"painting, picture"	"painting, picture"					
+1313	painting stuff	painting stuff	objects	"painting, picture"	"painting, picture"					
+1314	painting tray	painting tray	objects	tray	tray					
+1315	paintng	painting	objects	"painting, picture"	"painting, picture"					
+1316	paintning	painting	objects	"painting, picture"	"painting, picture"					
+1317	pair of shoes	shoes	objects	clothes	clothes					
+1318	paiting	painting	objects	"painting, picture"	"painting, picture"					
+1319	pan	pan	objects	oven	oven					
+1320	panel	panel	board_panel	cabinet	cabinet					
+1321	panel screen	panel screen	misc	"screen door, screen"	"screen door, screen"					
+1322	panel wall	wall panel	wall	wall	wall					
+1323	paneling	paneling	wall	wall	"bannister, banister, balustrade, balusters, handrail"					
+1324	pantry	pantry	misc	"refrigerator, icebox"	"refrigerator, icebox"					
+1325	paper	paper	objects	book	book					
+1326	paper holder	paper holder	objects	bookcase	towel					
+1327	paper shelf	shelf	shelving	shelf	shelf					
+1328	paper storage	paper storage	misc	"tank, storage tank"	"tank, storage tank"					
+1329	paper towel	paper towel	towel	towel	towel					
+1330	paper towel dispenser	paper towel dispenser	misc	towel	towel					
+1331	paper towel holder	paper towel holder	objects	towel	towel					
+1332	paper towels	paper towels	towel	towel	towel					
+1333	papers	papers	objects	book	book					
+1334	parapet	parapet	misc	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+1335	partial	partial	misc	"blanket, cover"	"blanket, cover"					
+1336	partition	partition	misc	wall	wall					
+1337	patio	patio	misc	fireplace	fireplace					
+1338	patio chair	patio chair	chair	chair	chair					
+1339	patio floor	patio floor	misc	floor	floor					
+1340	pavement	pavement	floor	floor	"sidewalk, pavement"					
+1341	paving	pavement	floor	floor	"sidewalk, pavement"					
+1342	payment terminal	payment terminal	objects	pier	pier					
+1343	pc mouse	mouse	objects	computer	computer					
+1344	pc tower	pc tower	misc	computer	tower					
+1345	pedestal	pedestal	misc	"base, pedestal, stand"	"base, pedestal, stand"					
+1346	peinting	painting	objects	"painting, picture"	"painting, picture"					
+1347	pen	pen	objects	desk	"palm, palm tree"					
+1348	pen cup	pen cup	objects	desk	bottle					
+1349	pencil	pencil	objects	desk	"palm, palm tree"					
+1350	pencil case	pencil case	objects	desk	"case, display case, showcase, vitrine"					
+1351	pencil holder	pencil holder	objects	desk	"chest of drawers, chest, bureau, dresser"					
+1352	pendant	pendant	objects	vase	vase					
+1353	pendrive	pen drive	objects	vase	"palm, palm tree"					
+1354	perfume	perfume	objects	vase	clothes					
+1355	pet bed	pet bed	objects	bed	bed					
+1356	pet bowl	pet bowl	objects	plate	animal					
+1357	phillar	pillar	column	"column, pillar"	"column, pillar"					
+1358	phone	phone	objects	computer	computer					
+1359	photo	photo	picture	"painting, picture"	"painting, picture"					
+1360	photo mount	photo mount	misc	"painting, picture"	"mountain, mount"					
+1361	photo mounts	photo mounts	misc	"painting, picture"	"painting, picture"					
+1362	photo stand	photo stand	objects	"base, pedestal, stand"	"base, pedestal, stand"					
+1363	photography	photo	picture	"painting, picture"	"painting, picture"					
+1364	photos	photos	picture	"painting, picture"	"painting, picture"					
+1365	piano	piano	objects	"plaything, toy"	"bannister, banister, balustrade, balusters, handrail"					
+1366	piano bench	piano bench	seating	bench	bench					
+1367	piano lower part	piano	objects	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+1368	piano stool	piano stool	stool	stool	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1369	pictrure	picture	picture	"painting, picture"	"painting, picture"					
+1370	picture	picture	picture	"painting, picture"	"painting, picture"					
+1371	picture  frame	picture frame	picture	"painting, picture"	"painting, picture"					
+1372	picture frame	picture frame	picture	"painting, picture"	"painting, picture"					
+1373	pictured frame	picture frame	picture	"painting, picture"	"painting, picture"					
+1374	pictures	pictures	picture	"painting, picture"	"painting, picture"					
+1375	picure	picture	picture	"painting, picture"	"painting, picture"					
+1376	piillow	pillow	cushion	cushion	pillow					
+1377	pile of boxes	boxes	objects	box	box					
+1378	pile of cups	cups	objects	bottle	bottle					
+1379	pile of clothes	clothes	clothes	clothes	clothes					
+1380	pile of magazines	pile of magazines	misc	book	clothes					
+1381	pile of papers	papers	objects	book	book					
+1382	pile of stuff	unknown	unlabeled	unlabeled	unlabeled					
+1383	pillar	pillar	column	"column, pillar"	"column, pillar"					
+1384	pilllow	pillow	cushion	cushion	pillow					
+1385	pillow	pillow	cushion	cushion	pillow					
+1386	pillow seat	pillow seat	seating	seat	pillow					
+1387	pillows	pillow	cushion	cushion	pillow					
+1388	ping pong table	ping pong table	table	"pool table, billiard table, snooker table"	"pool table, billiard table, snooker table"					
+1389	pipe	pipe	misc	radiator	radiator					
+1390	pipe part	pipe	misc	radiator	radiator					
+1391	pipes	pipe	misc	radiator	radiator					
+1392	piping	pipe	misc	radiator	radiator					
+1393	pitcher	pitcher	objects	vase	ball					
+1394	pitchfork	pitchfork	objects	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+1395	place mat	place mat	objects	rug	floor					
+1396	plane	plane	misc	plane	plane					
+1397	plank	plank	misc	"column, pillar"	"column, pillar"					
+1398	planner	planner	misc	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+1399	plant	plant	plant	plant	plant					
+1400	plant ornament	plant ornament	misc	plant	plant					
+1401	planter	pot	objects	pot	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1402	plants	plant	plant	plant	plant					
+1403	plasma tv	tv	tv_monitor	tv	tv					
+1404	plastic bag	plastic bag	objects	bag	bag					
+1405	plate	plate	objects	plate	plate					
+1406	plate of food	plate of food	misc	plate	plate					
+1407	plates	plates	objects	plate	plate					
+1408	platform	platform	misc	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+1409	platter	platter	misc	tray	tray					
+1410	player	music player	objects	fan	fan					
+1411	playpen	playpen	misc	tub	tub					
+1412	plenum box	plenum box	misc	box	box					
+1413	pliers	pliers	objects	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+1414	plstes	plates	objects	plate	plate					
+1415	plug	plug	misc	sink	sink					
+1416	plunger	plunger	objects	tub	tub					
+1417	plush toy	plush toy	objects	"plaything, toy"	"plaything, toy"					
+1418	podest	podium	objects	stage	stage					
+1419	podium	podium	objects	stage	stage					
+1420	pole	pole	objects	pole	pole					
+1421	poles	poles	objects	pole	pole					
+1422	pomp	pump	objects	water	water					
+1423	pool	pool	misc	pool	pool					
+1424	pool stick	pool stick	objects	pool	pool					
+1425	pool table	pool table	table	"pool table, billiard table, snooker table"	"pool table, billiard table, snooker table"					
+1426	porcelain	porcelain	objects	vase	vase					
+1427	portrait	portrait	picture	"painting, picture"	"painting, picture"					
+1428	post	post	column	"poster, posting, placard, notice, bill, card"	"poster, posting, placard, notice, bill, card"					
+1429	poster	poster	picture	"poster, posting, placard, notice, bill, card"	"poster, posting, placard, notice, bill, card"					
+1430	poster figure	poster	picture	"poster, posting, placard, notice, bill, card"	"poster, posting, placard, notice, bill, card"					
+1431	pot	pot	objects	pot	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1432	pot lid	pot lid	objects	pot	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1433	poto mount	photo mount	misc	"painting, picture"	"mountain, mount"					
+1434	pots	pot	objects	pot	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1435	potty	potty	objects	"toilet, can, commode, crapper, pot, potty, stool, throne"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1436	pouches	pouches	objects	bag	bag					
+1437	poufe	pouffe	seating	"ottoman, pouf, pouffe, puff, hassock"	"ottoman, pouf, pouffe, puff, hassock"					
+1438	pouffe	pouffe	seating	"ottoman, pouf, pouffe, puff, hassock"	"ottoman, pouf, pouffe, puff, hassock"					
+1439	powder soap	powder soap	objects	box	tub					
+1440	power breaker box	power breaker box	misc	box	box					
+1441	power cord	power cord	objects	lamp	lamp					
+1442	power outlet	outlet	objects	"road, route"	"road, route"					
+1443	power strip	power strip	objects	lamp	street lamp					
+1444	prduct box	product box	objects	box	box					
+1445	press	press	objects	"wardrobe, closet, press"	"wardrobe, closet, press"					
+1446	pressure washer	pressure washer	objects	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+1447	price tag	price tag	objects	trade name	trade name					
+1448	printer	printer	objects	computer	computer					
+1449	product	product	objects	countertop	countertop					
+1450	product box	product box	objects	box	box					
+1451	product boxes	product boxes	objects	box	box					
+1452	products	products	objects	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+1453	projector	projector	objects	computer	crt screen					
+1454	projector screen	projector screen	misc	"screen door, screen"	"screen door, screen"					
+1455	prop	prop	misc	"base, pedestal, stand"	"base, pedestal, stand"					
+1456	psinting	painting	objects	"painting, picture"	"painting, picture"					
+1457	public tap	drinking fountain	misc	fountain	fountain					
+1458	pump	pump	objects	fountain	water					
+1459	punchbag	punchbag	objects	"plaything, toy"	"plaything, toy"					
+1460	puncher	hole puncher	objects	ball	ball					
+1461	puppet	puppet	objects	"plaything, toy"	"plaything, toy"					
+1462	puppet cat	puppet	objects	"plaything, toy"	"plaything, toy"					
+1463	purse	purse	objects	bag	bag					
+1464	purses	purse	objects	bag	bag					
+1465	rack	rack	shelving	shelf	shelf					
+1466	rack of weights	rack of weights	misc	shelf	shelf					
+1467	rack with shoes	rack with shoes	shelving	clothes	clothes					
+1468	radfiator	radiator	objects	radiator	radiator					
+1469	radiator	radiator	objects	radiator	radiator					
+1470	radio	radio	misc	computer	tv					
+1471	rafter	rafter	beam	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+1472	rag	rag	objects	towel	towel					
+1473	ragdoll	ragdoll	objects	arcade machine	arcade machine					
+1474	ragdoll cat	ragdoll cat	objects	animal	animal					
+1475	rail	rail	railing	"bannister, banister, balustrade, balusters, handrail"	rail					
+1476	railing	railing	railing	"bannister, banister, balustrade, balusters, handrail"	wall					
+1477	rain shower	showerhead	shower	shower	"washer, automatic washer, washing machine"					
+1478	rake	rake	objects	wall	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1479	range hood	range hood	objects	"hood, exhaust hood"	"hood, exhaust hood"					
+1480	receipt printer	receipt printer	objects	computer	computer					
+1481	receipt spike	receipt spike	objects	"poster, posting, placard, notice, bill, card"	"poster, posting, placard, notice, bill, card"					
+1482	recessed cubby	recessed cubby	misc	sconce	sconce					
+1483	recessed shelving	recessed shelving	shelving	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+1484	recessed wall	recessed wall	misc	wall	wall					
+1485	recliner	recliner	chair	chair	sofa					
+1486	record player	record player	objects	computer	fan					
+1487	records	records	objects	computer	dirt track					
+1488	recuperator	recuperator	objects	computer	dirt track					
+1489	recycle bin	recycle bin	misc	trash can	trash can					
+1490	refridgerator	refrigerator	appliances	"refrigerator, icebox"	"refrigerator, icebox"					
+1491	refrigearator	refrigerator	appliances	"refrigerator, icebox"	"refrigerator, icebox"					
+1492	refrigerator	refrigerator	appliances	"refrigerator, icebox"	"refrigerator, icebox"					
+1493	refrigerator cabinet	refrigerator cabinet	cabinet	"refrigerator, icebox"	"refrigerator, icebox"					
+1494	relief	relief	wall	wall	cushion					
+1495	remote	remote control	objects	computer	monitor					
+1496	remote control	remote control	objects	computer	monitor					
+1497	remote controller	remote control	objects	computer	monitor					
+1498	rice cooker	rice cooker	objects	stove	stove					
+1499	riser	riser	misc	radiator	radiator					
+1500	robe	robe	clothes	clothes	clothes					
+1501	rock	rock	objects	"rock, stone"	"rock, stone"					
+1502	rocking chair	rocking chair	chair	chair	chair					
+1503	rocking horse	rocking horse	objects	dirt track	dirt track					
+1504	rocks	rock	objects	"rock, stone"	"rock, stone"					
+1505	rod	rod	objects	pole	pole					
+1506	rods	rods	objects	radiator	radiator					
+1507	roll	roll	objects	sink	sink					
+1508	rolled carpet	rolled carpet	objects	rug	rug					
+1509	roller blind	blinds	blinds	"blind, screen"	fireplace					
+1510	rolling pin	rolling pin	objects	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+1511	rolls of toilet paper	toilet paper	objects	bar	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1512	roof	roof	ceiling	ceiling	"awning, sunshade, sunblind"					
+1513	roomba	roomba	misc	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+1514	rope	rope	objects	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+1515	round chair	round chair	chair	chair	chair					
+1516	round cushion	round cushion	misc	cushion	cushion					
+1517	router	router	objects	computer	computer					
+1518	row of theater chairs	row of theater chairs	misc	computer	computer					
+1519	rug	rug	floor	rug	rug					
+1520	ruler	ruler	objects	table	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1521	safe	safe	objects	"food, solid food"	"food, solid food"					
+1522	salt and pepper	salt and pepper	objects	"food, solid food"	"food, solid food"					
+1523	salt and pepper grinder	salt and pepper grinder	objects	"food, solid food"	"food, solid food"					
+1524	salt pepper	salt and pepper	objects	"food, solid food"	"food, solid food"					
+1525	salver	salver	objects	"ottoman, pouf, pouffe, puff, hassock"	"ottoman, pouf, pouffe, puff, hassock"					
+1526	sandals	sandals	objects	clothes	clothes					
+1527	saturator	saturator	appliances	clothes	clothes					
+1528	sauna	sauna	appliances	shower	shower					
+1529	sauna bowl	sauna bowl	objects	tub	tub					
+1530	sauna ceiling	ceiling	ceiling	ceiling	ceiling					
+1531	sauna floor	floor	floor	floor	floor					
+1532	sauna heat rocks	sauna heat rocks	misc	shower	shower					
+1533	sauna heater	sauna heater	misc	stove	stove					
+1534	sauna oven	sauna oven	appliances	oven	oven					
+1535	sauna seat	sauna seat	seating	seat	seat					
+1536	sauna support	sauna support	misc	shower	shower					
+1537	sauna wall	wall	wall	wall	wall					
+1538	saw	saw	objects	window	window					
+1539	saxophone	saxophone	objects	"rock, stone"	"rock, stone"					
+1540	scale	scale	objects	stage	stage					
+1541	scales	scale	objects	stage	stage					
+1542	scanner	scanner	objects	computer	crt screen					
+1543	scarf	scarf	clothes	clothes	clothes					
+1544	schedule	schedule	misc	"poster, posting, placard, notice, bill, card"	"road, route"					
+1545	schoe	shoe	objects	clothes	clothes					
+1546	sconce	sconce	lighting	sconce	sconce					
+1547	scoop	scoop	objects	bag	bag					
+1548	screen	screen	curtain	"screen door, screen"	"screen door, screen"					
+1549	screen frame	screen frame	misc	"screen door, screen"	"screen door, screen"					
+1550	screw box	screw box	objects	box	box					
+1551	screwdriver	screwdriver	objects	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+1552	sculpture	sculpture	objects	sculpture	sculpture					
+1553	seat	seat	seating	seat	seat					
+1554	secretary	secretary	misc	person	chair					
+1555	security camera	security camera	objects	computer	"awning, sunshade, sunblind"					
+1556	self-closing mechanism	self-closing mechanism	misc	computer	"awning, sunshade, sunblind"					
+1557	sensor	sensor	objects	computer	"washer, automatic washer, washing machine"					
+1558	separator	separator	objects	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+1559	set of armchairs	set of armchairs	misc	armchair	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+1560	set of boxes	set of boxes	misc	box	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+1561	set of cosmetics	set of cosmetics	objects	box	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+1562	set of hangers	set of hangers	objects	bar	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+1563	set of knives	set of knives	misc	table	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+1564	set of pictures	set of pictures	picture	"painting, picture"	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+1565	set of towels	set of towels	towel	towel	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+1566	set of valves	set of valves	appliances	"washer, automatic washer, washing machine"	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+1567	sewing box	sewing box	appliances	box	box					
+1568	sewing machine	sewing machine	appliances	computer	"washer, automatic washer, washing machine"					
+1569	sewing set	sewing set	appliances	box	flower					
+1570	sewing tools	sewing tools	appliances	computer	"washer, automatic washer, washing machine"					
+1571	shade	shade	objects	canopy	canopy					
+1572	shade rail	shade rail	misc	rail	rail					
+1573	shades	shades	blinds	sconce	sconce					
+1574	shalf	shelf	shelving	shelf	shelf					
+1575	shampoo	shampoo	objects	sink	clothes					
+1576	shedule	schedule	misc	"poster, posting, placard, notice, bill, card"	"road, route"					
+1577	sheet	sheet	misc	book	pillow					
+1578	sheet music	sheet music	objects	"poster, posting, placard, notice, bill, card"	"rock, stone"					
+1579	sheet music stand	sheet music stand	objects	"base, pedestal, stand"	"base, pedestal, stand"					
+1580	sheets	sheets	misc	book	pillow					
+1581	sheets/ clothes	sheets / clothes	clothes	clothes	pillow					
+1582	shelf	shelf	shelving	shelf	shelf					
+1583	shelf /w art	shelf with art	shelving	shelf	shelf					
+1584	shelf /w clutter	shelf with clutter	shelving	shelf	shelf					
+1585	shelf clutter	shelf clutter	shelving	shelf	shelf					
+1586	shelf cubby	shelf cubby	misc	shelf	shelf					
+1587	shelf with cosmetics	shelf with cosmetics	shelving	shelf	shelf					
+1588	shelf with shoes	shelf with shoes	shelving	shelf	shelf					
+1589	shelf/cabinet	shelf / cabinet	misc	shelf	shelf					
+1590	shelve	shelf	shelving	shelf	shelf					
+1591	shelves	shelving	shelving	shelf	bookcase					
+1592	shelving	shelving	shelving	shelf	bookcase					
+1593	ship model	ship model	objects	ship	ship					
+1594	ship toy	ship toy	objects	"plaything, toy"	"plaything, toy"					
+1595	shirt	shirt	clothes	clothes	clothes					
+1596	shisha	shisha	appliances	bottle	"glass, drinking glass"					
+1597	shlef	shelf	shelving	shelf	shelf					
+1598	shoe	shoe	objects	clothes	clothes					
+1599	shoe cabinet	shoe cabinet	cabinet	cabinet	cabinet					
+1600	shoe case	shoe case	cabinet	"case, display case, showcase, vitrine"	"case, display case, showcase, vitrine"					
+1601	shoe rack	shoe rack	shelving	"case, display case, showcase, vitrine"	"wardrobe, closet, press"					
+1602	shoe shelf	shoe shelf	shelving	shelf	shelf					
+1603	shoehorn	shoehorn	objects	"blanket, cover"	"blanket, cover"					
+1604	shoes	shoes	objects	clothes	clothes					
+1605	shoes on shelf	shoes on shelf	shelving	shelf	shelf					
+1606	shoes rack	shoes rack	shelving	clothes	clothes					
+1607	shop shelf	shop shelf	shelving	shelf	shelf					
+1608	shoulder bag	shoulder bag	objects	bag	bag					
+1609	shovel	shovel	misc	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+1610	shower	shower	shower	shower	shower					
+1611	shower  floor	shower floor	shower	shower	shower					
+1612	shower  knob	shower knob	misc	shower	shower					
+1613	shower  wall	shower wall	shower	shower	shower					
+1614	shower bar	shower bar	misc	shower	shower					
+1615	shower base	shower base	shower	shower	shower					
+1616	shower battery	shower battery	misc	shower	shower					
+1617	shower bench	shower bench	seating	seat	bench					
+1618	shower cabin	shower cabin	misc	shower	shower					
+1619	shower cabinet	shower cabinet	cabinet	cabinet	cabinet					
+1620	shower caddy	shower caddy	misc	shower	shower					
+1621	shower case	shower case	misc	shower	shower					
+1622	shower ceiling	shower ceiling	shower	shower	ceiling					
+1623	shower ceiling lamp	shower ceiling lamp	lighting	lamp	lamp					
+1624	shower cockpit	shower cockpit	shower	shower	shower					
+1625	shower cosmetics	shower cosmetics	objects	shower	shower					
+1626	shower curtain	shower curtain	curtain	curtain	curtain					
+1627	shower curtain bar	shower curtain bar	misc	bar	curtain					
+1628	shower curtain rod	shower curtain rod	curtain	curtain	curtain					
+1629	shower dial	shower dial	misc	shower	shower					
+1630	shower door	shower door	shower	shower	shower					
+1631	shower door frame	shower door frame	shower	shower	door					
+1632	shower door knob	shower door knob	misc	door	door					
+1633	shower floor	shower floor	shower	shower	shower					
+1634	shower frame	shower frame	shower	shower	shower					
+1635	shower glass	shower glass	misc	"glass, drinking glass"	"glass, drinking glass"					
+1636	shower grab bar	shower grab bar	misc	bar	shower					
+1637	shower handle	shower handle	misc	shower	shower					
+1638	shower handrail	shower handrail	railing	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+1639	shower hanger	shower hanger	misc	"bannister, banister, balustrade, balusters, handrail"	shower					
+1640	shower head	showerhead	shower	shower	"washer, automatic washer, washing machine"					
+1641	shower hose	shower hose	misc	shower	shower					
+1642	shower hose/head	shower hose/head	misc	shower	shower					
+1643	shower knob	shower knob	misc	shower	shower					
+1644	shower mat	shower mat	floor	rug	shower					
+1645	shower mirror	shower mirror	mirror	mirror	shower					
+1646	shower pipe	shower pipe	misc	shower	shower					
+1647	shower rail	shower rail	misc	rail	rail					
+1648	shower rod	shower rod	curtain	curtain	shower					
+1649	shower seat	shower seat	misc	seat	seat					
+1650	shower shelf	shower shelf	shelving	shelf	shelf					
+1651	shower soap shelf	shower soap shelf	misc	shower	shower					
+1652	shower stall	shower stall	misc	shower	shower					
+1653	shower step	shower step	shower	shower	shower					
+1654	shower tap	shower tap	misc	shower	shower					
+1655	shower tray	shower tray	shower	shower	tray					
+1656	shower tub	shower tub	bathtub	tub	tub					
+1657	shower utensill	shower utensil	objects	shower	shower					
+1658	shower valve	shower valve	misc	shower	shower					
+1659	shower wall	shower wall	shower	shower	shower					
+1660	shower wall cubby	shower wall cubby	shower	shower	shower					
+1661	shower window frame	shower window frame	window	window	window					
+1662	shower-bath cabinet	shower-bath cabinet	cabinet	cabinet	window					
+1663	showerhead	showerhead	shower	shower	"washer, automatic washer, washing machine"					
+1664	shredder	shredder	appliances	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+1665	shutter	shutter	blinds	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+1666	shutters	shutters	blinds	"awning, sunshade, sunblind"	window					
+1667	side table	side table	table	table	table					
+1668	sideboard	sideboard	misc	"buffet, counter, sideboard"	"buffet, counter, sideboard"					
+1669	sign	sign	misc	"signboard, sign"	"signboard, sign"					
+1670	silicone gun	silicone gun	objects	"plaything, toy"	pillow					
+1671	silicone tube	silicone tube	objects	"plaything, toy"	tub					
+1672	sink	sink	sink	sink	sink					
+1673	sink cabinet	sink cabinet	cabinet	cabinet	cabinet					
+1674	sink pipe	sink pipe	misc	sink	sink					
+1675	sink table	sink table	table	table	sink					
+1676	sink tap	sink tap	misc	sink	sink					
+1677	sink/basin	sink/basin	misc	sink	sink					
+1678	sitting bench	sitting bench	seating	bench	bench					
+1679	skateboard	skateboard	objects	bicycle	bicycle					
+1680	skates	skates	objects	bicycle	bicycle					
+1681	ski	ski	objects	"plaything, toy"	"mountain, mount"					
+1682	skirting board	skirting board	wall	bulletin board	bulletin board					
+1683	sky	sky	misc	sky	sky					
+1684	skylight	skylight	window	sky	"stairway, staircase"					
+1685	slab	slab	objects	stove	"rock, stone"					
+1686	sled	sled	objects	"plaything, toy"	"minibike, motorbike"					
+1687	sledge	sledge	objects	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+1688	sleeping bag	sleeping bag	objects	bag	bag					
+1689	sliding door	sliding door	door	door	door					
+1690	sliding glass door	sliding glass door	misc	"screen door, screen"	"glass, drinking glass"					
+1691	slippers	slippers	objects	clothes	pillow					
+1692	small table	table	table	table	table					
+1693	small table/stand	small table/stand	misc	table	table					
+1694	smoke alarm	smoke alarm	objects	computer	"ottoman, pouf, pouffe, puff, hassock"					
+1695	smoke detector	smoke detector	misc	computer	"ottoman, pouf, pouffe, puff, hassock"					
+1696	snack	snack	objects	"food, solid food"	"food, solid food"					
+1697	soap	soap	objects	sink	"washer, automatic washer, washing machine"					
+1698	soap bottle	soap bottle	objects	bottle	bottle					
+1699	soap dish	soap dish	objects	bottle	tub					
+1700	soap dish cubby	soap dish cubby	misc	bottle	tub					
+1701	soap dispenser	soap dispenser	objects	bottle	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1702	soap dispenser shelf in shower	soap dispenser shelf in shower	misc	bottle	shower					
+1703	soap tray	soap tray	objects	tray	tray					
+1704	soapbox	soapbox	misc	box	"base, pedestal, stand"					
+1705	socket	socket	objects	radiator	radiator					
+1706	socks	socks	clothes	clothes	clothes					
+1707	sofa	sofa	sofa	sofa	sofa					
+1708	sofa chair	sofa chair	chair	chair	sofa					
+1709	sofa seat	sofa seat	misc	sofa	sofa					
+1710	sofa set	sofa set	sofa	sofa	sofa					
+1711	soft chair	soft chair	chair	chair	chair					
+1712	solarium	solarium	misc	fireplace	fireplace					
+1713	solarium door	solarium door	door	door	door					
+1714	sombrero	sombrero	objects	clothes	"ottoman, pouf, pouffe, puff, hassock"					
+1715	sopp bottle	soap bottle	objects	bottle	bottle					
+1716	sound bar	soundbar	appliances	computer	crt screen					
+1717	soundbar	soundbar	appliances	computer	crt screen					
+1718	spa armchair	spa armchair	chair	armchair	armchair					
+1719	spa bathtub	spa bathtub	bathtub	tub	tub					
+1720	spa bench	spa bench	seating	bench	bench					
+1721	spatula	spatula	objects	oven	oven					
+1722	speaker	speaker	objects	computer	chair					
+1723	speaker stand	speaker stand	cabinet	"base, pedestal, stand"	"base, pedestal, stand"					
+1724	spice boxes	spice boxes	objects	box	box					
+1725	spice rack	spice rack	shelving	shelf	shelf					
+1726	spices	spices	objects	"food, solid food"	"food, solid food"					
+1727	spirit level	spirit level	objects	"earth, ground"	"earth, ground"					
+1728	sponge	sponge	objects	tub	tub					
+1729	spoon	spoon	objects	table	tray					
+1730	spray	spray	objects	bottle	"washer, automatic washer, washing machine"					
+1731	spray can	spray can	objects	bottle	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1732	sprinkler	sprinkler	objects	water	water					
+1733	square	square	objects	"land, ground, soil"	"land, ground, soil"					
+1734	stack	stack	misc	bookcase	bookcase					
+1735	stack of albums	stack of albums	objects	book	bookcase					
+1736	stack of bags	stack of bags	objects	bag	bookcase					
+1737	stack of binders	stack of binders	objects	book	bookcase					
+1738	stack of blankets	stack of blankets	objects	"blanket, cover"	bookcase					
+1739	stack of book	stack of books	objects	book	bookcase					
+1740	stack of books	stack of books	objects	book	bookcase					
+1741	stack of books/ papers	stack of books / papers	objects	book	bookcase					
+1742	stack of boxes	stack of boxes	objects	box	bookcase					
+1743	stack of cd's	stack of cds	objects	computer	bookcase					
+1744	stack of cds	stack of cds	objects	computer	bookcase					
+1745	stack of chairs	stack of chairs	chair	chair	bookcase					
+1746	stack of clothes	stack of clothes	clothes	clothes	bookcase					
+1747	stack of files	stack of files	objects	book	bookcase					
+1748	stack of jackets	stack of jackets	clothes	clothes	bookcase					
+1749	stack of magazines	stack of magazines	objects	book	bookcase					
+1750	stack of music stands	stack of music stands	misc	shelf	bookcase					
+1751	stack of paper	stack of papers	misc	book	bookcase					
+1752	stack of papers	stack of papers	misc	book	bookcase					
+1753	stack of pillows	stack of pillows	cushion	cushion	bookcase					
+1754	stack of plates	stack of plates	objects	plate	bookcase					
+1755	stack of pots	stack of pots	objects	vase	bookcase					
+1756	stack of product boxes	stack of product boxes	objects	box	bookcase					
+1757	stack of shoes	stack of shoes	objects	clothes	bookcase					
+1758	stack of stuff	stack of stuff	misc	box	bookcase					
+1759	stack of t shirts	stack of t-shirts	clothes	clothes	bookcase					
+1760	stack of towels	stack of towels	towel	towel	bookcase					
+1761	stack of trays	stack of trays	objects	tray	bookcase					
+1762	stack of yarns	stack of yarns	clothes	clothes	bookcase					
+1763	stacked chair	stacked chair	chair	chair	chair					
+1764	stacked chairs	stacked chair	chair	chair	chair					
+1765	stage	stage	misc	stage	stage					
+1766	stained glass	stained glass	window	window	"glass, drinking glass"					
+1767	stair	stair	stairs	stairs	"step, stair"					
+1768	stair frame	stair frame	misc	"step, stair"	"step, stair"					
+1769	stair handle	stair handle	railing	"step, stair"	"step, stair"					
+1770	stair railing	banister	railing	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+1771	stair step	stair step	misc	"step, stair"	"step, stair"					
+1772	stair wall	stair wall	misc	"step, stair"	"step, stair"					
+1773	staircaise handrail	staircase handrail	misc	"stairway, staircase"	"bannister, banister, balustrade, balusters, handrail"					
+1774	staircase	staircase	stairs	"stairway, staircase"	"stairway, staircase"					
+1775	staircase handrail	staircase handrail	misc	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+1776	staircase handrair	staircase handrail	misc	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+1777	staircase trim	staircase trim	misc	"stairway, staircase"	"stairway, staircase"					
+1778	staircase wall	staircase wall	wall	wall	"stairway, staircase"					
+1779	stairs	stairs	stairs	stairs	stairs					
+1780	stairs railing	stairs railing	misc	stairs	stairs					
+1781	stairs skirt	stairs skirt	misc	stairs	stairs					
+1782	stairs trim	stairs trim	stairs	stairs	stairs					
+1783	stairs wall	stairs wall	wall	wall	stairs					
+1784	stairwell	stairwell	stairs	stairs	"stairway, staircase"					
+1785	stampler	stapler	objects	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+1786	stand	stand	table	table	"base, pedestal, stand"					
+1787	stand/small table	stand/small table	table	table	"base, pedestal, stand"					
+1788	stapler	stapler	objects	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+1789	star	star	objects	"plaything, toy"	fan					
+1790	stationary	stationery	objects	"plaything, toy"	clothes					
+1791	stationery	stationery	objects	"plaything, toy"	clothes					
+1792	statue	statue	objects	sculpture	sculpture					
+1793	statue/art	statue/art	misc	sculpture	sculpture					
+1794	steel plate	steel plate	objects	plate	plate					
+1795	step	step	stairs	stairs	"step, stair"					
+1796	step stool	step stool	stool	stool	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1797	stereo	stereo	appliances	computer	crt screen					
+1798	stereo set	stereo set	appliances	computer	crt screen					
+1799	stick	stick	misc	"grandstand, covered stand"	"grandstand, covered stand"					
+1800	sticker book	sticker book	objects	table	book					
+1801	sticky notes	sticky notes	objects	table	pillow					
+1802	stoll	stole	clothes	clothes	bag					
+1803	stone	stone	objects	"rock, stone"	"rock, stone"					
+1804	stone bench	stone bench	seating	bench	bench					
+1805	stone support structure	stone support structure	misc	"rock, stone"	"rock, stone"					
+1806	stones	stones	misc	"rock, stone"	"rock, stone"					
+1807	stonework	stonework	misc	sculpture	"bannister, banister, balustrade, balusters, handrail"					
+1808	stoo	stool	stool	stool	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1809	stool	stool	stool	stool	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1810	stools	stools	stool	stool	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1811	storage	storage	objects	"tank, storage tank"	"tank, storage tank"					
+1812	storage bin	storage bin	misc	"tank, storage tank"	"tank, storage tank"					
+1813	storage box	storage box	misc	box	box					
+1814	storage cabinet	storage cabinet	cabinet	cabinet	cabinet					
+1815	storage shelving	storage shelving	shelving	shelf	"tank, storage tank"					
+1816	storage space	storage space	misc	"tank, storage tank"	"tank, storage tank"					
+1817	storage unit	storage unit	furniture	"tank, storage tank"	"tank, storage tank"					
+1818	stove	stove	appliances	stove	stove					
+1819	stove and oven	oven	appliances	oven	oven					
+1820	stove door	door	door	door	door					
+1821	stove utensil	utensil	objects	tray	tray					
+1822	stove utensils	utensil	objects	tray	tray					
+1823	stovetop	stovetop	misc	stove	stove					
+1824	strands	strings	misc	clothes	rug					
+1825	stricker book	book	objects	book	book					
+1826	strings	strings	misc	rug	rug					
+1827	stripes	decoration	objects	sconce	sconce					
+1828	stroke	stroke	misc	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+1829	strongbox	strongbox	objects	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+1830	stuffed animal	stuffed animal	objects	"plaything, toy"	animal					
+1831	stuffed duck	stuffed animal	objects	"plaything, toy"	animal					
+1832	subwoofer	subwoofer	objects	computer	"awning, sunshade, sunblind"					
+1833	suitcase	luggage	objects	bag	bag					
+1834	sunbed	sunbed	furniture	"pool table, billiard table, snooker table"	"pool table, billiard table, snooker table"					
+1835	support	support	misc	"base, pedestal, stand"	"base, pedestal, stand"					
+1836	support beam	support beam	beam	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+1837	support stand	stand	table	"base, pedestal, stand"	"base, pedestal, stand"					
+1838	supporting beam	support beam	beam	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+1839	supporting structure	support	misc	"base, pedestal, stand"	"base, pedestal, stand"					
+1840	surface	surface	counter	counter	dirt track					
+1841	surfboard	surfboard	objects	boat	boat					
+1842	sweets bowl	bowl	objects	vase	vase					
+1843	swing	swing	objects	ball	ball					
+1844	switch	switch	objects	computer	crt screen					
+1845	switches	switch	objects	computer	crt screen					
+1846	swivel chair	swivel chair	chair	swivel chair	swivel chair					
+1847	t shirt	t-shirt	clothes	clothes	swivel chair					
+1848	table	table	table	table	table					
+1849	table /w books	table	table	table	table					
+1850	table chair	chair	chair	chair	chair					
+1851	table cloth	table cloth	table	table	table					
+1852	table clutter	clutter	misc	trash can	trash can					
+1853	table lamp	table lamp	lighting	lamp	lamp					
+1854	table on wheels	table	table	table	table					
+1855	table pad	table pad	table	table	table					
+1856	table plant	plant	plant	plant	plant					
+1857	table shelf	shelf	shelving	shelf	shelf					
+1858	table stand	table stand	misc	table	table					
+1859	table tennis table	table tennis table	table	table	table					
+1860	table top	table	table	table	table					
+1861	table tray	tray	objects	tray	tray					
+1862	table vase	vase	objects	vase	vase					
+1863	table border	unknown	unlabeled	unlabeled	unlabeled					
+1864	tablecloth	table cloth	table	table	table					
+1865	tablet	tablet	table	table	crt screen					
+1866	tabletop	table	table	table	table					
+1867	tabletop box	box	objects	box	box					
+1868	tabletop games	game	objects	"plaything, toy"	ball					
+1869	tabletop trinket	trinket	objects	"plaything, toy"	"plaything, toy"					
+1870	tableware	flatware	objects	table	"buffet, counter, sideboard"					
+1871	tailet	toilet	toilet	"toilet, can, commode, crapper, pot, potty, stool, throne"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1872	tambourine	tambourine	objects	"plaything, toy"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1873	tank	tank	misc	"tank, storage tank"	"tank, storage tank"					
+1874	tap	tap	objects	sink	sink					
+1875	tap dial	knob	misc	radiator	radiator					
+1876	tap/ water source	tap	objects	sink	sink					
+1877	tapestry	tapestry	objects	sink	"case, display case, showcase, vitrine"					
+1878	tea box	box	objects	box	box					
+1879	tea boxes	boxes	objects	box	box					
+1880	teapot	teapot	objects	vase	vase					
+1881	teaset	tea set	objects	box	coffee table					
+1882	teddy bear	stuffed animal	objects	animal	animal					
+1883	teepee	toilet paper	objects	box	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1884	telephone	telephone	objects	computer	computer					
+1885	telephpne	telephone	objects	computer	computer					
+1886	telescope	telescope	objects	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+1887	temperature control	thermostat	objects	"refrigerator, icebox"	"refrigerator, icebox"					
+1888	tennis racket	tennis racket	objects	"plaything, toy"	"pool table, billiard table, snooker table"					
+1889	tent	tent	objects	tent	tent					
+1890	terrace	terrace	misc	"stairway, staircase"	"stairway, staircase"					
+1891	terrace door	door	door	door	door					
+1892	therapeutic chair	chair	chair	chair	chair					
+1893	thermal mug	mug	objects	bottle	bottle					
+1894	thermometer	thermometer	objects	oven	oven					
+1895	thermostat	thermostat	objects	computer	"refrigerator, icebox"					
+1896	threadmill	treadmill	gym_equipment	"plaything, toy"	tub					
+1897	three	three	misc	tree	"bridge, span"					
+1898	throw blanket	throw blanket	misc	"blanket, cover"	"blanket, cover"					
+1899	tile	tile	objects	countertop	countertop					
+1900	tiled floor	floor	floor	floor	floor					
+1901	tiled wall	wall	wall	wall	wall					
+1902	tiles	tiles	misc	countertop	countertop					
+1903	tiling	tiles	misc	countertop	countertop					
+1904	tin	box	objects	box	box					
+1905	tire	tire	objects	radiator	radiator					
+1906	tisse box	tissue box	objects	box	box					
+1907	tissue	tissue	misc	towel	microwave					
+1908	tissue box	tissue box	objects	box	box					
+1909	tissues	tissue	misc	towel	microwave					
+1910	title	title	misc	trade name	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1911	toaster	toaster	appliances	oven	oven					
+1912	toaster oven	toaster oven	appliances	oven	oven					
+1913	toester	toaster	appliances	oven	oven					
+1914	toiled	toilet	toilet	"toilet, can, commode, crapper, pot, potty, stool, throne"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1915	toiled paper	toilet paper	objects	box	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1916	toilet	toilet	toilet	"toilet, can, commode, crapper, pot, potty, stool, throne"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1917	toilet bin	trash can	objects	trash can	trash can					
+1918	toilet bowl brush holder	toilet brush holder	misc	box	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1919	toilet brush	toilet brush	misc	box	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1920	toilet brush holder	toilet brush holder	misc	box	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1921	toilet cabinet	cabinet	cabinet	cabinet	cabinet					
+1922	toilet cleaner	toilet cleaner	misc	bottle	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1923	toilet counter	counter	counter	counter	counter					
+1924	toilet flush	handle	objects	door	"mountain, mount"					
+1925	toilet handle	handle	objects	door	"mountain, mount"					
+1926	toilet holder	toilet brush holder	misc	box	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1927	toilet paper	toilet paper	objects	box	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1928	toilet paper dispenser	toilet paper dispenser	misc	box	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1929	toilet paper holder	toilet paper dispenser	misc	box	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1930	toilet paper stand	toilet paper dispenser	misc	box	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1931	toilet plunger	plunger	objects	tub	tub					
+1932	toilet seat	toilet seat	toilet	"toilet, can, commode, crapper, pot, potty, stool, throne"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1933	toilet sink	sink	sink	sink	sink					
+1934	toilet sliding door	door	door	door	door					
+1935	toilet utensil	utensil	objects	tray	tray					
+1936	toilete	toilet	toilet	"toilet, can, commode, crapper, pot, potty, stool, throne"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1937	toilete brush	toilet brush	misc	"toilet, can, commode, crapper, pot, potty, stool, throne"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1938	toilete paper holder	toilet paper dispenser	misc	"toilet, can, commode, crapper, pot, potty, stool, throne"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1939	toiletry	toiletry	objects	"toilet, can, commode, crapper, pot, potty, stool, throne"	clothes					
+1940	toiletry bag	toiletry bag	objects	bag	bag					
+1941	toliet	toilet	toilet	"toilet, can, commode, crapper, pot, potty, stool, throne"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1942	tolilet	toilet	toilet	"toilet, can, commode, crapper, pot, potty, stool, throne"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1943	tool	tool	objects	"plaything, toy"	"plaything, toy"					
+1944	tool board	tool rack	wall	wall	"awning, sunshade, sunblind"					
+1945	tool box	tool box	objects	box	box					
+1946	tool rack	tool rack	wall	wall	"awning, sunshade, sunblind"					
+1947	toolbox	tool box	objects	box	box					
+1948	tools	tool	objects	"plaything, toy"	"plaything, toy"					
+1949	toothbrush	toothbrush	objects	sink	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1950	toothbrush cup	cup	objects	bottle	bottle					
+1951	toothbrush holder	cup	objects	bottle	bottle					
+1952	toothpaste	toothpaste	objects	sink	dishwasher					
+1953	torch	torch	objects	street lamp	street lamp					
+1954	toster	toaster	appliances	oven	oven					
+1955	towel	towel	towel	towel	towel					
+1956	towel bar	towel bar	objects	towel	towel					
+1957	towel bar shelf	shelf	shelving	shelf	shelf					
+1958	towel basket	basket	objects	"basket, handbasket"	"basket, handbasket"					
+1959	towel box	box	objects	box	box					
+1960	towel hang	towel bar	objects	bar	towel					
+1961	towel hanger	towel bar	objects	bar	towel					
+1962	towel holder	towel bar	objects	bar	towel					
+1963	towel paper dispenser	toilet paper dispenser	misc	box	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1964	towel paper holder	toilet paper dispenser	misc	box	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+1965	towel rack	towel bar	objects	bar	towel					
+1966	towel rail	towel bar	objects	bar	towel					
+1967	towel ring	towel ring	objects	bar	towel					
+1968	towel rod	towel bar	objects	bar	towel					
+1969	towel shelf	shelf	shelving	shelf	shelf					
+1970	towell	towel	towel	towel	towel					
+1971	towels	towel	towel	towel	towel					
+1972	towels in a basket	basket	objects	"basket, handbasket"	"basket, handbasket"					
+1973	toy	toy	objects	"plaything, toy"	"plaything, toy"					
+1974	toy /otherroom	toy	objects	"plaything, toy"	"plaything, toy"					
+1975	toy mickey mouse	toy	objects	"plaything, toy"	"plaything, toy"					
+1976	toy airplane	toy	objects	"plaything, toy"	"plaything, toy"					
+1977	toy car	toy	objects	"plaything, toy"	"plaything, toy"					
+1978	toy cars	toy	objects	"plaything, toy"	"plaything, toy"					
+1979	toy duck	toy	objects	"plaything, toy"	"plaything, toy"					
+1980	toy trailer	toy	objects	"plaything, toy"	"plaything, toy"					
+1981	toy train	toy	objects	"plaything, toy"	"plaything, toy"					
+1982	toys	toy	objects	"plaything, toy"	"plaything, toy"					
+1983	track	toy	objects	"plaything, toy"	"plaything, toy"					
+1984	traffic cone	traffic cone	objects	traffic light	traffic light					
+1985	training bench	weight bench	gym_equipment	bench	bench					
+1986	training mat	training mat	gym_equipment	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+1987	trampoline	trampoline	gym_equipment	fence	fence					
+1988	trascan	trash can	objects	trash can	trash can					
+1989	trash	trash can	objects	trash can	trash can					
+1990	trash  bin	trash can	objects	trash can	trash can					
+1991	trash bag	trash bag	misc	bag	bag					
+1992	trash bin	trash can	objects	trash can	trash can					
+1993	trash can	trash can	objects	trash can	trash can					
+1994	trashcan	trash can	objects	trash can	trash can					
+1995	tray	tray	objects	tray	tray					
+1996	treadmill	treadmill	gym_equipment	"stairway, staircase"	tub					
+1997	tree	tree	plant	tree	tree					
+1998	tree branch	tree branch	objects	tree	tree					
+1999	trimmer	trimmer	objects	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+2000	trinket	trinket	objects	"plaything, toy"	"plaything, toy"					
+2001	tripod	tripod	shelving	shelf	swivel chair					
+2002	trofeum	trophy	misc	"buffet, counter, sideboard"	"buffet, counter, sideboard"					
+2003	troley	trolley	objects	bus	bus					
+2004	trolley	trolley	objects	bus	bus					
+2005	trombone	trombone	objects	"plaything, toy"	"bannister, banister, balustrade, balusters, handrail"					
+2006	trophies	trophy	misc	"buffet, counter, sideboard"	"buffet, counter, sideboard"					
+2007	trophy	trophy	misc	"buffet, counter, sideboard"	"buffet, counter, sideboard"					
+2008	trough	trough	misc	"buffet, counter, sideboard"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+2009	trumpet	trumpet	objects	"plaything, toy"	"ottoman, pouf, pouffe, puff, hassock"					
+2010	trumpet stand	stand	table	"base, pedestal, stand"	"base, pedestal, stand"					
+2011	tub	bathtub	bathtub	tub	tub					
+2012	tube	tv	tv_monitor	tv	tv					
+2013	tv	tv	tv_monitor	tv	tv					
+2014	tv cabinet	tv stand	furniture	tv	tv					
+2015	tv decoder	tv remote	objects	computer	tv					
+2016	tv led	tv	tv_monitor	tv	tv					
+2017	tv remote	tv remote	objects	computer	tv					
+2018	tv remote control	tv remote	objects	computer	tv					
+2019	tv stand	tv stand	furniture	tv	tv					
+2020	tv stand door	door	door	door	door					
+2021	tv table	tv stand	furniture	tv	tv					
+2022	twigs in vase	plant	plant	plant	plant					
+2023	typewriter	typewriter	objects	desk	desk					
+2024	ubnknown/ probably clothes	clothes	clothes	clothes	clothes					
+2025	uknknown	unknown	unlabeled	unlabeled	unlabeled					
+2026	uknown	unknown	unlabeled	unlabeled	unlabeled					
+2027	uknown device	unknown	unlabeled	unlabeled	unlabeled					
+2028	ukulele	ukulele	objects	"plaything, toy"	kitchen island					
+2029	umbrella	umbrella	objects	clothes	"blanket, cover"					
+2030	umbrella stand	umbrella stand	furniture	"base, pedestal, stand"	"base, pedestal, stand"					
+2031	umbrellas	umbrella	objects	clothes	"blanket, cover"					
+2032	umknown	unknown	unlabeled	unlabeled	unlabeled					
+2033	unkknown	unknown	unlabeled	unlabeled	unlabeled					
+2034	unknaown	unknown	unlabeled	unlabeled	unlabeled					
+2035	unknnown	unknown	unlabeled	unlabeled	unlabeled					
+2036	unknon	unknown	unlabeled	unlabeled	unlabeled					
+2037	unknow	unknown	unlabeled	unlabeled	unlabeled					
+2038	unknowm	unknown	unlabeled	unlabeled	unlabeled					
+2039	unknown	unknown	unlabeled	unlabeled	unlabeled					
+2040	unknown /otherroom	unknown	unlabeled	unlabeled	unlabeled					
+2041	unknown /outside	unknown	unlabeled	unlabeled	unlabeled					
+2042	unknown /probably cup	cup	objects	bottle	bottle					
+2043	unknown cluter	clutter	misc	trash can	trash can					
+2044	unknown clutter	clutter	misc	trash can	trash can					
+2045	unknown countertop item	unknown	unlabeled	unlabeled	unlabeled					
+2046	unknown device	unknown	unlabeled	unlabeled	unlabeled					
+2047	unknown facility	unknown	unlabeled	unlabeled	unlabeled					
+2048	unknown kitchen appliance	kitchen appliance	appliances	dishwasher	dishwasher					
+2049	unknown kitchen stuff	unknown	unlabeled	unlabeled	unlabeled					
+2050	unknown machines	appliance	misc	dishwasher	dishwasher					
+2051	unknown office stuff	unknown	unlabeled	unlabeled	unlabeled					
+2052	unknown picture/window	picture	picture	"painting, picture"	"painting, picture"					
+2053	unknown stuff	unknown	unlabeled	unlabeled	unlabeled					
+2054	unknown wall	wall	wall	wall	wall					
+2055	unknown/	unknown	unlabeled	unlabeled	unlabeled					
+2056	unknown/ a pie?	food	misc	"food, solid food"	"food, solid food"					
+2057	unknown/ bin?	bin	objects	trash can	bag					
+2058	unknown/ pile of something	clutter	misc	trash can	trash can					
+2059	unknown/ proably cup	cup	objects	bottle	bottle					
+2060	unknown/ probably a book	book	objects	book	book					
+2061	unknown/ probably advertisement	magazine	objects	book	"column, pillar"					
+2062	unknown/ probably air refresher	air freshener	objects	fan	shower					
+2063	unknown/ probably air vent	vent	misc	"hood, exhaust hood"	"hood, exhaust hood"					
+2064	unknown/ probably air vent fan	fan	objects	fan	fan					
+2065	unknown/ probably albums	album	objects	book	"rock, stone"					
+2066	unknown/ probably attic entrance	door	door	door	door					
+2067	unknown/ probably bag	bag	objects	bag	bag					
+2068	unknown/ probably basket	basket	objects	"basket, handbasket"	"basket, handbasket"					
+2069	unknown/ probably bin	bin	objects	trash can	bag					
+2070	unknown/ probably board	board	board_panel	bulletin board	bulletin board					
+2071	unknown/ probably board games	game	objects	"plaything, toy"	ball					
+2072	unknown/ probably boiler	boiler	misc	stove	stove					
+2073	unknown/ probably book	book	objects	book	book					
+2074	unknown/ probably books	book	objects	book	book					
+2075	unknown/ probably books or albums	book	objects	book	book					
+2076	unknown/ probably bottle	bottle	objects	bottle	bottle					
+2077	unknown/ probably bowl	bowl	objects	vase	vase					
+2078	unknown/ probably box	box	objects	box	box					
+2079	unknown/probably cabinet	cabinet	cabinet	cabinet	cabinet					
+2080	unknown/ probably cabinet	cabinet	cabinet	cabinet	cabinet					
+2081	unknown/ probably calculator	calculator	appliances	computer	computer					
+2082	unknown/ probably candle	candle	objects	lamp	lamp					
+2083	unknown/ probably candle stand	candle	objects	lamp	lamp					
+2084	unknown/ probably candles	candle	objects	lamp	lamp					
+2085	unknown/ probably canopy	canopy	misc	canopy	canopy					
+2086	unknown/ probably casket	casket	misc	vase	vase					
+2087	unknown/ probably charger	charger	objects	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+2088	unknown/ probably clock	clock	objects	clock	clock					
+2089	unknown/ probably clothes	clothes	clothes	clothes	clothes					
+2090	unknown/ probably coffee machine	coffee machine	appliances	dishwasher	coffee table					
+2091	unknown/ probably computer	computer	objects	computer	computer					
+2092	unknown/ probably coocking books	book	objects	book	book					
+2093	unknown/ probably cookies	food	misc	"food, solid food"	"food, solid food"					
+2094	unknown/ probably cosmetic	cosmetics	objects	clothes	clothes					
+2095	unknown/ probably cosmetics	cosmetics	objects	clothes	clothes					
+2096	unknown/ probably cups	cups	objects	bottle	bottle					
+2097	unknown/ probably decoration	decoration	objects	sconce	sconce					
+2098	unknown/ probably decorative plant	decorative plant	plant	plant	plant					
+2099	unknown/ probably desk or box	box	objects	box	box					
+2100	unknown/ probably dinnerware	flatware	objects	"buffet, counter, sideboard"	"buffet, counter, sideboard"					
+2101	unknown/ probably dishwasher	dishwasher	appliances	dishwasher	dishwasher					
+2102	unknown/ probably drum	drum	objects	"plaything, toy"	"rock, stone"					
+2103	unknown/ probably drums	drum	objects	"plaything, toy"	"rock, stone"					
+2104	unknown/ probably fan vent	fan	objects	fan	fan					
+2105	unknown/ probably fire alarm	fire alarm	objects	fan	stove					
+2106	unknown/ probably fire detector	smoke detector	misc	fan	"ottoman, pouf, pouffe, puff, hassock"					
+2107	unknown/ probably fire sprinkler	sprinkler	objects	water	water					
+2108	unknown/ probably foam	foam	misc	radiator	radiator					
+2109	unknown/ probably folded table	table	table	table	table					
+2110	unknown/ probably frame	frame	misc	"bridge, span"	"bridge, span"					
+2111	unknown/ probably framed picture	picture	picture	"painting, picture"	"painting, picture"					
+2112	unknown/ probably fridge	refrigerator	appliances	"refrigerator, icebox"	"refrigerator, icebox"					
+2113	unknown/ probably glasses	glasses	objects	"glass, drinking glass"	"glass, drinking glass"					
+2114	unknown/ probably hand grab	unknown	unlabeled	unlabeled	unlabeled					
+2115	unknown/ probably hat	hat	clothes	clothes	towel					
+2116	unknown/ probably heater	heater	objects	stove	stove					
+2117	unknown/ probably home theater player	tv	tv_monitor	tv	tv					
+2118	unknown/ probably jar	jar	objects	bottle	bottle					
+2119	unknown/ probably lamp	lamp	lighting	lamp	lamp					
+2120	unknown/ probably letters	papers	objects	book	book					
+2121	unknown/ probably liquid soap	soap	objects	box	"washer, automatic washer, washing machine"					
+2122	unknown/ probably magazine	magazine	objects	book	"column, pillar"					
+2123	unknown/ probably monitor	monitor	tv_monitor	monitor	monitor					
+2124	unknown/ probably napkins	napkins	objects	"blanket, cover"	tray					
+2125	unknown/ probably notebook	notebook	objects	book	computer					
+2126	unknown/ probably paper towel dispenser	paper towels	towel	towel	towel					
+2127	unknown/ probably paper towel holder	paper towels	towel	towel	towel					
+2128	unknown/ probably pipe	pipe	misc	radiator	radiator					
+2129	unknown/ probably plate	plate	objects	plate	plate					
+2130	unknown/ probably pot	pot	objects	pot	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+2131	unknown/ probably printer	printer	objects	computer	computer					
+2132	unknown/ probably radio	radio	misc	computer	tv					
+2133	unknown/ probably rug	rug	floor	rug	rug					
+2134	unknown/ probably scarf	scarf	clothes	clothes	clothes					
+2135	unknown/ probably security detector	security detector	misc	"awning, sunshade, sunblind"	"awning, sunshade, sunblind"					
+2136	unknown/ probably shampoo	shampoo	objects	shower	clothes					
+2137	unknown/ probably sheet	sheet	misc	"blanket, cover"	pillow					
+2138	unknown/ probably sheets	sheet	misc	"blanket, cover"	pillow					
+2139	unknown/ probably shelf	shelf	shelving	shelf	shelf					
+2140	unknown/ probably shower cabine	shower	shower	shower	shower					
+2141	unknown/ probably shower gel	shampoo	objects	shower	clothes					
+2142	unknown/ probably sitting pillow	pillow	cushion	cushion	pillow					
+2143	unknown/ probably soap	soap	objects	box	"washer, automatic washer, washing machine"					
+2144	unknown/ probably sofa	sofa	sofa	sofa	sofa					
+2145	unknown/ probably solarium chair	chair	chair	chair	chair					
+2146	unknown/ probably stand	stand	table	"base, pedestal, stand"	"base, pedestal, stand"					
+2147	unknown/ probably table lamp	table lamp	lighting	lamp	lamp					
+2148	unknown/ probably tank	tank	misc	"tank, storage tank"	"tank, storage tank"					
+2149	unknown/ probably telephone	telephone	objects	computer	computer					
+2150	unknown/ probably tissue dispenser	tissue	misc	towel	microwave					
+2151	unknown/ probably wall lamp	wall lamp	lighting	lamp	lamp					
+2152	unknown/ probably washing powder	washing powder	misc	box	"washer, automatic washer, washing machine"					
+2153	unknown/ probably washing soap	soap	objects	box	"washer, automatic washer, washing machine"					
+2154	unknown/ probaby albums	albums	objects	book	"rock, stone"					
+2155	unknown// probably fire sprinkler	fire sprinkler	misc	stove	stove					
+2156	unknown/probably decoration	decoration	objects	sconce	sconce					
+2157	unknown/remove	unknown/remove	misc	sconce	sconce					
+2158	unknwn	unknown	unlabeled	unlabeled	unlabeled					
+2159	unknwom	unknown	unlabeled	unlabeled	unlabeled					
+2160	unknwon	unknown	unlabeled	unlabeled	unlabeled					
+2161	unkown	unknown	unlabeled	unlabeled	unlabeled					
+2162	unkown clutter	clutter	misc	trash can	trash can					
+2163	"unknown"""	unknown	unlabeled	unlabeled	unlabeled					
+2164		unknown	unlabeled	unlabeled	unlabeled					
+2165	ups	unknown	unlabeled	unlabeled	unlabeled					
+2166	urinal	urinal	objects	"toilet, can, commode, crapper, pot, potty, stool, throne"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+2167	utensil	utensil	objects	tray	tray					
+2168	vaccum cleaner	vacuum cleaner	appliances	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+2169	vacuum cleaner	vacuum cleaner	appliances	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+2170	valve	plumbing	objects	dishwasher	dishwasher					
+2171	vanity	vanity	table	table	sconce					
+2172	vanity table	vanity	table	table	sconce					
+2173	vase	vase	objects	vase	vase					
+2174	vase with flower	flower	plant	plant	flower					
+2175	vegetables	vegetables	objects	"food, solid food"	"food, solid food"					
+2176	vegetation	plant	plant	plant	plant					
+2177	vent	vent	misc	"hood, exhaust hood"	"hood, exhaust hood"					
+2178	vent pipe	pipe	misc	radiator	radiator					
+2179	ventialtion	ventilation	objects	"hood, exhaust hood"	radiator					
+2180	ventilation	ventilation	objects	"hood, exhaust hood"	radiator					
+2181	ventilation hood	ventilation hood	misc	"hood, exhaust hood"	"hood, exhaust hood"					
+2182	ventilation pipe	pipe	misc	radiator	radiator					
+2183	ventilator	ventilation	objects	radiator	radiator					
+2184	vese	vessel	objects	ship	ship					
+2185	vessel	vessel	objects	ship	ship					
+2186	vessel sink	vessel sink	misc	sink	sink					
+2187	vice	unknown	unlabeled	unlabeled	unlabeled					
+2188	video cassette	cassette	objects	"plaything, toy"	tray					
+2189	vinyl records	vinyl records	objects	"plaything, toy"	countertop					
+2190	violin	violin	objects	"plaything, toy"	"painting, picture"					
+2191	violin case	violin case	objects	"plaything, toy"	"case, display case, showcase, vitrine"					
+2192	wadrobe	wardrobe	furniture	"wardrobe, closet, press"	"wardrobe, closet, press"					
+2193	waffle iron	waffle iron	appliances	counter	sand					
+2194	wal	wall	wall	wall	wall					
+2195	wal hanging decoration	decoration	objects	sconce	sconce					
+2196	wall	wall	wall	wall	wall					
+2197	wall outside	wall outside	wall	wall	wall					
+2198	wall  clock	wall clock	objects	clock	clock					
+2199	wall  lamp	wall lamp	lighting	lamp	lamp					
+2200	wall /otheroom	wall	wall	wall	wall					
+2201	wall /outside	wall /outside	wall	wall	wall					
+2202	wall balk	wall	wall	wall	wall					
+2203	wall balks	wall	wall	wall	wall					
+2204	wall beam	wall beam	misc	wall	wall					
+2205	wall board	wall board	misc	wall	wall					
+2206	wall cabinet	wall cabinet	cabinet	cabinet	cabinet					
+2207	wall clock	wall clock	objects	clock	clock					
+2208	wall control	wall control	misc	wall	wall					
+2209	wall controll	wall control	misc	wall	wall					
+2210	wall controller	wall control	misc	wall	wall					
+2211	wall coping	wall	wall	wall	wall					
+2212	wall corridor	wall	wall	wall	wall					
+2213	wall cubby	wall cubby	misc	wall	wall					
+2214	wall decoration	picture	picture	"painting, picture"	"painting, picture"					
+2215	wall detail	wall detail	misc	wall	wall					
+2216	wall device	wall electronics	misc	wall	wall					
+2217	wall electronic	wall electronics	misc	wall	wall					
+2218	wall electronics	wall electronics	misc	wall	wall					
+2219	wall frame	picture	picture	"painting, picture"	"painting, picture"					
+2220	wall hanger	wall hanger	objects	bar	wall					
+2221	wall hanging decoration	wall hanging decoration	misc	bar	wall					
+2222	wall hanging organizer	wall hanger	objects	bar	wall					
+2223	wall indent	wall indent	misc	bar	wall					
+2224	wall lamp	wall lamp	lighting	lamp	lamp					
+2225	wall light	wall lamp	lighting	lamp	lamp					
+2226	wall lmap	wall lamp	lighting	lamp	lamp					
+2227	wall niche	wall hanging decoration	misc	wall	wall					
+2228	wall of green	wall	wall	wall	wall					
+2229	wall painting	painting	objects	"painting, picture"	"painting, picture"					
+2230	wall panel	wall panel	wall	wall	wall					
+2231	wall panel frame	wall panel frame	wall	wall	wall					
+2232	wall post	wall post	misc	"poster, posting, placard, notice, bill, card"	wall					
+2233	wall shelf	wall shelf	shelving	shelf	shelf					
+2234	wall sign	wall sign	misc	"signboard, sign"	wall					
+2235	wall sing	wall sign	misc	"signboard, sign"	wall					
+2236	wall soap shelf	wall soap shelf	misc	shelf	shelf					
+2237	wall statue	wall statue	misc	sculpture	wall					
+2238	wall sticker	decoration	objects	sconce	sconce					
+2239	wall toilet paper	wall toilet paper	misc	box	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+2240	wall top	wall top	misc	wall	wall					
+2241	wall tv	wall tv	misc	tv	tv					
+2242	wall vent	vent	misc	"hood, exhaust hood"	"hood, exhaust hood"					
+2243	wallkitchen island	wall	wall	wall	wall					
+2244	walll	wall	wall	wall	wall					
+2245	wardeobe	wardrobe	furniture	"wardrobe, closet, press"	"wardrobe, closet, press"					
+2246	wardeobe door	wardrobe	furniture	"wardrobe, closet, press"	"wardrobe, closet, press"					
+2247	warderobe	wardrobe	furniture	"wardrobe, closet, press"	"wardrobe, closet, press"					
+2248	wardobe	wardrobe	furniture	"wardrobe, closet, press"	"wardrobe, closet, press"					
+2249	wardrobe	wardrobe	furniture	"wardrobe, closet, press"	"wardrobe, closet, press"					
+2250	wardrobe accesories	wardrobe	furniture	"wardrobe, closet, press"	"wardrobe, closet, press"					
+2251	wardrobe door	wardrobe	furniture	"wardrobe, closet, press"	"wardrobe, closet, press"					
+2252	wardrobe door frame	wardrobe	furniture	"wardrobe, closet, press"	"wardrobe, closet, press"					
+2253	wardrobe drawer	drawer	chest_of_drawers	"chest of drawers, chest, bureau, dresser"	"chest of drawers, chest, bureau, dresser"					
+2254	wardrobe mirror	mirror	mirror	mirror	mirror					
+2255	wardrobe shelf	shelf	shelving	shelf	shelf					
+2256	wardrobe sliding door	sliding door	door	door	door					
+2257	wash basin	washbasin	sink	sink	tub					
+2258	wash basin cabinet	wash cabinet	cabinet	cabinet	cabinet					
+2259	wash cabinet	wash cabinet	cabinet	cabinet	cabinet					
+2260	washbasin	washbasin	sink	sink	tub					
+2261	washbasin cabinet	wash cabinet	cabinet	cabinet	cabinet					
+2262	washbasin counter	washbasin counter	counter	counter	counter					
+2263	washbasin countertop	washbasin counter	counter	counter	counter					
+2264	washbasin table	washbasin counter	counter	counter	counter					
+2265	washcloth	washcloth	objects	clothes	pillow					
+2266	washdisher machine	dishwasher	appliances	dishwasher	dishwasher					
+2267	washer dryer	washer-dryer	misc	"washer, automatic washer, washing machine"	dishwasher					
+2268	washer-dryer	washer-dryer	misc	"washer, automatic washer, washing machine"	dishwasher					
+2269	washing container	container	objects	bottle	bottle					
+2270	washing liquid	detergent	misc	bottle	dishwasher					
+2271	washing machine	washing machine	appliances	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+2272	washing machine and dryer	washing machine and dryer	appliances	"washer, automatic washer, washing machine"	"washer, automatic washer, washing machine"					
+2273	washing powder	washing powder	misc	box	"washer, automatic washer, washing machine"					
+2274	washing stuff	washing stuff	misc	bottle	"washer, automatic washer, washing machine"					
+2275	watch	watch	objects	clock	monitor					
+2276	water basin	water basin	misc	water	water					
+2277	water bottle	bottle	objects	bottle	bottle					
+2278	water dispenser	water dispenser	objects	bottle	water					
+2279	water fountain	water fountain	misc	fountain	fountain					
+2280	water heater	water heater	objects	radiator	water					
+2281	water meter	water meter	objects	water	water					
+2282	water outlet	water outlet	objects	water	water					
+2283	water pump	water pump	objects	water	water					
+2284	water tank	water tank	objects	"tank, storage tank"	"tank, storage tank"					
+2285	watering can	watering can	objects	"tank, storage tank"	"toilet, can, commode, crapper, pot, potty, stool, throne"					
+2286	weight	weight	gym_equipment	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+2287	weight bench	weight bench	gym_equipment	bench	bench					
+2288	weights	weights	gym_equipment	bench	"step, stair"					
+2289	wheel	wheel	objects	unlabeled	"step, stair"					
+2290	wheelbarrow	wheelbarrow	objects	truck	truck					
+2291	whine shelf	whine shelf	misc	shelf	shelf					
+2292	whiteboard	whiteboard	tv_monitor	computer	computer					
+2293	widnow frame	window frame	window	window	window					
+2294	wifi repeater	wifi router	objects	computer	computer					
+2295	wifi router	wifi router	objects	computer	computer					
+2296	wifi transmitter	wifi router	objects	computer	computer					
+2297	wind chime	decoration	objects	sconce	sconce					
+2298	windo	window	window	window	window					
+2299	windoe frame	window frame	window	window	window					
+2300	windoow shade	window shade	blinds	window	window					
+2301	windor	window	window	window	window					
+2302	window	window	window	window	window					
+2303	window  curtain	window curtain	curtain	curtain	curtain					
+2304	window  frame	window frame	window	window	window					
+2305	window  glass	window glass	objects	"glass, drinking glass"	"glass, drinking glass"					
+2306	window  shade	window shade	blinds	"blind, screen"	window					
+2307	window /otherroom	window /otherroom	window	window	window					
+2308	window /outside	window /outside	window	window	window					
+2309	window /wall	window	window	window	window					
+2310	window bars	window	window	window	window					
+2311	window behind shutters	window	window	window	window					
+2312	window blinds	blinds	blinds	"blind, screen"	fireplace					
+2313	window curtain	window curtain	curtain	curtain	curtain					
+2314	window curtain bar	window curtain	curtain	curtain	curtain					
+2315	window fame	window frame	window	window	window					
+2316	window fram	window frame	window	window	window					
+2317	window frame	window frame	window	window	window					
+2318	window frame /otherroom	window frame /otherroom	window	window	window					
+2319	window glass	window glass	objects	"glass, drinking glass"	"glass, drinking glass"					
+2320	window glass /outside	window	window	window	window					
+2321	window pane	window	window	window	window					
+2322	window panel	window	window	window	window					
+2323	window panes	window	window	window	window					
+2324	window place	window	window	window	window					
+2325	window rame	window	window	window	window					
+2326	window seat	window seat	seating	seat	seat					
+2327	window shade	window shade	blinds	"blind, screen"	window					
+2328	window shades	window shade	blinds	"blind, screen"	window					
+2329	window shutter	window shutter	objects	"blind, screen"	window					
+2330	window shutters	window shutters	objects	"blind, screen"	window					
+2331	window sill	window frame	window	window	window					
+2332	window valence	window valence	curtain	curtain	window					
+2333	window/door	window/door	misc	window	window					
+2334	windowframe	window frame	window	window	window					
+2335	windown frame	window frame	window	window	window					
+2336	windows	window	window	window	window					
+2337	windows frame	window frame	window	window	window					
+2338	windowsil	window frame	window	window	window					
+2339	windowsill	window frame	window	window	window					
+2340	windw frame	window frame	window	window	window					
+2341	wine	wine	misc	bottle	bottle					
+2342	wine bottle	wine bottle	objects	bottle	bottle					
+2343	wine cabinet	wine cabinet	cabinet	cabinet	cabinet					
+2344	wine rack	wine rack	misc	"barrel, cask"	"barrel, cask"					
+2345	wine refrigerator	refrigerator	appliances	"refrigerator, icebox"	"refrigerator, icebox"					
+2346	wine storage	wine storage	shelving	shelf	"tank, storage tank"					
+2347	winndow	window	window	window	window					
+2348	winndow  frame	window frame	window	window	window					
+2349	wire	wire	misc	pole	pole					
+2350	wood	wood	misc	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+2351	wood burner	fireplace	fireplace	fireplace	fireplace					
+2352	wood frame	frame	misc	"bridge, span"	"bridge, span"					
+2353	wooden balk	wood	misc	"bannister, banister, balustrade, balusters, handrail"	"bannister, banister, balustrade, balusters, handrail"					
+2354	wooden panel	panel	board_panel	cabinet	cabinet					
+2355	wool	cloth	objects	clothes	"blanket, cover"					
+2356	woor frame	frame	misc	"bridge, span"	"bridge, span"					
+2357	workout bike	workout bike	misc	bicycle	bicycle					
+2358	workout weight	weights	gym_equipment	"step, stair"	"step, stair"					
+2359	workstation	workstation	objects	computer	computer					
+2360	worktop	worktop	misc	countertop	countertop					
+2361	wreath	wreath	objects	vase	vase					
+2362	wrench	wrench	misc	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"	"conveyer belt, conveyor belt, conveyer, conveyor, transporter"					
+2363	yoga mat	yoga mat	misc	rug	sofa					
+2364	~aper	unknown	unlabeled	unlabeled	unlabeled					
+2365	Bamp	lamp	lighting	lamp	lamp					
+2366	[ign	sign	misc	"signboard, sign"	"signboard, sign"					

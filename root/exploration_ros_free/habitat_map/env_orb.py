@@ -31,6 +31,160 @@ from PIL import Image
 from torch.nn import functional as F
 from torchvision import transforms
 from gym.spaces.box import Box
+import pandas as pd 
+
+meta_categories = {0: 'wall',
+1: 'building',
+2: 'sky',
+3: 'floor',
+4: 'tree',
+5: 'ceiling',
+6: 'road, route',
+7: 'bed',
+8: 'window',
+9: 'grass',
+10: 'cabinet',
+11: 'sidewalk, pavement',
+12: 'person',
+13: 'earth, ground',
+14: 'door',
+15: 'table',
+16: 'mountain, mount',
+17: 'plant',
+18: 'curtain',
+19: 'chair',
+20: 'car',
+21: 'water',
+22: 'painting, picture',
+23: 'sofa',
+24: 'shelf',
+25: 'house',
+26: 'sea',
+27: 'mirror',
+28: 'rug',
+29: 'field',
+30: 'armchair',
+31: 'seat',
+32: 'fence',
+33: 'desk',
+34: 'rock, stone',
+35: 'wardrobe, closet, press',
+36: 'lamp',
+37: 'tub',
+38: 'rail',
+39: 'cushion',
+40: 'base, pedestal, stand',
+41: 'box',
+42: 'column, pillar',
+43: 'signboard, sign',
+44: 'chest of drawers, chest, bureau, dresser',
+45: 'counter',
+46: 'sand',
+47: 'sink',
+48: 'skyscraper',
+49: 'fireplace',
+50: 'refrigerator, icebox',
+51: 'grandstand, covered stand',
+52: 'path',
+53: 'stairs',
+54: 'runway',
+55: 'case, display case, showcase, vitrine',
+56: 'pool table, billiard table, snooker table',
+57: 'pillow',
+58: 'screen door, screen',
+59: 'stairway, staircase',
+60: 'river',
+61: 'bridge, span',
+62: 'bookcase',
+63: 'blind, screen',
+64: 'coffee table',
+65: 'toilet, can, commode, crapper, pot, potty, stool, throne',
+66: 'flower',
+67: 'book',
+68: 'hill',
+69: 'bench',
+70: 'countertop',
+71: 'stove',
+72: 'palm, palm tree',
+73: 'kitchen island',
+74: 'computer',
+75: 'swivel chair',
+76: 'boat',
+77: 'bar',
+78: 'arcade machine',
+79: 'hovel, hut, hutch, shack, shanty',
+80: 'bus',
+81: 'towel',
+82: 'light',
+83: 'truck',
+84: 'tower',
+85: 'chandelier',
+86: 'awning, sunshade, sunblind',
+87: 'street lamp',
+88: 'booth',
+89: 'tv',
+90: 'plane',
+91: 'dirt track',
+92: 'clothes',
+93: 'pole',
+94: 'land, ground, soil',
+95: 'bannister, banister, balustrade, balusters, handrail',
+96: 'escalator, moving staircase, moving stairway',
+97: 'ottoman, pouf, pouffe, puff, hassock',
+98: 'bottle',
+99: 'buffet, counter, sideboard',
+100: 'poster, posting, placard, notice, bill, card',
+101: 'stage',
+102: 'van',
+103: 'ship',
+104: 'fountain',
+105: 'conveyer belt, conveyor belt, conveyer, conveyor, transporter',
+106: 'canopy',
+107: 'washer, automatic washer, washing machine',
+108: 'plaything, toy',
+109: 'pool',
+110: 'stool',
+111: 'barrel, cask',
+112: 'basket, handbasket',
+113: 'falls',
+114: 'tent',
+115: 'bag',
+116: 'minibike, motorbike',
+117: 'cradle',
+118: 'oven',
+119: 'ball',
+120: 'food, solid food',
+121: 'step, stair',
+122: 'tank, storage tank',
+123: 'trade name',
+124: 'microwave',
+125: 'pot',
+126: 'animal',
+127: 'bicycle',
+128: 'lake',
+129: 'dishwasher',
+130: 'screen',
+131: 'blanket, cover',
+132: 'sculpture',
+133: 'hood, exhaust hood',
+134: 'sconce',
+135: 'vase',
+136: 'traffic light',
+137: 'tray',
+138: 'trash can',
+139: 'fan',
+140: 'pier',
+141: 'crt screen',
+142: 'plate',
+143: 'monitor',
+144: 'bulletin board',
+145: 'shower',
+146: 'radiator',
+147: 'glass, drinking glass',
+148: 'clock',
+149: 'flag',
+255: 'unlabeled' 
+}
 
 def resize2d(img, size):
     return (F.adaptive_avg_pool2d(Variable(img,volatile=True), size)).data
@@ -340,6 +494,7 @@ class Env:
 
         observations = self._task.reset(episode=self._current_episode)
         print('OBSERVATIONS:', observations.keys())
+        print(self.sim.semantic_annotations())
         self._task.measurements.reset_measures(
             episode=self._current_episode, observations=observations, task=self._task
         )
@@ -347,9 +502,26 @@ class Env:
 
         self.info = self.get_metrics()
         #self.info['sensor_pose'] = [0., 0., 0.]
+        data = pd.read_csv('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/hm3dsem_category_mappings_ade.tsv', encoding='utf-8', sep="\t",engine='python')
+        data = data.set_index('raw_category')
+        #self.category_mapping = data['ade20k']
+        #data = data.set_index('raw_category')
+        self.category_mapping = data['ade20k']
 
-        self.index_to_title_map = {obj.category.index(): obj.category.name() for obj in self.sim.semantic_annotations().objects}
+        self.obj_name_to_150ids = {i:ii for ii,i in meta_categories.items()}
+        
+        self.index_to_title_map = {obj.category.index(): self.category_mapping.get(obj.category.name(), 'unlabeled') for obj in self.sim.semantic_annotations().objects}
         self.instance_id_to_label_id = {int(obj.id.split("_")[-1]): obj.category.index() for obj in self.sim.semantic_annotations().objects}
+
+
+        self.objectgoal_name = {v: k for k, v in self.task._dataset.category_to_task_category_id.items()}[observations['objectgoal'][0]]
+        self.objectgoal = [i for i in self.index_to_title_map if self.index_to_title_map[i] == self.objectgoal_name]
+        
+        observations['semantic'][observations['semantic']>max(self.instance_id_to_label_id.keys())] = 0
+        self.sem_to_model = np.vectorize(self.instance_id_to_label_id.get)(observations['semantic'])
+        self.sem_to_model = np.vectorize(self.index_to_title_map.get)(self.sem_to_model)
+        self.sem_to_model = np.vectorize(self.obj_name_to_150ids.get)(self.sem_to_model)
+ 
         if {v: k for k, v in self._dataset.category_to_task_category_id.items()}[observations['objectgoal'][0]] in self.index_to_title_map.values():
             self.objectgoal = {v: k for k, v in self.index_to_title_map.items()}[{v: k for k, v in self._dataset.category_to_task_category_id.items()}[observations['objectgoal'][0]]]
         else:
@@ -360,19 +532,18 @@ class Env:
         self.start_angle = np.rad2deg(self.get_sim_location()[2])
         alpha = -self.start_angle
         self.matr_pov = [[np.cos(np.deg2rad(alpha)),-np.sin(np.deg2rad(alpha))],[np.sin(np.deg2rad(alpha)),np.cos(np.deg2rad(alpha))]]
-        
-        
 
         ds = 2
-        """
+        
         return {'depth':observations['depth'],#[ds // 2::ds, ds // 2::ds], 
                 'rgb':observations['rgb'], 
-                'semantic':self.sem_to_model_goal, 
+                'semantic':self.sem_to_model, 
                 'heading':observations['heading'],
                 'objectgoal':observations['objectgoal'],
+                'compass': observations['compass']
                 #'gps':observations['gps']
                 }#observations
-        """
+        
         return observations
         
 
@@ -413,21 +584,27 @@ class Env:
         self._update_step_stats()
         self.info = self.get_metrics()
 
-        #self.sem_to_model = np.vectorize(self.instance_id_to_label_id.get)(observations['semantic'])   
-        #self.sem_to_model = np.copy(self.sem_to_model)
+        observations['semantic'][observations['semantic']>max(self.instance_id_to_label_id.keys())] = 0
+        self.sem_to_model = np.vectorize(self.instance_id_to_label_id.get)(observations['semantic'])
+        self.sem_to_model = np.vectorize(self.index_to_title_map.get)(self.sem_to_model)
+        self.sem_to_model = np.vectorize(self.obj_name_to_150ids.get)(self.sem_to_model)
+        self.sem_to_model = np.copy(self.sem_to_model)
         #self.sem_to_model_goal = np.float32((self.sem_to_model)==self.objectgoal)[:,:,np.newaxis]
             
         #reward = 0.
         
-        """
+        
         return {'depth':observations['depth'], 
                     'rgb':observations['rgb'], 
-                    'semantic':self.sem_to_model_goal, 
+                    'semantic':self.sem_to_model, 
                     'heading':observations['heading'],
                     'objectgoal':observations['objectgoal'],
-                    'gps':observations['gps']
-                   }, reward, self._episode_over, self.info
-        """
+                    'gps':observations['gps'],
+                    'compass': observations['compass']
+                }
+        
+        # , reward, self._episode_over, self.info
+        
         return observations
  
 
