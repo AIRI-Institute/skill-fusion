@@ -242,8 +242,8 @@ class MapBuilder(object):
             x_cell = x / self.resolution
             y_cell = y / self.resolution
             dst = np.sqrt((i - y_cell) ** 2 + (j - x_cell) ** 2)
-            semantic_geocentric_flat[i[dst < 100 / self.resolution], j[dst < 100 / self.resolution], 1] = 0
-            self.semantic_map[index][i[dst < 100 / self.resolution], j[dst < 100 / self.resolution]] /= self.goal_decay
+            #semantic_geocentric_flat[i[dst < 100 / self.resolution], j[dst < 100 / self.resolution], 1] = 0
+            #self.semantic_map[index][i[dst < 100 / self.resolution], j[dst < 100 / self.resolution]] /= self.goal_decay
             self.semantic_map[index] = self.semantic_map[index] + semantic_geocentric_flat[:, :, 1]
             
         agent_view_semantic = np.array(agent_view_semantic)

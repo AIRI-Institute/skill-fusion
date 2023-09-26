@@ -80,6 +80,7 @@ class PoniExploration:
         # Initial full and local pose
         self.full_pose = torch.zeros(1, 3).float().to(self.device)
         self.local_pose = torch.zeros(1, 3).float().to(self.device)
+        self.local_pose_old = torch.zeros(1, 3).float().to(self.device)
         self.init_map_and_pose()
         
         self.res = transforms.Compose(
@@ -92,12 +93,14 @@ class PoniExploration:
         )
         
         # Global policy
+        """
         self.g_policy = RL_Policy(args, args.pf_model_path).to(self.device)
         if self.args.eval:
             self.g_policy.eval()
         self.needs_egocentric_transform = self.g_policy.needs_egocentric_transform
         if self.needs_egocentric_transform:
             print("\n\n=======> Needs egocentric transformation!")
+        """
         self.needs_dist_maps = self.args.add_agent2loc_distance or self.args.add_agent2loc_distance_v2
         
         # Global policy observation space
@@ -130,7 +133,8 @@ class PoniExploration:
 
         self.extras = torch.zeros(1, es)
         self.extras[:, 0] = self.global_orientation[:, 0]
-
+        
+        """
         self.g_rollouts = GlobalRolloutStorage(
             self.args.num_global_steps,
             1,
@@ -139,6 +143,7 @@ class PoniExploration:
             self.g_policy.rec_state_size,
             es,
         ).to(self.device)
+        """
         
         # Get fmm distance from agent in predicted map
         self.planner_inputs = {}
@@ -148,9 +153,11 @@ class PoniExploration:
         self.planner_inputs["map_pred"] = obs_map * np.rint(exp_map)
         self.planner_inputs["pose_pred"] = self.planner_pose_inputs[0]
         _, self.fmm_dists = self.get_reachability_map(self.planner_inputs)
-
+        
+        """
         self.g_rollouts.obs[0].copy_(self.global_input)
         self.g_rollouts.extras[0].copy_(self.extras)
+        """
 
         self.agent_locations = []
         pose_pred = self.planner_pose_inputs[0]
@@ -170,6 +177,8 @@ class PoniExploration:
         
         self.prev_pose = np.array([0., 0.])
         self.prev_angle = np.array([0.])
+        self.prev_pose_old = np.array([0., 0.])
+        self.prev_angle_old = np.array([0.])
         self.steps_in_collision = 0
         
         self.goal_id_to_cat = {
@@ -247,6 +256,7 @@ class PoniExploration:
         # Initial full and local pose
         self.full_pose = torch.zeros(1, 3).float().to(self.device)
         self.local_pose = torch.zeros(1, 3).float().to(self.device)
+        self.local_pose_old = torch.zeros(1, 3).float().to(self.device)
         self.init_map_and_pose()
         
         # Global policy observation space
@@ -279,7 +289,8 @@ class PoniExploration:
 
         self.extras = torch.zeros(1, es)
         self.extras[:, 0] = self.global_orientation[:, 0]
-
+        
+        """
         self.g_rollouts = GlobalRolloutStorage(
             self.args.num_global_steps,
             1,
@@ -289,6 +300,7 @@ class PoniExploration:
             es,
         ).to(self.device)
         self.goal_pf = 0
+        """
         
         # Get fmm distance from agent in predicted map
         self.planner_inputs = {}
@@ -298,9 +310,11 @@ class PoniExploration:
         self.planner_inputs["map_pred"] = obs_map * np.rint(exp_map)
         self.planner_inputs["pose_pred"] = self.planner_pose_inputs[0]
         _, self.fmm_dists = self.get_reachability_map(self.planner_inputs)
-
+        
+        """
         self.g_rollouts.obs[0].copy_(self.global_input)
         self.g_rollouts.extras[0].copy_(self.extras)
+        """
 
         self.agent_locations = []
         pose_pred = self.planner_pose_inputs[0]
@@ -319,6 +333,8 @@ class PoniExploration:
         
         self.prev_pose = np.array([0., 0.])
         self.prev_angle = np.array([0.])
+        self.prev_pose_old = np.array([0., 0.])
+        self.prev_angle_old = np.array([0.])
         self.steps_in_collision = 0
         
         self.agent_positions = []
@@ -359,6 +375,9 @@ class PoniExploration:
 
         self.local_map[0] = self.full_map[0, :, self.lmb[0, 0] : self.lmb[0, 1], self.lmb[0, 2] : self.lmb[0, 3]]
         self.local_pose[0] = (
+            self.full_pose[0] - torch.from_numpy(self.origins[0]).to(self.device).float()
+        )
+        self.local_pose_old[0] = (
             self.full_pose[0] - torch.from_numpy(self.origins[0]).to(self.device).float()
         )
         
@@ -569,16 +588,22 @@ class PoniExploration:
         depth = depth * (args.max_depth - args.min_depth) + args.min_depth
         depth = (depth - args.min_depth) / (args.max_depth - args.min_depth)
         depth = self._preprocess_depth(depth, args.min_depth, args.max_depth)
+        depth_old = observations['depth_old']
+        depth_old = depth_old * (args.max_depth - args.min_depth) + args.min_depth
+        depth_old = (depth_old - args.min_depth) / (args.max_depth - args.min_depth)
+        depth_old = self._preprocess_depth(depth_old, args.min_depth, args.max_depth)
         
         ds = args.env_frame_width // args.frame_width  # Downscaling factor
         if ds != 1:
             rgb = np.asarray(self.res(rgb.astype(np.uint8)))
             depth = depth[ds // 2 :: ds, ds // 2 :: ds]
+            depth_old = depth_old[ds // 2 :: ds, ds // 2 :: ds]
             semantic_prediction = semantic_prediction[ds // 2 :: ds, ds // 2 :: ds]
         semantic_prediction = np.concatenate([semantic_prediction, np.zeros_like(semantic_prediction[:, :, :1])], axis=2)
 
         depth = np.expand_dims(depth, axis=2)
-        state = np.concatenate((rgb, depth, semantic_prediction), axis=2).transpose(2, 0, 1)
+        depth_old = np.expand_dims(depth_old, axis=2)
+        state = np.concatenate((rgb, depth, depth_old, semantic_prediction), axis=2).transpose(2, 0, 1)
 
         return state
     
@@ -601,18 +626,25 @@ class PoniExploration:
     
     def update(self, observations, semantic_prediction):
         rgb = observations['rgb']
-        depth = observations['depth']
-        pose = observations['gps']
+        pose = observations['gps'].copy()
         pose[1] *= -1
+        pose_old = observations['gps_old'].copy()
+        pose_old[1] *= -1
         angle = observations['compass']
+        #print('Pose and angle:', pose, angle)
+        angle_old = observations['compass_old']
         objgoal = self.habitat_to_coco[observations['objectgoal'][0]]
         pose_shift = torch.from_numpy(self.get_pose_shift(pose, self.prev_pose, angle, self.prev_angle)[np.newaxis, :]).float().to(self.device)
+        #print('Pose shift:', pose_shift)
+        old_pose_shift = torch.from_numpy(self.get_pose_shift(pose_old, self.prev_pose_old, angle_old, self.prev_angle_old)[np.newaxis, :]).float().to(self.device)
         self.prev_pose = pose
         self.prev_angle = angle
+        self.prev_pose_old = pose_old
+        self.prev_angle_old = angle_old
         rgbs = torch.from_numpy(rgb[np.newaxis, ...]).float().to(self.device)
         obs = self._preprocess_obs(observations, semantic_prediction)
         obs = torch.from_numpy(obs[np.newaxis, ...]).float().to(self.device)
-        _, self.local_map, _, self.local_pose = self.sem_map_module(obs, pose_shift, self.local_map, self.local_pose, objgoal)
+        _, self.local_map, _, self.local_pose, self.local_pose_old = self.sem_map_module(obs, pose_shift, old_pose_shift, self.local_map, self.local_pose, self.local_pose_old, objgoal)
         
         locs = self.local_pose.cpu().numpy()
         #print('Local pose:', locs)
@@ -650,6 +682,7 @@ class PoniExploration:
         start = pu.threshold_poses(start, map_pred.shape)
         self.agent_positions.append(start)
         
+        """
         if self.global_goals is None:
             self.choose_goal(observations, semantic_prediction)
         
@@ -673,6 +706,7 @@ class PoniExploration:
         goal = (goal_maps[0].nonzero()[0][0], goal_maps[0].nonzero()[1][0])
         #print('Goal:', goal)
         self.goal_coords.append(goal)
+        """
         
         # ------------------------------------------------------------------
 
@@ -685,7 +719,7 @@ class PoniExploration:
         self.planner_inputs["map_pred"] = self.local_map[0, 0, :, :].cpu().numpy()
         self.planner_inputs["exp_pred"] = self.local_map[0, 1, :, :].cpu().numpy()
         self.planner_inputs["pose_pred"] = self.planner_pose_inputs[0]
-        self.planner_inputs["goal"] = goal_maps[0]  # global_goals[e]
+        #self.planner_inputs["goal"] = goal_maps[0]  # global_goals[e]
         
         
     def check_and_draw_collisions(self):
