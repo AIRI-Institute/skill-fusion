@@ -69,6 +69,7 @@ class GreedyPathFollowerAgent(habitat.Agent):
         self.goal_radius = follower_config['goal_radius']
         self.max_d_angle = follower_config['max_d_angle']
         self.finish_radius = config['task']['finish_radius']
+        self.delay = int(config['task']['delay'])
 
         args = parse_args_from_config(config['args'])
         exploration_config = config['exploration']
@@ -154,9 +155,9 @@ class GreedyPathFollowerAgent(habitat.Agent):
         self.maps = []
         self.semantic_maps = []
         self.rgbs = []
+        self.rgbs_wo_mask = []
         self.goal_coords = []
         self.depths = []
-        self.depths_for_map = []
         self.obs_maps = []
         self.agent_positions = []
         self.goal_coords_ij = []
@@ -238,8 +239,8 @@ class GreedyPathFollowerAgent(habitat.Agent):
         self.maps = []
         self.semantic_maps = []
         self.rgbs = []
+        self.rgbs_wo_mask = []
         self.depths = []
-        self.depths_for_map = []
         self.action_track = []
         self.obs_maps = []
         self.agent_positions = []
@@ -263,7 +264,7 @@ class GreedyPathFollowerAgent(habitat.Agent):
         self.steps_wo_goal = 0
         self.tilt_angle = 0
         self.exploration.sem_map_module.agent_view_angle = 0
-        self.critic_values = []        
+        self.critic_values = []
         gc.collect()
         
         
@@ -494,17 +495,36 @@ class GreedyPathFollowerAgent(habitat.Agent):
         
 
     def act(self, observations):
-        robot_x, robot_y = observations['gps']
-        robot_angle = observations['compass'][0]
+        robot_x, robot_y = observations['gps'].copy()
+        robot_angle = observations['compass'].copy()[0]
+        observations['gps_old'] = [robot_x, robot_y]
+        observations['compass_old'] = [robot_angle]
+        observations['depth_old'] = observations['depth'].copy()
+        if self.delay == 0 or len(self.depths) == 0:
+            observations['depth_old'] = observations['depth'].copy()
+            observations['gps_old'] = [robot_x, robot_y]
+            observations['compass_old'] = [robot_angle]
+            semantic_prediction, semantic_mask = self.semantic_predictor(observations['rgb'], observations['objectgoal'][0])
+        elif len(self.depths) >= self.delay:
+            observations['depth_old'] = self.depths[-self.delay].copy()
+            robot_x_old, robot_y_old, robot_angle_old = self.robot_pose_track[-self.delay]
+            observations['gps_old'] = [robot_x_old, robot_y_old]
+            observations['compass_old'] = [robot_angle_old]
+            semantic_prediction, semantic_mask = self.semantic_predictor(self.rgbs_wo_mask[-self.delay], observations['objectgoal'][0])
+        else:
+            observations['depth_old'] = self.depths[0].copy()
+            robot_x_old, robot_y_old, robot_angle_old = self.robot_pose_track[0]
+            observations['gps_old'] = [robot_x_old, robot_y_old]
+            observations['compass_old'] = [robot_angle_old]
+            semantic_prediction, semantic_mask = self.semantic_predictor(self.rgbs_wo_mask[0], observations['objectgoal'][0])
         self.robot_pose_track.append((robot_x, robot_y, robot_angle))
         action_rl = self.act_rl(observations)
         if observations['objectgoal'][0] in [2, 4]:
             self.exploration.sem_map_module.erosion_size = 3
         else:
             self.exploration.sem_map_module.erosion_size = 5
-        
         # Update obstacle map and semantic map
-        semantic_prediction, semantic_mask = self.semantic_predictor(observations['rgb'], observations['objectgoal'][0])
+        #semantic_prediction, semantic_mask = self.semantic_predictor(observations['rgb'], observations['objectgoal'][0])
         
         self.exploration.update(observations, semantic_prediction)
         cn = self.cat_to_coco[self.goal_id_to_cat[observations['objectgoal'][0]]] + 4
@@ -523,7 +543,8 @@ class GreedyPathFollowerAgent(habitat.Agent):
                 self.steps_wo_goal = 0
         if self.skil_goalreacher:
             action_rl_gr = self.act_rl_goalreacher(observations, semantic_mask[np.newaxis, ...])
-
+        
+        self.rgbs_wo_mask.append(observations['rgb'].astype(np.uint8).copy())
         observations['rgb'][semantic_mask > 0] = [255, 0, 0]
         self.rgbs.append(observations['rgb'].astype(np.uint8))
         self.depths.append(observations['depth'])
@@ -531,7 +552,6 @@ class GreedyPathFollowerAgent(habitat.Agent):
         self.pose_shifts.append(self.exploration.sem_map_module.pose_shifts[-1])
         self.st_poses.append(self.exploration.sem_map_module.st_poses[-1])
         self.agent_views.append(self.exploration.sem_map_module.agent_views[-1])
-        self.depths_for_map.append(self.exploration.sem_map_module.depths[-1])
 
         # Detect stuck
         self.stuck = False

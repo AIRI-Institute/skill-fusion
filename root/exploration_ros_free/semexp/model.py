@@ -206,6 +206,7 @@ class Semantic_Mapping(nn.Module):
         # Optimizing implementation
         # -----------------------------------------------------------------------
         self.agent_view = None
+        self.agent_view_old = None
         self.grids = None
 
         vr = self.vision_range
@@ -233,13 +234,10 @@ class Semantic_Mapping(nn.Module):
         self.st_poses = []
         self.pose_shifts = []
         self.agent_views = []
-        self.depths = []
-
-    def forward(self, obs, pose_obs, maps_last, poses_last, objectgoal_id):
-        bs, c, h, w = obs.size()
-        depth = obs[:, 3, :, :]
-        self.depths.append(depth[0].cpu().numpy())
-
+        
+    def get_agent_view(self, depth, semantic):
+        bs, c, h, w = semantic.size()
+        c += 4
         # -----------------------------------------------------------------------
         # Optimizing implementation
         # -----------------------------------------------------------------------
@@ -272,7 +270,7 @@ class Semantic_Mapping(nn.Module):
         XYZ_cm_std[..., :2].sub_(vision_range // 2.0).div_(vision_range / 2.0)
         XYZ_cm_std[..., 2].div_(z_resolution)
         XYZ_cm_std[..., 2].sub_((max_h + min_h) // 2.0).div_((max_h - min_h) / 2.0)
-        self.feat[:, 1:, :] = nn.AvgPool2d(self.du_scale)(obs[:, 4:, :, :]).view(
+        self.feat[:, 1:, :] = nn.AvgPool2d(self.du_scale)(semantic).view(
             bs, c - 4, h // self.du_scale * w // self.du_scale
         )
 
@@ -292,16 +290,25 @@ class Semantic_Mapping(nn.Module):
 
         agent_height_proj = voxels[..., min_z:max_z].sum(4)
         all_height_proj = voxels.sum(4)
-
+        
         fp_map_pred = agent_height_proj[:, 0:1, :, :]
         fp_exp_pred = all_height_proj[:, 0:1, :, :]
         fp_map_pred = fp_map_pred / self.map_pred_threshold
         fp_exp_pred = fp_exp_pred / self.exp_pred_threshold
         fp_map_pred = torch.clamp(fp_map_pred, min=0.0, max=1.0)
         fp_exp_pred = torch.clamp(fp_exp_pred, min=0.0, max=1.0)
+        return fp_map_pred, fp_exp_pred, agent_height_proj, all_height_proj
 
-        pose_pred = poses_last
+    def forward(self, obs, pose_obs, pose_obs_old, maps_last, poses_last, old_poses_last, objectgoal_id):
+        bs, c, h, w = obs.size()
+        c -= 1
+        depth = obs[:, 3, :, :]
+        depth_old = obs[:, 4, :, :]
+        semantic = obs[:, 5:, :, :]
 
+        fp_map_pred, fp_exp_pred, agent_height_proj, all_height_proj = self.get_agent_view(depth, semantic)
+        fp_map_pred_old, fp_exp_pred_old, agent_height_proj_old, all_height_proj_old = self.get_agent_view(depth_old, semantic)
+        
         if self.agent_view is None or self.agent_view.shape[0] != bs:
             self.agent_view = torch.zeros(
                 bs,
@@ -312,7 +319,7 @@ class Semantic_Mapping(nn.Module):
         else:
             self.agent_view.fill_(0)
         agent_view = self.agent_view
-
+        
         x1 = self.map_size_cm // (self.resolution * 2) - self.vision_range // 2
         x2 = x1 + self.vision_range
         y1 = self.map_size_cm // (self.resolution * 2)
@@ -323,32 +330,33 @@ class Semantic_Mapping(nn.Module):
             agent_height_proj[:, 1:, :, :] / self.cat_pred_threshold, min=0.0, max=1.0
         )
         
-        """
-        objgoal_map = agent_view[0, 4 + objectgoal_id, :, :].cpu().numpy()
-        obstacle_map = agent_view[0, 0, :, :].cpu().numpy()
-        kernel = np.ones((self.erosion_size, self.erosion_size), dtype=np.uint8)
-        objgoal_map_eroded = cv2.erode(objgoal_map, kernel)
-        kernel = np.ones((self.erosion_size + 2, self.erosion_size + 2), dtype=np.uint8)
-        objgoal_map_eroded = cv2.dilate(objgoal_map_eroded, kernel)
-        if objgoal_map.sum() - objgoal_map_eroded.sum() < 0:
-            print('Map dilated significantly')
-            map_image = np.zeros((obstacle_map.shape[0], obstacle_map.shape[1], 3))
-            map_image[:, :, 0] = 1.0 - obstacle_map
-            map_image[:, :, 1] = 1.0 - obstacle_map
-            map_image[:, :, 2] = 1.0 - obstacle_map
-            map_image_before = map_image.copy()
-            map_image_before[objgoal_map > 0] = [1, 0, 0]
-            map_image_before = (map_image_before * 255).astype(np.uint8)
-            imsave('erosion_maps/before_erosion.png', map_image_before)
-            map_image_after = map_image.copy()
-            map_image_after[objgoal_map_eroded > 0] = [1, 0, 0]
-            map_image_after = (map_image_after * 255).astype(np.uint8)
-            imsave('erosion_maps/after_erosion.png', map_image_after)
-        """
+        if self.agent_view_old is None or self.agent_view_old.shape[0] != bs:
+            self.agent_view_old = torch.zeros(
+                bs,
+                c,
+                self.map_size_cm // self.resolution,
+                self.map_size_cm // self.resolution,
+            ).to(self.device)
+        else:
+            self.agent_view_old.fill_(0)
+        agent_view_old = self.agent_view_old
+        
+        x1 = self.map_size_cm // (self.resolution * 2) - self.vision_range // 2
+        x2 = x1 + self.vision_range
+        y1 = self.map_size_cm // (self.resolution * 2)
+        y2 = y1 + self.vision_range
+        agent_view_old[:, 0:1, y1:y2, x1:x2] = fp_map_pred_old
+        agent_view_old[:, 1:2, y1:y2, x1:x2] = fp_exp_pred_old
+        agent_view_old[:, 4:, y1:y2, x1:x2] = torch.clamp(
+            agent_height_proj_old[:, 1:, :, :] / self.cat_pred_threshold, min=0.0, max=1.0
+        )
+
+        pose_pred = poses_last
+        old_pose_pred = old_poses_last
         
         # Erode and inflate semantic map for the target object
-        objgoal_map = agent_view[:, 4 + objectgoal_id, :, :]
-        explored_map, _ = torch.max(agent_view[:, :4, :, :], 1)
+        objgoal_map = agent_view_old[:, 5 + objectgoal_id, :, :]
+        explored_map, _ = torch.max(agent_view_old[:, :4, :, :], 1)
         kernel = np.ones((self.erosion_size, self.erosion_size), dtype=np.uint8)
         kernel_tensor = torch.Tensor(np.expand_dims(np.expand_dims(kernel, 0), 0)).to(self.device)
         objgoal_map = cv2.erode(objgoal_map[0].cpu().numpy(), kernel)
@@ -357,32 +365,44 @@ class Semantic_Mapping(nn.Module):
         kernel_tensor = torch.Tensor(np.expand_dims(np.expand_dims(kernel, 0), 0)).to(self.device)
         objgoal_map = torch.nn.functional.conv2d(objgoal_map, kernel_tensor, padding='same')
         objgoal_map = torch.clamp(objgoal_map, 0, 1)[0]
-        agent_view[:, 4 + objectgoal_id, :, :] = objgoal_map
+        agent_view[:, 5 + objectgoal_id, :, :] = objgoal_map
         objgoal_map_wo_close = objgoal_map[0].cpu().numpy().copy()
         i, j = objgoal_map_wo_close.nonzero()
         dst = np.sqrt((i - objgoal_map_wo_close.shape[0] // 2) ** 2 + (j - objgoal_map_wo_close.shape[1] // 2) ** 2)
         close_i, close_j = i[dst < 100.0 / self.resolution], j[dst < 100.0 / self.resolution]
         objgoal_map_wo_close[close_i, close_j] = 0
-
+        
         corrected_pose = pose_obs
         current_poses = self.get_new_pose_batch(poses_last, corrected_pose)
+        corrected_pose_old = pose_obs_old
+        current_poses_old = self.get_new_pose_batch(old_poses_last, corrected_pose_old)
         st_pose = current_poses.clone().detach()
+        st_pose_old = current_poses_old.clone().detach()
 
         st_pose[:, :2] = -(
             st_pose[:, :2] * 100.0 / self.resolution
             - self.map_size_cm // (self.resolution * 2)
         ) / (self.map_size_cm // (self.resolution * 2))
         st_pose[:, 2] = 90.0 - (st_pose[:, 2])
+        st_pose_old[:, :2] = -(
+            st_pose_old[:, :2] * 100.0 / self.resolution
+            - self.map_size_cm // (self.resolution * 2)
+        ) / (self.map_size_cm // (self.resolution * 2))
+        st_pose_old[:, 2] = 90.0 - (st_pose_old[:, 2])
         self.st_poses.append(st_pose[0].cpu().numpy())
         self.pose_shifts.append(pose_obs[0].cpu().numpy())
         self.agent_views.append(agent_view[0, 0].cpu().numpy())
         
         rot_mat, trans_mat = get_grid(st_pose, agent_view.size(), self.device)
+        rot_mat_old, trans_mat_old = get_grid(st_pose_old, agent_view.size(), self.device)
 
         rotated = F.grid_sample(agent_view, rot_mat, align_corners=True)
         translated = F.grid_sample(rotated, trans_mat, align_corners=True)
-        explored_map_rotated = F.grid_sample(explored_map[None, :, :, :], rot_mat, align_corners=True)
-        explored_map_translated = F.grid_sample(explored_map_rotated, trans_mat, align_corners=True)
+        rotated_old = F.grid_sample(agent_view_old, rot_mat_old, align_corners=True)
+        translated_old = F.grid_sample(rotated_old, trans_mat_old, align_corners=True)
+        translated[:, 4:, :, :] = translated_old[:, 4:, :, :]
+        explored_map_rotated = F.grid_sample(explored_map[None, :, :, :], rot_mat_old, align_corners=True)
+        explored_map_translated = F.grid_sample(explored_map_rotated, trans_mat_old, align_corners=True)
         objgoal_map_wo_close_tensor = torch.Tensor(objgoal_map_wo_close).to(self.device)[None, None, :, :]
         rotated_wo_close = F.grid_sample(objgoal_map_wo_close_tensor, rot_mat, align_corners=True)
         translated_wo_close = F.grid_sample(rotated_wo_close, trans_mat, align_corners=True)
@@ -390,12 +410,12 @@ class Semantic_Mapping(nn.Module):
         maps2 = torch.cat((maps_last.unsqueeze(1), translated.unsqueeze(1)), 1)
 
         map_pred, _ = torch.max(maps2, 1)
-        map_pred[:, 4 + objectgoal_id, :, :] = maps_last[:, 4 + objectgoal_id, :, :] + translated[:, 4 + objectgoal_id, :, :]#translated_wo_close[:, 0, :, :]
-        map_pred[:, 4 + objectgoal_id, :, :] *= (translated[:, 4 + objectgoal_id, :, :] + \
-                                                 self.goal_decay * (1 - translated[:, 4 + objectgoal_id, :, :]) * explored_map_translated[:, 0, :, :] + \
-                                                 (1 - translated[:, 4 + objectgoal_id, :, :]) * (1 - explored_map_translated[:, 0, :, :]))
-
-        return fp_map_pred, map_pred, pose_pred, current_poses
+        map_pred[:, 5 + objectgoal_id, :, :] = maps_last[:, 5 + objectgoal_id, :, :] + translated[:, 5 + objectgoal_id, :, :]#translated_wo_close[:, 0, :, :]
+        map_pred[:, 5 + objectgoal_id, :, :] *= (translated[:, 5 + objectgoal_id, :, :] + \
+                                                 self.goal_decay * (1 - translated[:, 5 + objectgoal_id, :, :]) * explored_map_translated[:, 0, :, :] + \
+                                                 (1 - translated[:, 5 + objectgoal_id, :, :]) * (1 - explored_map_translated[:, 0, :, :]))
+        
+        return fp_map_pred, map_pred, current_poses, pose_pred, old_pose_pred
 
     def get_new_pose_batch(self, pose, rel_pose_change):
         #print('Pose:', pose)

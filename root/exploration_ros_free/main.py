@@ -222,7 +222,6 @@ class HabitatRunner():
         np.savez(os.path.join(save_dir, 'semantic_maps.npz'), self.agent.semantic_maps)
         np.savez(os.path.join(save_dir, 'rgbs.npz'), self.agent.rgbs)
         np.savez(os.path.join(save_dir, 'depths.npz'), self.agent.depths)
-        np.savez(os.path.join(save_dir, 'depths_for_map.npz'), self.agent.depths_for_map)
         np.savetxt(os.path.join(save_dir, 'poses.txt'), self.agent.robot_pose_track)
         np.savetxt(os.path.join(save_dir, 'goal_coords.txt'), self.agent.goal_coords)
         np.savez(os.path.join(save_dir, 'actions.txt'), self.agent.action_track)
@@ -251,7 +250,7 @@ class HabitatRunner():
                     os.remove(os.path.join(save_dir, file))
                 except IsADirectoryError:
                     pass
-                
+
 
 def main():
     runner = HabitatRunner()
