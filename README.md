@@ -15,7 +15,7 @@ In recent years, Embodied AI has become one of the main topics in robotics. For 
 
 
 ### SegmATRon
-To change versions of SegmATRon go to [semantic_predictor_segmatron_multicat.py](./root/skillfusion/semantic_predictor_segmatron_multicat.py) and change paths to config file and weights in SemanticPredictor initialization.
+To change versions of SegmATRon go to [config_poni_exploration.yaml](root/exploration_ros_free/config_poni_exploration.yam) and change paths to config file and weights in SemanticPredictor initialization.
 Available options:
 
 - **Single Frame Baseline** weights/config_single_frame.yaml, [weights](https://disk.yandex.ru/d/p2GKLZ_Z49IWdA)
@@ -23,7 +23,7 @@ Available options:
 - **SegmATRon 2 steps** weights/segmatron_2_step.yaml, [weights](https://disk.yandex.ru/d/a-LWtayiJf54VA)
 - **SegmATRon 4 steps** weights/segmatron_4_steps.yaml, [weights](https://disk.yandex.ru/d/goW34Me8jbme9A)
 
-To control real-time or delayed semantic predictions change parameters of semantic predictor in configuration file[config_poni_exploration.yaml](root/exploration_ros_free/main.py):
+To control real-time or delayed semantic predictions change parameters of semantic predictor in configuration file[config_poni_exploration.yaml](root/exploration_ros_free/config_poni_exploration.yaml):
 
 ```bash
 semantic_predictor:
