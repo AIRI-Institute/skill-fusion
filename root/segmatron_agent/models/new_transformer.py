@@ -1,3 +1,8 @@
+# ------------------------------------------------------------------------------
+# Reference: https://github.com/allenai/interactron/blob/main/models/new_transformer.py
+# Modified by Tatiana Zemskova (https://github.com/wingrune)
+# ------------------------------------------------------------------------------
+
 import torch
 import torch.nn as nn
 import math

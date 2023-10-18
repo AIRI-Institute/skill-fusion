@@ -338,7 +338,6 @@ def parse_args_from_config(config: DictConfig):
     add_argument(parser, config.get('exp_pred_threshold', None), "--exp_pred_threshold", type=float, default=1.0)
     add_argument(parser, config.get('collision_threshold', None), "--collision_threshold", type=float, default=0.20)
     add_argument(parser, config.get('seg_interval', None), "--seg_interval", type=int, default=3)
-    add_argument(parser, config.get('semantic_threshold', None), "--semantic-threshold", type=int, default=3)
 
     # Potential-fields arguments
     add_argument(parser, config.get('pf_model_path', None),

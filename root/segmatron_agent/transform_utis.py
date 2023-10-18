@@ -1,3 +1,4 @@
+# This code is copied from https://github.com/allenai/interactron
 import models.detr_models.util.transforms as T
 import torchvision.transforms as TV
 

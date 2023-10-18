@@ -161,7 +161,7 @@ meta_clss = {0: 'wall',
  149: 'flag'}
 
 class SemanticPredictor():
-    def __init__(self):
+    def __init__(self, config):
         self.objgoal_to_cat = {0: 'chair',     1: 'bed',     2: 'plant',           3: 'toilet',           4: 'tv_monitor',   
                                5: 'sofa'}
         self.crossover = {'chair':['chair', 'armchair', 'swivel chair'], 
@@ -210,13 +210,21 @@ class SemanticPredictor():
                                  'tv_monitor':['bed'],
                                  'sofa':['television receiver','crt screen','screen'],
                                 }
-        
+
+        self.cat_to_coco = {
+            'chair': 0,
+            'sofa': 1,
+            'plant': 2,
+            'bed': 3,
+            'toilet': 4,
+            'tv_monitor': 5
+        }        
         # Initialize semantic predictor
-        cfg = get_config("weights/segmatron_1_step.yaml")
+        cfg = get_config(config["config_path"])
         self.num_actions = cfg.MODEL.NUM_ACTIONS
         self.model = build_model(cfg)
         self.model.load_state_dict(
-                        torch.load("weights/segmatron_mlp_best_fwIoU_1_step.pt", map_location=torch.device('cpu'))['model'], strict=True)
+                        torch.load(config["weights"], map_location=torch.device('cpu'))['model'], strict=True)
         device = torch.cuda.current_device()
         self.model.to(device)
         self.model.eval()
@@ -224,7 +232,7 @@ class SemanticPredictor():
         self.frames = []
         print('CLSS:', self.clss)
         self.count = 0
-        self.delayed = True # if True, use image to predict segmentation for [t-(NUM_ACTIONS-1)] frame.
+        self.delayed = config["delayed"] # if True, use image to predict segmentation for [t-(NUM_ACTIONS-1)] frame.
                             # if False, predict segmentation for the image - current frame t.
 
     def __call__(self, image, objectgoal=None):
@@ -236,7 +244,7 @@ class SemanticPredictor():
         obs_semantic = np.ones((640,480,1))
 
         image = Image.fromarray(image)
-        image.save(f"/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/fbe_poni_exploration_maps_4_steps/attempt2/{self.count}.jpg")
+        #image.save(f"/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/fbe_poni_exploration_maps_4_steps/attempt2/{self.count}.jpg")
         image = np.array(image.resize((240,320)))
         image = torch.as_tensor(np.ascontiguousarray(image.transpose(2, 0, 1)))
 
@@ -286,24 +294,30 @@ class SemanticPredictor():
         #result[result < 0.5] = 0
         result = np.argmax(result, axis=0)
         result = result[:, :480]
+        print(np.unique(result))
         ################################## FOR SEGFORMER B5  second lane
         if objectgoal is not None:
             after_crossover = self.crossover[self.objgoal_to_cat[objectgoal]]
             segformer_index = [i for i,x in enumerate(self.clss) if x in after_crossover]
+            
             mask = np.zeros((640,480))
             for seg_index in segformer_index:
                 mask += (result==seg_index).astype(float)
             mask.astype(bool).astype(float)
             obs_semantic = cv2.erode(mask,np.ones((4,4),np.uint8),iterations = 1)[:,:,np.newaxis]
             semantic_mask = obs_semantic[:, :, 0]
+
         multiclass_prediction = np.zeros((result.shape[0], result.shape[1], len(self.coco_categories)))
         for cat, i in self.coco_categories.items():
             after_crossover = self.crossover_for_coco[cat]
             segformer_index = [i for i,x in enumerate(self.clss) if x in after_crossover]
+           
             for seg_index in segformer_index:
-                multiclass_prediction[:, :, i] += (result[0] == seg_index).astype(float)
+                multiclass_prediction[:, :, i] += (result == seg_index).astype(float)
+            if i == self.cat_to_coco[self.objgoal_to_cat[objectgoal]]:
+                multiclass_prediction[:, :, i].astype(bool).astype(float)
+                multiclass_prediction[:, :, i] = cv2.erode(multiclass_prediction[:, :, i], np.ones((4, 4), np.uint8), iterations=1)
             multiclass_prediction.astype(bool).astype(float)
-        # img = Image.fromarray(semantic_mask.astype(np.uint8)*255).convert("L")
-        # img.save(f"/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/fbe_poni_exploration_maps_4_steps/attempt2/{self.count}.png")
-
-        return multiclass_prediction, semantic_mask
+        print("Multiclass", np.unique(multiclass_prediction))
+        print("Semantic mask", np.unique(semantic_mask))
+        return multiclass_prediction, semantic_mask, result

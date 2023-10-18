@@ -1,0 +1,27 @@
+task:
+  config: '/root/configs/tasks/objectnav_hm3d_new.yaml'
+  eval_episodes: [3, 4, 5, 7, 99, 100, 101, 102, 103, 104, 106, 107, 198, 199, 200, 202, 203, 204, 205, 206, 297, 299, 300, 301, 303, 304, 305, 396, 397, 398, 399, 401, 402, 403, 495, 496, 497, 498, 499, 501, 503, 594, 595, 596, 597, 598, 599, 600, 602, 693, 694, 696, 697, 698, 700, 701, 792, 793, 794, 795, 797, 798, 799, 800, 891, 894, 895, 896, 899, 990, 991, 992, 994, 996, 997, 998]
+  finish_radius: 0.7
+  top_down_map_save_path: '/root/exploration_ros_free/top_down_maps'
+  last_pic_save_path: '/root/exploration_ros_free/top_down_maps/rgb'
+visualization:
+  visualize: True
+  rgb_topic: '/habitat/rgb/image'
+  depth_topic: '/habitat/depth/image'
+  true_pose_topic: '/true_pose'
+  goal_topic: '/exploration_goal'
+  frontier_topic: '/explore/frontiers'
+  path_topic: '/path'
+  map_topic: '/habitat/map'
+  semantic_map_topic: '/habitat/semantic_map'
+
+args:
+  split: 'val'
+  sem_pred_weights: '/root/PONI/pretrained_models/maskrcnn_gibson.pth'
+  total_num_scenes: 1
+  pf_model_path: '/root/exploration_ros_free/pretrained_models/gibson_models/poni_seed_234.ckpt'
+  eval: 1
+  global_downscaling: 1
+  min_depth: 0.5
+  max_depth: 5.0
+  add_agent2loc_distance: False

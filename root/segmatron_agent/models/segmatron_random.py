@@ -1,3 +1,8 @@
+# ------------------------------------------------------------------------------
+# Reference: https://github.com/allenai/interactron/blob/main/models/interactron_random.py
+# Modified by Tatiana Zemskova (https://github.com/wingrune)
+# ------------------------------------------------------------------------------
+
 import torch
 import torch.nn as nn
 import copy

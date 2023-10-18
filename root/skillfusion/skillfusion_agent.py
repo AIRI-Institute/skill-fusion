@@ -2,7 +2,7 @@ import numpy as np
 import habitat
 from habitat.config import DictConfig
 from habitat.sims.habitat_simulator.actions import HabitatSimActions
-from exploration.poni_exploration import PoniExploration
+from exploration.frontier.poni_exploration import PoniExploration
 from planners.astar.astar_planner import AStarPlanner
 import yaml
 
@@ -12,16 +12,28 @@ import torch
 from torch.autograd import Variable
 from torchvision.transforms import ToTensor, ToPILImage
 import torch.nn.functional as F
+from torch.cuda.amp import autocast
+from scipy import ndimage
 from scipy.signal import convolve2d
+from skimage.io import imsave
 
+import torch.distributed as dist
+from habitat.tasks.nav.shortest_path_follower import ShortestPathFollower
+import cv2
+import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
+from matplotlib.patches import Circle
+import glob
+import time
+import matplotlib.patches as patches
 from gym.spaces import Box, Dict, Discrete
 
 from EXPLORE_policy import ResNetPolicy as EX_Policy
 from GR_policy import PointNavResNetPolicy as GR_Policy
 
 import sys
-sys.path.append('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/skillfusion')
-sys.path.append('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/skillfusion/habitat_map')
+sys.path.append('/root/exploration_ros_free/habitat_map')
+#from semantic_predictor_oneformer_multicat import SemanticPredictor
 from semantic_predictor_segmatron_multicat import SemanticPredictor
 from hab_base_utils_common import batch_obs
 
@@ -46,10 +58,10 @@ def normalize(angle):
     return angle
 
 
-class SkillFusionAgent(habitat.Agent):
+class GreedyPathFollowerAgent(habitat.Agent):
 
     def __init__(self, task_config: DictConfig):
-        fin = open('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/skillfusion/config_poni_exploration.yaml', 'r')
+        fin = open('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/config_poni_exploration.yaml', 'r')
         config = yaml.safe_load(fin)
         fin.close()
         self.config = config
@@ -59,9 +71,8 @@ class SkillFusionAgent(habitat.Agent):
         self.max_d_angle = follower_config['max_d_angle']
         self.finish_radius = config['task']['finish_radius']
 
-        # Initialize exploration
-        exploration_config = config['exploration']
         args = parse_args_from_config(config['args'])
+        exploration_config = config['exploration']
         self.exploration = PoniExploration(args)
         self.timeout = exploration_config['timeout']
         self.gr_timeout = exploration_config['gr_timeout']
@@ -69,6 +80,7 @@ class SkillFusionAgent(habitat.Agent):
         # Initialize path planner
         planner_config = config['path_planner']
         self.planner_frequency = planner_config['frequency']
+        planner_type = planner_config['type']
         self.path_planner = AStarPlanner(reach_radius=planner_config['reach_radius'] / self.exploration.args.map_resolution * 100.,
                                          allow_diagonal=planner_config['allow_diagonal'])
 
@@ -97,13 +109,19 @@ class SkillFusionAgent(habitat.Agent):
                     num_recurrent_layers=1,
                     backbone='resnet18',
                 )
-        pretrained_state = torch.load('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/skillfusion/weights/ex_tilt_4.pth', map_location="cpu")
+        pretrained_state = torch.load('/root/exploration_ros_free/weights/ex_tilt_15_turn.pth', map_location="cpu")
         self.actor_critic_3fusion.load_state_dict(pretrained_state)
         self.actor_critic_3fusion.to(self.device)
         self.actor_critic_3fusion.eval()
         
         obs_space2 = dotdict()
         obs_space2.spaces = {}
+        """
+        obs_space2.spaces['rgb'] = Box(low=-1000, high=1000, shape=(240,320,3), dtype=np.float32)
+        obs_space2.spaces['depth'] = Box(low=-1000, high=1000, shape=(240,320,1), dtype=np.float32)
+        obs_space2.spaces['semantic'] = Box(low=-1000, high=1000, shape=(240,320,1), dtype=np.float32)
+        act_space2 = Discrete(4)
+        """
         obs_space2.spaces['rgb'] = Box(low=-1000, high=1000, shape=(320,240,3), dtype=np.float32)
         obs_space2.spaces['depth'] = Box(low=-1000, high=1000, shape=(320,240,1), dtype=np.float32)
         obs_space2.spaces['semantic'] = Box(low=-1000, high=1000, shape=(320,240,1), dtype=np.float32)
@@ -117,12 +135,14 @@ class SkillFusionAgent(habitat.Agent):
             num_recurrent_layers = 1,
             backbone = 'resnet18',
             normalize_visual_inputs=True)
-        pretrained_state = torch.load('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/skillfusion/weights/grTILT_june1.pth', map_location="cpu")
+        pretrained_state = torch.load('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/weights/grTILT_june1.pth', map_location="cpu")
         self.actor_critic_gr.load_state_dict(pretrained_state)
         self.actor_critic_gr.to(self.device)
         self.actor_critic_gr.eval()
         
-        self.semantic_predictor = SemanticPredictor()
+        self.semantic_predictor = SemanticPredictor(config['semantic_predictor'])
+        #self.semantic_predictor = SemanticPredictor()
+        self.semantic_threshold = config['mapper']['semantic_threshold']
 
         # Initialize common params
         self.step = 0
@@ -138,10 +158,14 @@ class SkillFusionAgent(habitat.Agent):
         self.rgbs = []
         self.goal_coords = []
         self.depths = []
+        self.depths_for_map = []
         self.obs_maps = []
         self.agent_positions = []
         self.goal_coords_ij = []
         self.paths = []
+        self.pose_shifts = []
+        self.st_poses = []
+        self.agent_views = []
         self.goal = None
         self.path = None
         self.objgoal_found = False
@@ -173,8 +197,11 @@ class SkillFusionAgent(habitat.Agent):
         x, y = observations['gps']
         y_cell, x_cell = self.exploration.world_to_map(x, y)
         cn = self.cat_to_coco[self.goal_id_to_cat[observations['objectgoal'][0]]] + 4
-        semantic_map = self.exploration.get_semantic_map(observations)
+        semantic_map = self.exploration.local_map[0, cn, :, :].cpu().numpy()
+        semantic_map[semantic_map < self.semantic_threshold] = 0
+        semantic_map[semantic_map >= self.semantic_threshold] = 1
         i, j = (semantic_map > 0).nonzero()
+        #print('I, J:', y_cell, x_cell)
         if len(i) > 0:
             dst = np.sqrt((y_cell - i) ** 2 + (x_cell - j) ** 2)
             print('Min distance:', dst.min())
@@ -185,8 +212,12 @@ class SkillFusionAgent(habitat.Agent):
 
     def interm_goal_reached(self, observations, goal):
         x, y = observations['gps']
+        #y *= -1
+        #print('Robot position:', x, y)
         goal_x, goal_y = goal
+        #print('Goal position:', goal_x, goal_y)
         dst = np.sqrt((x - goal_x) ** 2 + (y - goal_y) ** 2)
+        #print('Dst:', dst)
         return (dst < self.goal_radius + self.path_planner.reach_radius * self.exploration.args.map_resolution / 100)
 
 
@@ -210,11 +241,15 @@ class SkillFusionAgent(habitat.Agent):
         self.semantic_maps = []
         self.rgbs = []
         self.depths = []
+        self.depths_for_map = []
         self.action_track = []
         self.obs_maps = []
         self.agent_positions = []
         self.goal_coords_ij = []
         self.paths = []
+        self.pose_shifts = []
+        self.st_poses = []
+        self.agent_views = []
         self.exploration.reset()
         self.path_planner.reset()
         self.goal = None
@@ -242,13 +277,13 @@ class SkillFusionAgent(habitat.Agent):
         convolution = convolve2d(obstacle_map, kernel, mode='same')
         obstacle_map[convolution == 0] = 0
         i, j = (obstacle_map > 0).nonzero()
+        obstacle_map = np.maximum(obstacle_map, self.exploration.collision_map)
         k = 3
         for di in range(-k, k + 1):
             for dj in range(-k, k + 1):
                 ii = np.clip(i + di, 0, obstacle_map.shape[0] - 1)
                 jj = np.clip(j + dj, 0, obstacle_map.shape[1] - 1)
                 obstacle_map[ii, jj] = np.maximum(obstacle_map[ii, jj], 0.5)
-        obstacle_map = np.maximum(obstacle_map, self.exploration.collision_map)
         explored_map = self.exploration.local_map[0, 1, :, :].cpu().numpy()
         full_map = np.concatenate([np.expand_dims(explored_map, 2), np.expand_dims(obstacle_map, 2)], axis=2)
         return full_map
@@ -258,6 +293,7 @@ class SkillFusionAgent(habitat.Agent):
         robot_x, robot_y = observations['gps']
         if self.stuck:
             self.exploration.check_and_draw_collisions()
+        #robot_y = -robot_y
         # Create path to goal. If path planning failed, create path along both free and unknown map cells
         if self.goal is not None and (self.path is None or self.step % self.planner_frequency == 0 or self.stuck):
             full_map = self.get_obstacle_map()
@@ -265,6 +301,7 @@ class SkillFusionAgent(habitat.Agent):
             goal_x, goal_y = self.goal
             goal_i, goal_j = self.exploration.world_to_map(goal_x, goal_y)
                         
+            #self.path = self.path_planner.create_path(observations, self.goal, unknown_is_obstacle=True)
             self.path = self.path_planner.create_path(full_map, start_i, start_j, goal_i, goal_j, unknown_is_obstacle=True)
             if self.path is not None:
                 self.path = [self.exploration.map_to_world(i, j) for i, j in self.path]
@@ -272,17 +309,20 @@ class SkillFusionAgent(habitat.Agent):
             if self.objgoal_found and self.path is None:
                 print('Path to goal with radius 0.5 not found. Try expand reach radius to 0.7')
                 self.path_planner.reach_radius = 0.7 / self.exploration.args.map_resolution * 100.
+                #self.path = self.path_planner.create_path(observations, self.goal, unknown_is_obstacle=True)
                 self.path = self.path_planner.create_path(full_map, start_i, start_j, goal_i, goal_j, unknown_is_obstacle=True)
                 if self.path is not None:
                     self.path = [self.exploration.map_to_world(i, j) for i, j in self.path]
             if self.path is None:
                 print('Path by free cells not found. Trying with unknown cells')
+                #self.path = self.path_planner.create_path(observations, self.goal, unknown_is_obstacle=False)
                 self.path = self.path_planner.create_path(full_map, start_i, start_j, goal_i, goal_j, unknown_is_obstacle=False)
                 if self.path is not None:
                     self.path = [self.exploration.map_to_world(i, j) for i, j in self.path]
             self.path_planner.reach_radius = old_reach_radius
             # If path to goal not found, reject this goal
             if self.path is None:
+                #print('Path not found. Rejecting goal')
                 self.exploration.reject_goal()
                 self.goal = None
                 self.step_to_goal = 0
@@ -348,13 +388,20 @@ class SkillFusionAgent(habitat.Agent):
 
     def act_fbe(self, observations, semantic_prediction):
         robot_x, robot_y = observations['gps']
+        #robot_y = -robot_y
         robot_angle = observations['compass'][0]
+        #robot_angle = -robot_angle
+        #print('Robot x and y:', robot_x, robot_y)
+        #print('Robot angle:', robot_angle)
 
         # at start, let's rotate 360 degrees to look around
         if self.step < 12:
             return HabitatSimActions.turn_left
         
-        semantic_map = self.exploration.get_semantic_map(observations)
+        cn = self.cat_to_coco[self.goal_id_to_cat[observations['objectgoal'][0]]] + 4
+        semantic_map = self.exploration.local_map[0, cn, :, :].cpu().numpy()
+        semantic_map[semantic_map < self.semantic_threshold] = 0
+        semantic_map[semantic_map >= self.semantic_threshold] = 1
         
         # If we found objectgoal, cancel current intermediate goal to move to the objectgoal immediately
         if not self.objgoal_found and semantic_map.max() > 0:
@@ -366,6 +413,10 @@ class SkillFusionAgent(habitat.Agent):
             self.objgoal_found = False
             self.exploration.reject_goal()
         if self.objgoal_found:
+            #print('Objectgoal found!')
+            #print('Robot x and y:', robot_x, robot_y)
+            #print('Goal x and y:', self.goal)
+            #print('PATH:', self.path)
             i, j = (semantic_map > 0).nonzero()
             if len(i) > 0:
                 y_cell, x_cell = self.exploration.world_to_map(robot_x, robot_y)
@@ -396,6 +447,8 @@ class SkillFusionAgent(habitat.Agent):
 
     def act_rl(self, observations):
         dpth = observations['depth']
+        #dpth = (dpth - 0.5) / 4.5
+        #dpth[dpth == 0] = 1.
         rgb_trans = (self.p240(observations['rgb']).permute(1,2,0)*255)
         depth_trans = self.p240(dpth).permute(1,2,0)
         batch = batch_obs([{'task_id':np.ones((1,))*1,
@@ -420,6 +473,7 @@ class SkillFusionAgent(habitat.Agent):
 
     def act_rl_goalreacher(self, observations, obs_semantic):
         dpth = observations['depth']
+        #dpth = (dpth - 0.5) / 4.5
         dpth[dpth == 0] = 1.
         rgb_trans = (self.p240(observations['rgb']).permute(1,2,0)*255)
         depth_trans = self.p240(dpth).permute(1,2,0)
@@ -428,6 +482,7 @@ class SkillFusionAgent(habitat.Agent):
                             'depth':depth_trans,
                             'semantic':sem_trans}], device=self.device)
         with torch.no_grad():
+            #_, action, _, self.test_recurrent_hidden_states_gr = self.actor_critic_gr.act(
             gr_values, action, _, self.test_recurrent_hidden_states_gr = self.actor_critic_gr.act(
                 batch,
                 self.test_recurrent_hidden_states_gr,
@@ -438,13 +493,53 @@ class SkillFusionAgent(habitat.Agent):
             self.prev_actions0.copy_(action) 
             action = action.item()
         return action
-    
-    
-    def detect_and_update_stuck(self):
+        
+
+    def act(self, observations):
+        robot_x, robot_y = observations['gps']
+        robot_angle = observations['compass'][0]
+        self.robot_pose_track.append((robot_x, robot_y, robot_angle))
+        action_rl = self.act_rl(observations)
+        if observations['objectgoal'][0] in [2, 4]:
+            self.exploration.sem_map_module.erosion_size = 3
+        else:
+            self.exploration.sem_map_module.erosion_size = 5
+        
+        # Update obstacle map and semantic map
+        semantic_prediction, semantic_mask, result = self.semantic_predictor(observations['rgb'], observations['objectgoal'][0])
+        
+        self.exploration.update(observations, semantic_prediction)
+        cn = self.cat_to_coco[self.goal_id_to_cat[observations['objectgoal'][0]]] + 4
+        semantic_map = self.exploration.local_map[0, cn, :, :].cpu().numpy()
+        semantic_map[semantic_map < self.semantic_threshold] = 0
+        semantic_map[semantic_map >= self.semantic_threshold] = 1
+        self.semantic_maps.append(semantic_map)
+        if np.sum(semantic_mask) > 300 or semantic_map.max() > 0:
+            print("Goal is observed")
+            self.skil_goalreacher = True
+            if self.step_gr >= self.gr_timeout or semantic_map.max() > 0:
+                self.step_gr = 0
+        else:
+            self.steps_wo_goal += 1
+            if self.step_gr >= self.gr_timeout or self.steps_wo_goal > 10:
+                self.skil_goalreacher = False
+                self.steps_wo_goal = 0
+        if self.skil_goalreacher:
+            action_rl_gr = self.act_rl_goalreacher(observations, semantic_mask[np.newaxis, ...])
+
+#        observations['rgb'][semantic_mask > 0] = [255, 0, 0]
+        self.rgbs.append(observations['rgb'].astype(np.uint8))
+        self.depths.append(observations['depth'])
+        
+        self.pose_shifts.append(self.exploration.sem_map_module.pose_shifts[-1])
+        self.st_poses.append(self.exploration.sem_map_module.st_poses[-1])
+        self.agent_views.append(self.exploration.sem_map_module.agent_views[-1])
+        self.depths_for_map.append(self.exploration.sem_map_module.depths[-1])
+
         # Detect stuck
         self.stuck = False
         if len(self.action_track) > 0 and \
-           self.action_track[-1] == HabitatSimActions.move_forward and \
+           int(self.action_track[-1][0]) == HabitatSimActions.move_forward and \
            len(self.robot_pose_track) > 1 \
            and np.sqrt((self.robot_pose_track[-1][0] - self.robot_pose_track[-2][0]) ** 2 + \
                        (self.robot_pose_track[-1][1] - self.robot_pose_track[-2][1]) ** 2) < 0.01:
@@ -460,18 +555,94 @@ class SkillFusionAgent(habitat.Agent):
         if self.steps_in_stuck > 12 or (not self.skil_goalreacher and self.exploration.replan):
         #if not self.skil_goalreacher and self.exploration.replan:
             self.escape_from_stuck = True
+        #    self.escape_from_stuck = False
+        #    self.rl_escape_steps = 0
         self.rl_escape_steps += 1
         if self.rl_escape_steps > 10 or (self.skil_goalreacher and self.rl_escape_steps > 5):
             self.escape_from_stuck = False
             self.rl_escape_steps = 0
-            
-            
-    def act_rl_escape(self, action_rl_gr):
-        if self.skil_goalreacher and action_rl_gr != HabitatSimActions.stop and \
+        
+        if self.goal is not None:
+            self.goal_coords.append(self.goal)
+        else:
+            self.goal_coords.append((-1000, -1000))
+        if self.exploration.global_goals is not None:
+            self.goal_coords_ij.append(self.exploration.global_goals[0])
+        else:
+            self.goal_coords_ij.append((240, 240))
+        self.obs_maps.append(self.get_obstacle_map()[:, :, 1])
+        if len(self.exploration.agent_positions) == 0:
+            self.agent_positions.append([240, 240, 0])
+        else:
+            self.agent_positions.append(self.exploration.agent_positions[-1] + [robot_angle])
+        if self.path is not None:
+            self.paths.append(self.path)
+        else:
+            self.paths.append([])
+
+        # If we reached objectgoal, stop
+        if self.goal_reached(observations):
+            print('GOAL REACHED. FINISH EPISODE!')
+            self.action_track.append(('0', 'FINISH'))
+            return {'action': HabitatSimActions.stop, 'pred': result}
+        
+        if self.stuck and self.tilt_angle == 0:
+            action = HabitatSimActions.look_down
+            self.tilt_angle = 30
+            self.exploration.sem_map_module.agent_view_angle = -30
+            print('TILT DOWN')
+            self.action_track.append((str(action), 'TILT DOWN'))
+            return {'action': action, 'pred': result}
+        
+        if self.steps_after_stuck > 5 and self.tilt_angle > 0:
+            action = HabitatSimActions.look_up
+            self.tilt_angle = 0
+            self.exploration.sem_map_module.agent_view_angle = 0
+            print('TILT UP')
+            self.action_track.append((str(action), 'TILT UP'))
+            return {'action': action, 'pred': result}
+
+        self.step += 1
+        #print('Critic value:', self.critic_values[-1])
+        #print('Poni value:', self.exploration.goal_pf)
+        #if self.exploration.goal_pf < self.critic_values[-1] / 3 and not self.skil_goalreacher:
+        if self.critic_values[-1] > 2 and not self.skil_goalreacher:
+        #if not self.skil_goalreacher:
+            self.action_track.append((str(action_rl), 'RL'))
+            print('Action RL:', action_rl)
+            return {'action': action_rl, 'pred': result}
+        if self.escape_from_stuck:
+            if self.skil_goalreacher and action_rl_gr != HabitatSimActions.stop and \
+               not (action_rl_gr == HabitatSimActions.look_down and self.tilt_angle > 0) and \
+               not (action_rl_gr == HabitatSimActions.look_up and self.tilt_angle == 0):
+                print('Step with RL goalreacher to escape')
+                self.action_track.append((str(action_rl_gr), 'RL Goalreacher'))
+                self.step_gr += 1
+                print('Action RL Goalreacher:', action_rl_gr)
+                if action_rl_gr == HabitatSimActions.look_down:
+                    assert self.tilt_angle == 0
+                    print('TILT DOWN WITH RL GOALREACHER')
+                    self.tilt_angle = 30
+                    self.exploration.sem_map_module.agent_view_angle = -30
+                if action_rl_gr == HabitatSimActions.look_up:
+                    assert self.tilt_angle > 0
+                    print('TILT UP WITH RL GOALREACHER')
+                    self.tilt_angle = 0
+                    self.exploration.sem_map_module.agent_view_angle = 0
+                return {'action': action_rl_gr, 'pred': result}
+            else:
+                self.action_track.append((str(action_rl), 'RL escape'))
+                print('Action RL escape:', action_rl)
+                return {'action': action_rl, 'pred': result}
+        if self.skil_goalreacher and \
+           self.step_gr < self.gr_timeout and \
+           semantic_map.max() == 0 and \
+           action_rl_gr != HabitatSimActions.stop and \
            not (action_rl_gr == HabitatSimActions.look_down and self.tilt_angle > 0) and \
            not (action_rl_gr == HabitatSimActions.look_up and self.tilt_angle == 0):
-            print('Step with RL goalreacher to escape')
-            self.action_track.append(action_rl_gr)
+            #self.steps_after_stuck > 2 and \
+            print('Step with RL goalreacher')
+            self.action_track.append((str(action_rl_gr), 'RL Goalreacher'))
             self.step_gr += 1
             print('Action RL Goalreacher:', action_rl_gr)
             if action_rl_gr == HabitatSimActions.look_down:
@@ -484,109 +655,20 @@ class SkillFusionAgent(habitat.Agent):
                 print('TILT UP WITH RL GOALREACHER')
                 self.tilt_angle = 0
                 self.exploration.sem_map_module.agent_view_angle = 0
-            return action_rl_gr
-        else:
-            self.action_track.append(action_rl)
-            print('Action RL escape:', action_rl)
-            return action_rl
-        
-        
-    def update_from_goalreacher(self, action_rl_gr):
-        self.action_track.append(action_rl_gr)
-        self.step_gr += 1
-        print('Action RL Goalreacher:', action_rl_gr)
-        if action_rl_gr == HabitatSimActions.look_down:
-            assert self.tilt_angle == 0
-            print('TILT DOWN WITH RL GOALREACHER')
-            self.tilt_angle = 30
-            self.exploration.sem_map_module.agent_view_angle = -30
-        if action_rl_gr == HabitatSimActions.look_up:
-            assert self.tilt_angle > 0
-            print('TILT UP WITH RL GOALREACHER')
-            self.tilt_angle = 0
-            self.exploration.sem_map_module.agent_view_angle = 0
-        
-
-    def act(self, observations):
-        robot_x, robot_y = observations['gps']
-        robot_angle = observations['compass'][0]
-        self.robot_pose_track.append((robot_x, robot_y, robot_angle))
-        action_rl = self.act_rl(observations)
-        
-        # Update obstacle map and semantic map
-        semantic_prediction, semantic_mask = self.semantic_predictor(observations['rgb'], observations['objectgoal'][0])
-        
-        semantic_map = self.exploration.get_semantic_map(observations)
-        self.exploration.update(observations, semantic_prediction)
-        if np.sum(semantic_mask) > 300 or semantic_map.max() > 0:
-            self.skil_goalreacher = True
-            if self.step_gr >= self.gr_timeout or semantic_map.max() > 0:
-                self.step_gr = 0
-        else:
-            self.steps_wo_goal += 1
-            if self.step_gr >= self.gr_timeout or self.steps_wo_goal > 10:
-                self.skil_goalreacher = False
-                self.steps_wo_goal = 0
-        if self.skil_goalreacher:
-            action_rl_gr = self.act_rl_goalreacher(observations, semantic_mask[np.newaxis, ...])
-
-        observations['rgb'][semantic_mask > 0] = [255, 0, 0]
-        
-        self.detect_and_update_stuck()
-
-        # If we reached objectgoal, stop
-        if self.goal_reached(observations):
-            print('GOAL REACHED. FINISH EPISODE!')
-            self.action_track.append(('0', 'FINISH'))
-            return {'action': HabitatSimActions.stop}
-        
-        # If we stuck, tilt down
-        if self.stuck and self.tilt_angle == 0:
-            action = HabitatSimActions.look_down
-            self.tilt_angle = 30
-            self.exploration.sem_map_module.agent_view_angle = -30
-            print('TILT DOWN')
-            self.action_track.append((str(action), 'TILT DOWN'))
-            return {'action': action}
-        
-        # At 5 steps after stuck, tilt up
-        if self.steps_after_stuck > 5 and self.tilt_angle > 0:
-            action = HabitatSimActions.look_up
-            self.tilt_angle = 0
-            self.exploration.sem_map_module.agent_view_angle = 0
-            print('TILT UP')
-            self.action_track.append((str(action), 'TILT UP'))
-            return {'action': action}
-
-        # If RL score is greater than threshold, step with RL
-        self.step += 1
-        if self.critic_values[-1] > 2 and not self.skil_goalreacher:
-            self.action_track.append((str(action_rl), 'RL'))
-            print('Action RL:', action_rl)
-            return {'action': action_rl}
-        
-        # If we stuck, escape with RL
-        if self.escape_from_stuck:
-            action_rl_escape = self.act_rl_escape(action_rl_gr)
-            return {'action': action_rl_escape}
-            
-        # If we in proper conditions for RL goalreacher, step with it
-        if self.skil_goalreacher and \
-           self.step_gr < self.gr_timeout and \
-           semantic_map.max() == 0 and \
-           action_rl_gr != HabitatSimActions.stop and \
-           not (action_rl_gr == HabitatSimActions.look_down and self.tilt_angle > 0) and \
-           not (action_rl_gr == HabitatSimActions.look_up and self.tilt_angle == 0):
-            print('Step with RL goalreacher')
-            self.update_from_goalreacher(action_rl_gr)
-            return {'action': action_rl_gr}
-        
-        # Otherwise, step with the classic pipeline
+            return {'action': action_rl_gr, 'pred': result}
         action_fbe = self.act_fbe(observations, semantic_prediction)
         if semantic_map.max() == 0:
             action_type = 'PONI'
         else:
             action_type = 'FBE Goalreacher'
-        self.action_track.append(action_fbe)
+        self.action_track.append((str(action_fbe), action_type))
         print('Action FBE:', action_fbe)
-        return {'action': action_fbe}
+        return {'action': action_fbe, 'pred': result}
+        if action_rl != HabitatSimActions.stop:
+            self.action_track.append((str(action_rl), 'RL after all'))
+            print('Action RL after all:', action_rl)
+            return {'action': action_rl}
+        action = np.random.choice([HabitatSimActions.move_forward, HabitatSimActions.turn_left])
+        self.action_track.append((str(action), 'Random'))
+        print('Random action:', action)
+        return {'action': action}

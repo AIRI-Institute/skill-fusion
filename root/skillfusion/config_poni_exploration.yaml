@@ -3,9 +3,10 @@ task:
   config: '/root/configs/benchmark/nav/objectnav/objectnav_v2_hm3d_stretch_challenge.yaml'
   #eval_episodes: [3, 4, 5, 7, 99, 100, 101, 102, 103, 104, 106, 107, 198, 199, 200, 202, 203, 204, 205, 206, 297, 299, 300, 301, 303, 304, 305, 396, 397, 398, 399, 401, 402, 403, 495, 496, 497, 498, 499, 501, 503, 594, 595, 596, 597, 598, 599, 600, 602, 693, 694, 696, 697, 698, 700, 701, 792, 793, 794, 795, 797, 798, 799, 800, 891, 894, 895, 896, 899, 990, 991, 992, 994, 996, 997, 998]
   eval_episodes: [0, 5, 10, 28, 33, 38, 56, 61, 66, 84, 89, 94, 112, 117, 122, 140, 145, 150, 168, 173, 178, 196, 201, 206, 224, 229, 234, 252, 257, 262, 280, 285, 290, 308, 313, 318, 336, 341, 346, 364, 369, 374, 392, 397, 402, 420, 425, 430, 447, 452, 457, 475, 480, 485, 503, 508, 513, 531, 536, 541, 559, 564, 569, 587, 592, 597, 615, 620, 625, 643, 648, 653, 671, 676, 681, 699, 704, 709, 727, 732, 737, 755, 760, 765, 783, 788, 793, 810, 815, 820, 838, 843, 848, 866, 871, 876, 894, 899, 904, 922, 927, 932, 950, 955, 960, 978, 983, 988]
+  #eval_episodes: [112]
   finish_radius: 0.84
-  top_down_map_save_path: '/root/skillfusion/top_down_maps'
-  last_pic_save_path: '/root/skillfusion/top_down_maps/rgb'
+  top_down_map_save_path: 'top_down_maps_skilltron'
+  last_pic_save_path: 'top_down_maps_skilltron/rgb'
 semantic:
   model: 'BlendMask'
   confidence_threshold: 0.3
@@ -36,6 +37,10 @@ path_follower:
   type: 'greedy'
   goal_radius: 0.2
   max_d_angle: 0.4
+semantic_predictor:
+  config_path: 'weights/segmatron_1_step.yaml'
+  weights: 'weights/segmatron_1_step.pt'
+  delayed: False
 visualization:
   visualize: False
   rgb_topic: '/habitat/rgb/image'
@@ -50,7 +55,7 @@ visualization:
 args:
   split: 'val'
   total_num_scenes: 1
-  pf_model_path: '/root/skillfusion/pretrained_models/gibson_models/poni_seed_234.ckpt'
+  pf_model_path: '/home/AI/yudin.da/zemskova_ts/skill-fusion/root/PONI/pretrained_models/gibson_models/poni_seed_234.ckpt'
   eval: 1
   global_downscaling: 1
   min_depth: 0.5

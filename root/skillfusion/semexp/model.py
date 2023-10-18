@@ -230,10 +230,15 @@ class Semantic_Mapping(nn.Module):
             .float()
             .to(self.device)
         )
+        self.st_poses = []
+        self.pose_shifts = []
+        self.agent_views = []
+        self.depths = []
 
     def forward(self, obs, pose_obs, maps_last, poses_last, objectgoal_id):
         bs, c, h, w = obs.size()
         depth = obs[:, 3, :, :]
+        self.depths.append(depth[0].cpu().numpy())
 
         # -----------------------------------------------------------------------
         # Optimizing implementation
@@ -368,6 +373,9 @@ class Semantic_Mapping(nn.Module):
             - self.map_size_cm // (self.resolution * 2)
         ) / (self.map_size_cm // (self.resolution * 2))
         st_pose[:, 2] = 90.0 - (st_pose[:, 2])
+        self.st_poses.append(st_pose[0].cpu().numpy())
+        self.pose_shifts.append(pose_obs[0].cpu().numpy())
+        self.agent_views.append(agent_view[0, 0].cpu().numpy())
         
         rot_mat, trans_mat = get_grid(st_pose, agent_view.size(), self.device)
 

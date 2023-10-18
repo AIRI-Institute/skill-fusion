@@ -1,3 +1,8 @@
+# ------------------------------------------------------------------------------
+# Reference: https://github.com/allenai/interactron/blob/main/utils/config_utils.py
+# Modified by Tatiana Zemskova (https://github.com/wingrune)
+# ------------------------------------------------------------------------------
+
 import yaml
 import argparse
 import os

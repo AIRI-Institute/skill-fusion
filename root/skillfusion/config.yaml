@@ -1,0 +1,46 @@
+task:
+  config: '/root/configs/tasks/objectnav_hm3d_new.yaml'
+  eval_episodes: [3, 4, 5, 7, 99, 100, 101, 102, 103, 104, 106, 107, 198, 199, 200, 202, 203, 204, 205, 206, 297, 299, 300, 301, 303, 304, 305, 396, 397, 398, 399, 401, 402, 403, 495, 496, 497, 498, 499, 501, 503, 594, 595, 596, 597, 598, 599, 600, 602, 693, 694, 696, 697, 698, 700, 701, 792, 793, 794, 795, 797, 798, 799, 800, 891, 894, 895, 896, 899, 990, 991, 992, 994, 996, 997, 998]
+  finish_radius: 0.7
+  top_down_map_save_path: '/root/exploration_ros_free/top_down_maps'
+  last_pic_save_path: '/root/exploration_ros_free/top_down_maps/rgb'
+semantic:
+  model: 'BlendMask'
+  confidence_threshold: 0.3
+mapper:
+  map_size_cm: 4200
+  vision_range: 3.2
+  semantic_vision_range: 4.5
+  map_resolution_cm: 7
+  obstacle_inflation: 3
+  semantic_inflation: 2
+  semantic_threshold: 1
+  semantic_decay: 0.8
+exploration:
+  type: 'frontier'
+  potential_scale: 1.0
+  orientation_scale: 1.0
+  gain_scale: 2.0
+  min_frontier_size: 0.15
+  timeout: 40
+  gr_timeout: 20
+path_planner:
+  type: 'a_star'
+  frequency: 2
+  agent_radius: 0.2
+  reach_radius: 0.5
+  allow_diagonal: False
+path_follower:
+  type: 'greedy'
+  goal_radius: 0.2
+  max_d_angle: 0.4
+visualization:
+  visualize: False
+  rgb_topic: '/habitat/rgb/image'
+  depth_topic: '/habitat/depth/image'
+  true_pose_topic: '/true_pose'
+  goal_topic: '/exploration_goal'
+  frontier_topic: '/explore/frontiers'
+  path_topic: '/path'
+  map_topic: '/habitat/map'
+  semantic_map_topic: '/habitat/semantic_map'

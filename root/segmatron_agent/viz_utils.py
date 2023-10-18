@@ -1,3 +1,4 @@
+# This code is copied from https://github.com/allenai/interactron
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np

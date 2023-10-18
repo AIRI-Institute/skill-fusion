@@ -1,7 +1,7 @@
 import sys
-sys.path.append('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/habitat_map')
-sys.path.append('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/oneformer_agent')
-sys.path.append('/home/AI/yudin.da/zemskova_ts/skill-fusion/root')
+sys.path.append('/root/exploration_ros_free/habitat_map')
+sys.path.append('/root/oneformer_agent')
+sys.path.append('/root')
 
 import argparse
 import os

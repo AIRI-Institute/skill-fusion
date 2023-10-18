@@ -11,15 +11,19 @@ In recent years, Embodied AI has become one of the main topics in robotics. For 
 
 ![overview](./docs/objectnav_spec_2023.gif)
 
+## Installation
+
+
 ### SegmATRon
 To change versions of SegmATRon go to [semantic_predictor_segmatron_multicat.py](./root/skillfusion/semantic_predictor_segmatron_multicat.py) and change paths to config file and weights in SemanticPredictor initialization.
 Available options:
 
-- **Single Frame Baseline** weights/config_single_frame.yaml, weights: https://drive.google.com/file/d/1N4DeNte-nr7Yn8DBef52nV6zGHA19WW0/view?usp=drive_link
-- **SegmATRon 1 step** weights/segmatron_1_step.yaml, weights: https://drive.google.com/file/d/1oqSR7CThQvE9eJdib3nG93OAMuibACxG/view?usp=drive_link
-- **SegmATRon 2 steps** weights/segmatron_2_step.yaml, weights: https://disk.yandex.ru/d/a-LWtayiJf54VA
-- **SegmATRon 4 steps** weights/segmatron_4_steps.yaml, weights: https://disk.yandex.ru/d/goW34Me8jbme9A
-To control real-time or delayed semantic predictions use config_poni_exploration.yaml:
+- **Single Frame Baseline** weights/config_single_frame.yaml, [weights](https://disk.yandex.ru/d/p2GKLZ_Z49IWdA)
+- **SegmATRon 1 step** weights/segmatron_1_step.yaml, [weights](https://disk.yandex.ru/d/DwRCff70Ij3ang)
+- **SegmATRon 2 steps** weights/segmatron_2_step.yaml, [weights](https://disk.yandex.ru/d/a-LWtayiJf54VA)
+- **SegmATRon 4 steps** weights/segmatron_4_steps.yaml, [weights](https://disk.yandex.ru/d/goW34Me8jbme9A)
+
+To control real-time or delayed semantic predictions change parameters of semantic predictor in configuration file[config_poni_exploration.yaml](root/exploration_ros_free/main.py):
 
 ```bash
 semantic_predictor:
@@ -27,3 +31,13 @@ semantic_predictor:
   weights: 'weights/segmatron_1_steps_15.pt'
   delayed: False
 ```
+
+## Evaluation
+
+```bash
+  cd ~/skill-fusion/root/exploration_ros_free/;
+  export PYTHONPATH=/root/PONI/:$PYTHONPATH;
+  python main.py
+```
+
+## Acknowledments
