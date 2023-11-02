@@ -2,7 +2,7 @@ import numpy as np
 import torch
 import cv2
 import sys
-sys.path.append('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/oneformer_agent')
+sys.path.append('/root/oneformer_agent')
 from torch.nn import functional as F
 from train_net import Trainer
 from detectron2.config import get_cfg
@@ -169,7 +169,7 @@ meta_clss = {0: 'wall',
  149: 'flag'}
 
 class SemanticPredictor():
-    def __init__(self):
+    def __init__(self, config):
         self.objgoal_to_cat = {0: 'chair',     1: 'bed',     2: 'plant',           3: 'toilet',           4: 'tv_monitor',   
                                5: 'sofa'}
         self.crossover = {'chair':['chair', 'armchair', 'swivel chair'], 
@@ -228,9 +228,9 @@ class SemanticPredictor():
                                 }
         
         # Initialize semantic predictor
-        config_file = '/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/weights/config_oneformer_ade20k.yaml'
-        checkpoint_file = '/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/weights/model_0299999.pth'
-        #self.model = init_segmentor(config_file, checkpoint_file, device='cuda:0')
+        config_file = config["config_path"]
+        checkpoint_file = config["weights"]
+
         # Build a model
         cfg = get_cfg()
         add_deeplab_config(cfg)

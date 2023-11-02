@@ -32,9 +32,8 @@ from EXPLORE_policy import ResNetPolicy as EX_Policy
 from GR_policy import PointNavResNetPolicy as GR_Policy
 
 import sys
-sys.path.append('/root/exploration_ros_free/habitat_map')
-#from semantic_predictor_oneformer_multicat import SemanticPredictor
-from semantic_predictor_segmatron_multicat import SemanticPredictor
+sys.path.append('/root/skillfusion/habitat_map')
+from semantic_predictor_oneformer_multicat import SemanticPredictor
 from hab_base_utils_common import batch_obs
 
 import gc
@@ -58,10 +57,10 @@ def normalize(angle):
     return angle
 
 
-class GreedyPathFollowerAgent(habitat.Agent):
+class SkillFusionAgent(habitat.Agent):
 
     def __init__(self, task_config: DictConfig):
-        fin = open('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/config_poni_exploration.yaml', 'r')
+        fin = open('/root/skillfusion/config_skillfusion.yaml', 'r')
         config = yaml.safe_load(fin)
         fin.close()
         self.config = config
@@ -135,13 +134,12 @@ class GreedyPathFollowerAgent(habitat.Agent):
             num_recurrent_layers = 1,
             backbone = 'resnet18',
             normalize_visual_inputs=True)
-        pretrained_state = torch.load('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/weights/grTILT_june1.pth', map_location="cpu")
+        pretrained_state = torch.load('/root/skillfusion/weights/grTILT_june1.pth', map_location="cpu")
         self.actor_critic_gr.load_state_dict(pretrained_state)
         self.actor_critic_gr.to(self.device)
         self.actor_critic_gr.eval()
         
         self.semantic_predictor = SemanticPredictor(config['semantic_predictor'])
-        #self.semantic_predictor = SemanticPredictor()
         self.semantic_threshold = config['mapper']['semantic_threshold']
 
         # Initialize common params

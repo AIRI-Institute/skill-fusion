@@ -49,7 +49,7 @@ class HabitatChallengeConfigPlugin(SearchPathPlugin):
 class HabitatRunner():
     def __init__(self):
         #rospy.init_node('habitat_runner')
-        fin = open('config_poni_exploration.yaml', 'r')
+        fin = open('config_skillfusion.yaml', 'r')
         config = yaml.safe_load(fin)
         fin.close()
         
