@@ -54,6 +54,8 @@ You may need to change paths to mounted volumes before starting the container:
 
 We provide minimal docker images to run evaluation of SkillFusion and SkillTron methods in Eval-AI submission-like mode.
 
+**Note**: you need to download and put to expected folders pretrained weights before building evaluation containers.
+
 - SkillFusion
 
   To build the minimal SkillFusion docker image, go to [docker_skillfusion](docker_skillfusion/):
@@ -68,7 +70,10 @@ We provide minimal docker images to run evaluation of SkillFusion and SkillTron 
   ```bash
   bash test_local.sh
   ```
-
+  You may need to change paths to mounted volumes before starting the container:
+  ```bash
+    -v $(pwd)/habitat-challenge-data:/data \
+  ```
 - SkillTron
 
   To build the minimal SkillTron docker image, go to [docker_skilltron](docker_skilltron/):
@@ -82,6 +87,10 @@ We provide minimal docker images to run evaluation of SkillFusion and SkillTron 
   To evaluate SkillTron agent run:
   ```bash
   bash test_local.sh
+  ```
+  You may need to change paths to mounted volumes before starting the container:
+  ```bash
+    -v $(pwd)/habitat-challenge-data:/data \
   ```
 
 #### Singularity Container
@@ -164,15 +173,19 @@ semantic_predictor:
 
 ## Evaluation
 
+If you are inside an interactive shell of the docker/singularity containers run:
+
 ### SkillFusion
 ```bash
-  cd ~/skill-fusion/root/skillfusion/;
+  cd /root/skillfusion/;
   export PYTHONPATH=/root/PONI/:$PYTHONPATH;
   python main.py
 ```
 ### SkillTron
 ```bash
-  cd ~/skill-fusion/root/skilltron/;
+  cd /root/skilltron/;
   export PYTHONPATH=/root/PONI/:$PYTHONPATH;
   python main.py
 ```
+
+If you have built submission-like docker images, you may use provided scripts ```test_local.sh``` (see [Evalutation Docker Containers (Eval-AI submission-like)](#evalutation-docker-containers-eval-ai-submission-like))

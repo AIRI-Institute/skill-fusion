@@ -20,7 +20,7 @@ esac
 done
 
 docker run \
-    -v $(pwd)/habitat-challenge-data:/habitat-challenge-data \
+    -v $(pwd)/habitat-challenge-data:/data \
     --runtime=nvidia \
     -e "AGENT_EVALUATION_TYPE=local" \
     -e "TRACK_CONFIG_FILE=/configs/benchmark/nav/objectnav/objectnav_v2_hm3d_stretch_challenge.yaml" \
