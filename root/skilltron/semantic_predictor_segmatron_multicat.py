@@ -1,8 +1,8 @@
 import numpy as np
 import torch
 import cv2
-import sys
-sys.path.append('/home/AI/yudin.da/zemskova_ts/skill-fusion/root/segmatron_agent')
+import sys, os
+sys.path.append(os.path.join('/'.join(sys.path[0].split('/')[:-1]),'segmatron_agent'))
 from torch.nn import functional as F
 from config_utils import (
     get_config,
@@ -272,10 +272,7 @@ class SemanticPredictor():
             "width": [[320]],
             "task": [["The task is semantic"]]
         }
-        # for i in range(2):
-        #     image = Image.fromarray(torch.stack([torch.stack(self.frames)])[0,i,:,:,:].cpu().numpy().transpose(1, 2, 0))
-        #     image.save(f"/home/AI/yudin.da/zemskova_ts/skill-fusion/root/exploration_ros_free/fbe_poni_exploration_maps_4_steps/attempt2/{self.count}_frame_{i}.jpg")
-        #exit()
+
         print("Frames shape", item["frames"].shape)
         result = self.model.predict(item)
         mask_cls_results = result["pred_logits"][0][0]

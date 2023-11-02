@@ -1,8 +1,9 @@
 import numpy as np
 import torch
 import cv2
-import sys
-sys.path.append('/root/oneformer_agent')
+import sys, os
+sys.path.append(os.path.join('/'.join(sys.path[0].split('/')[:-1]),'oneformer_agent'))
+
 from torch.nn import functional as F
 from train_net import Trainer
 from detectron2.config import get_cfg

@@ -1,8 +1,7 @@
 #! /usr/bin/env python
 
-import sys
-sys.path.append('/root')
-
+import sys, os
+sys.path.append(os.path.join('/'.join(sys.path[0].split('/')[:-1])))
 import warnings
 warnings.filterwarnings("ignore")
 

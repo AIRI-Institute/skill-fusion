@@ -32,7 +32,9 @@ from EXPLORE_policy import ResNetPolicy as EX_Policy
 from GR_policy import PointNavResNetPolicy as GR_Policy
 
 import sys
-sys.path.append('/root/skilltron/habitat_map')
+import os
+sys.path.append(os.path.join(sys.path[0],'habitat_map'))
+
 from semantic_predictor_segmatron_multicat import SemanticPredictor
 from hab_base_utils_common import batch_obs
 
@@ -60,7 +62,7 @@ def normalize(angle):
 class SkillTronAgent(habitat.Agent):
 
     def __init__(self, task_config: DictConfig):
-        fin = open('/root/skilltron/config_skilltron.yaml', 'r')
+        fin = open('config_skilltron.yaml', 'r')
         config = yaml.safe_load(fin)
         fin.close()
         self.config = config
@@ -134,7 +136,7 @@ class SkillTronAgent(habitat.Agent):
             num_recurrent_layers = 1,
             backbone = 'resnet18',
             normalize_visual_inputs=True)
-        pretrained_state = torch.load('/root/skilltron/weights/grTILT_june1.pth', map_location="cpu")
+        pretrained_state = torch.load('weights/grTILT_june1.pth', map_location="cpu")
         self.actor_critic_gr.load_state_dict(pretrained_state)
         self.actor_critic_gr.to(self.device)
         self.actor_critic_gr.eval()
