@@ -1,4 +1,4 @@
-docker run --runtime=nvidia --rm --name bps_docker_test \
+docker run --runtime=nvidia --rm --name bps_docker \
 --env="DISPLAY=$DISPLAY" \
 --env="QT_X11_NO_MITSHM=1" \
 --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
@@ -6,7 +6,5 @@ docker run --runtime=nvidia --rm --name bps_docker_test \
 --volume="$XAUTH:$XAUTH" \
 --privileged \
 -p $2:8888 -e jup_port=$2  \
--v /data_hdd1/mmiknich/habitat_data/:/data \
--v /home/mmiknich/temp/root/:/root/ alstar_docker
-
-#-p $1:5900 -e vnc_port=$1
+-v <path_to_Habitat_sim_data>/data:/data \
+-v <path_to_SkillFusion>/root/:/root alstar_docker

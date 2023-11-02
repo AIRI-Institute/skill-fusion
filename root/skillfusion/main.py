@@ -158,6 +158,7 @@ class HabitatRunner():
         objectgoal_name = {v: k for k, v in self.env.task._dataset.category_to_task_category_id.items()}[objectgoal]
         print('Objectgoal:', objectgoal_name)
 
+        save = False
         self.agent.reset()
 
         # Run the simulator with agent

@@ -233,30 +233,26 @@ RUN pip install h5py
 RUN pip install --upgrade numba
 RUN pip install git+https://github.com/openai/CLIP.git
 
+
+# jupyterlab port
+EXPOSE 8888
+# tensorboard (if any)
+EXPOSE 6006
+# startup
+COPY image /
+#COPY habitat-challenge-data /data_config
+ENV HOME /
+ENV SHELL /bin/bash
+
+# no password and token for jupyter
+ENV JUPYTER_PASSWORD "longpasswordforjupytertostopviruses"
+ENV JUPYTER_TOKEN "longpasswordforjupytertostopviruses_jupytertokin"
+
+RUN chmod 777 /startup.sh
+RUN chmod 777 /usr/local/bin/jupyter.sh
+RUN chmod 777 /usr/local/bin/xvfb.sh
+
 WORKDIR /
 # services like lxde, xvfb, x11vnc, jupyterlab will be started
 
-RUN mkdir -p /root/exploration_ros_free
-ADD ./root/exploration_ros_free/habitat_map /root/exploration_ros_free/habitat_map
-ADD ./root/exploration_ros_free/main_evalai.py /root/exploration_ros_free/main_evalai.py
-ADD ./root/exploration_ros_free/EXPLORE_policy.py /root/exploration_ros_free/EXPLORE_policy.py
-ADD ./root/exploration_ros_free/GR_policy.py /root/exploration_ros_free/GR_policy.py
-ADD ./root/exploration_ros_free/rnn_state_encoder.py /root/exploration_ros_free/rnn_state_encoder.py
-ADD ./root/exploration_ros_free/policy.py /root/exploration_ros_free/policy.py
-ADD ./root/exploration_ros_free/config.py /root/exploration_ros_free/config.py
-ADD ./root/exploration_ros_free/config.yaml /root/exploration_ros_free/config.yaml
-ADD ./root/exploration_ros_free/weights /root/exploration_ros_free/weights
-ADD ./root/exploration_ros_free/exploration /root/exploration_ros_free/exploration
-ADD ./root/exploration_ros_free/planners /root/exploration_ros_free/planners
-ADD ./root/exploration_ros_free/semexp /root/exploration_ros_free/semexp
-ADD ./root/exploration_ros_free/bps_nav_test /root/exploration_ros_free/bps_nav_test
-ADD ./root/configs /root/configs
-ADD ./root/oneformer_agent /root/oneformer_agent
-
-ADD submission.sh submission.sh
-
-ENV AGENT_EVALUATION_TYPE local
-
-ENV TRACK_CONFIG_FILE "/root/configs/benchmark/nav/objectnav/objectnav_v2_hm3d_stretch_challenge.yaml"
-
-CMD ["/bin/bash", "-c", "source activate habitat && export PYTHONPATH=/evalai-local-evaluation:$PYTHONPATH && export CHALLENGE_CONFIG_FILE=$TRACK_CONFIG_FILE && bash submission.sh"]
+ENTRYPOINT ["/startup.sh"]

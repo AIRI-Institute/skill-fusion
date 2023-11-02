@@ -64,4 +64,4 @@ From: fairembodied/habitat-challenge:habitat_navigation_2023_base_docker
 %environment
 	. /opt/conda/etc/profile.d/conda.sh
 	conda activate habitat
-	export PYTHONPATH=/home/AI/yudin.da/zemskova_ts/skill-fusion/root/PONI/:$PYTHONPATH
+	export PYTHONPATH=/home/zemskova_ts/skill-fusion/root/PONI/:$PYTHONPATH
