@@ -251,7 +251,7 @@ ADD ../root/skilltron/planners /root/exploration_ros_free/planners
 ADD ../root/skilltron/semexp /root/exploration_ros_free/semexp
 ADD ../root/skilltron/bps_nav_test /root/exploration_ros_free/bps_nav_test
 ADD ../root/configs /root/configs
-ADD ../root/oneformer_agent /root/oneformer_agent
+ADD ../root/segmatron_agent /root/segmatron_agent
 
 ADD submission.sh submission.sh
 

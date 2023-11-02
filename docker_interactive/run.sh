@@ -5,6 +5,6 @@ docker run --runtime=nvidia --rm --name bps_docker \
 -env="XAUTHORITY=$XAUTH" \
 --volume="$XAUTH:$XAUTH" \
 --privileged \
--p $2:8888 -e jup_port=$2  \
+-p $1:8888 -e jup_port=$1  \
 -v <path_to_Habitat_sim_data>/data:/data \
 -v <path_to_SkillFusion>/root/:/root alstar_docker

@@ -18,16 +18,86 @@ Additionaly, we provide a PyTorch implementation of SkillTron -- a method that f
 ## Installation
 
 ### Choose one of provided containers
-For convenience, we provide two dockerfiles:
-- The Dockerfile for interactive work with our SkillFusion agent via JupyterLab
+For convenience, we provide different containers that can be used to evaluate SkillFusion and SkillTron:
+- A docker container for interactive work with our SkillFusion and SkillTron agents via JupyterLab
+- Eval-AI submission-like docker containers that will launch a script for evaluation without access to docker container system.
+- A Singularity container for evaluation on platforms that do not have Docker.
 
 #### JupyterLab Docker Container (Interactive)
 
-#### SkillFusion Evalutation Docker Container (Eval-AI submission-like)
+All necessary files to build and launch an interactive docker container with Jupyter Lab can be found in [docker_interactive](docker_interactive/) 
 
-#### SkillTron Evalutation Docker Container (Eval-AI submission-like)
+To build the correspoding docker image run:
+
+```bash
+bash build.sh
+```
+
+This will create "alstar_docker" docker image.
+
+
+To start a docker-container from this image run: 
+
+```bash
+bash run.sh <PORT>
+```
+
+This will launch a Jupyter Lab server at ```localhost:<PORT>```
+
+You may need to change paths to mounted volumes before starting the container:
+```bash
+-v <path_to_Habitat_sim_data>/data:/data \
+-v <path_to_SkillFusion>/root/:/root alstar_docker
+```
+
+#### Evalutation Docker Containers (Eval-AI submission-like)
+
+We provide minimal docker images to run evaluation of SkillFusion and SkillTron methods in Eval-AI submission-like mode.
+
+- SkillFusion
+
+  To build the minimal SkillFusion docker image, go to [docker_skillfusion](docker_skillfusion/):
+
+  ```bash
+  bash build.sh
+  ```
+
+  This will create "skillfusion_docker" docker image. Here, the code will not be mounted to docker container, but rather copied to the docker image during its built. The image will contain only the code corresponding to SkillFusion agent in the folder /root/exploration_ros_free/. 
+
+  To evaluate SkillFusion agent run:
+  ```bash
+  bash test_local.sh
+  ```
+
+- SkillTron
+
+  To build the minimal SkillTron docker image, go to [docker_skilltron](docker_skilltron/):
+
+  ```bash
+  bash build.sh
+  ```
+
+  This will create "skilltron_docker" docker image. Here, the code will not be mounted to docker container, but rather copied to the docker image during its built. The image will contain only the code corresponding to SkillTron agent in the folder /root/exploration_ros_free/. 
+
+  To evaluate SkillTron agent run:
+  ```bash
+  bash test_local.sh
+  ```
 
 #### Singularity Container
+
+We provide a .def file to build a singularity container with necessary dependencies to run SkillFusion and SkillTron agents evaluation.
+
+Go to the folder [singularty](singularity/).
+
+To build the singularity container:
+
+```bash
+sudo singularity build skill_fusion.sif skill_fusion.def 
+```
+
+Additionally, we provide the [skilltron_eval.sh](singularity/skilltron_eval.sh) script that can be used to launch SkillTron evaluation on slurm based clusters. To use it you may need to change paths to home and data directories as well as change partition name.
+
 
 ### Download Habitat Sim Dataset
 
