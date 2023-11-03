@@ -172,6 +172,7 @@ RUN git clone https://github.com/KhronosGroup/SPIRV-Tools.git; cd SPIRV-Tools; \
     git clone https://github.com/google/effcee.git external/effcee; \
     git clone https://github.com/google/re2.git external/re2; \
     git clone https://github.com/google/googletest.git external/googletest; \
+    git clone https://github.com/abseil/abseil-cpp.git external/abseil_cpp; \
     mkdir build && cd build; \
     cmake /SPIRV-Tools;
 
