@@ -159,8 +159,6 @@ class SkillFusionAgent(habitat.Agent):
         self.depths = []
         self.depths_for_map = []
         self.obs_maps = []
-        self.agent_positions = []
-        self.goal_coords_ij = []
         self.paths = []
         self.pose_shifts = []
         self.st_poses = []
@@ -243,8 +241,6 @@ class SkillFusionAgent(habitat.Agent):
         self.depths_for_map = []
         self.action_track = []
         self.obs_maps = []
-        self.agent_positions = []
-        self.goal_coords_ij = []
         self.paths = []
         self.pose_shifts = []
         self.st_poses = []
@@ -525,6 +521,8 @@ class SkillFusionAgent(habitat.Agent):
                 self.steps_wo_goal = 0
         if self.skil_goalreacher:
             action_rl_gr = self.act_rl_goalreacher(observations, semantic_mask[np.newaxis, ...])
+        else:
+            action_rl_gr = None
 
 #        observations['rgb'][semantic_mask > 0] = [255, 0, 0]
         self.rgbs.append(observations['rgb'].astype(np.uint8))

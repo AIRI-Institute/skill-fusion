@@ -28,6 +28,7 @@ class PoniExploration:
         self.g_masks = torch.ones(1).float().to(self.device)
         
         # Semantic Mapping
+        self.semantic_threshold = self.args.semantic_threshold
         self.sem_map_module = Semantic_Mapping(self.args).to(self.device)
         self.sem_map_module.eval()
 
@@ -325,11 +326,6 @@ class PoniExploration:
         self.goal_coords = []
         self.obs_maps = []
         
-        self.sem_map_module.agent_views = []
-        self.sem_map_module.st_poses = []
-        self.sem_map_module.pose_shifts = []
-        self.sem_map_module.depths = []
-        
         
     def init_map_and_pose(self):
         self.full_map.fill_(0.0)
@@ -400,6 +396,14 @@ class PoniExploration:
             self.full_map[:, 0:4, :, :]
         )
         self.global_input[:, 8:, :, :] = self.local_map[:, 4:, :, :].detach()
+        
+        
+    def get_semantic_map(self, observations):
+        cn = self.cat_to_coco[self.goal_id_to_cat[observations['objectgoal'][0]]] + 4
+        semantic_map = self.local_map[0, cn, :, :].cpu().numpy()
+        semantic_map[semantic_map < self.semantic_threshold] = 0
+        semantic_map[semantic_map >= self.semantic_threshold] = 1
+        return semantic_map
         
         
     def get_local_map_boundaries(self, agent_loc, local_sizes, full_sizes):
@@ -502,9 +506,8 @@ class PoniExploration:
             0,
         )
         x2, y2 = grid.shape
-        
-        selem = skimage.morphology.disk(7)
-        traversible = 1.0 - cv2.dilate(grid[x1:x2, y1:y2], selem)
+
+        traversible = 1.0 - cv2.dilate(grid[x1:x2, y1:y2], self.selem)
         traversible[self.collision_map[gx1:gx2, gy1:gy2][x1:x2, y1:y2] == 1] = 0
         traversible[self.visited[gx1:gx2, gy1:gy2][x1:x2, y1:y2] == 1] = 1
 
@@ -525,20 +528,6 @@ class PoniExploration:
         state = [start[0] - x1 + 1, start[1] - y1 + 1]
         stg_x, stg_y, self.replan, stop = planner.get_short_term_goal(state)
         if self.replan:
-            print('Change dilation radius from 7 to 3')
-            selem = skimage.morphology.disk(3)
-            traversible = 1.0 - cv2.dilate(grid[x1:x2, y1:y2], selem)
-            traversible[self.collision_map[gx1:gx2, gy1:gy2][x1:x2, y1:y2] == 1] = 0
-            traversible[self.visited[gx1:gx2, gy1:gy2][x1:x2, y1:y2] == 1] = 1
-            traversible[
-                int(start[0] - x1) - 1 : int(start[0] - x1) + 2,
-                int(start[1] - y1) - 1 : int(start[1] - y1) + 2,
-            ] = 1
-            traversible = self.add_boundary(traversible)
-            planner = FMMPlanner(traversible)
-            planner.set_multi_goal(goal)
-            stg_x, stg_y, self.replan, stop = planner.get_short_term_goal(state)
-        if self.replan:
             print('FMM PLANNER FAILED!')
         #print('Short-term goal:', stg_x, stg_y)
 
@@ -550,15 +539,15 @@ class PoniExploration:
     def _preprocess_depth(self, depth, min_d, max_d):
         depth = depth[:, :, 0] * 1
 
-        #for i in range(depth.shape[1]):
-        #    depth[:, i][depth[:, i] == 0.0] = depth[:, i].max()
+        for i in range(depth.shape[1]):
+            depth[:, i][depth[:, i] == 0.0] = depth[:, i].max()
 
         mask2 = depth > 0.99
         depth[mask2] = 0.0
 
         mask1 = depth == 0
-        depth[mask1] = 1.0
-        depth = min_d * 100.0 + depth * (max_d - min_d) * 100.0
+        depth[mask1] = 100.0
+        depth = min_d * 100.0 + depth * max_d * 100.0
         return depth
     
     
@@ -605,6 +594,10 @@ class PoniExploration:
         pose = observations['gps']
         pose[1] *= -1
         angle = observations['compass']
+        if observations['objectgoal'][0] in [2, 4]:
+            self.sem_map_module.erosion_size = 3
+        else:
+            self.sem_map_module.erosion_size = 5
         objgoal = self.habitat_to_coco[observations['objectgoal'][0]]
         pose_shift = torch.from_numpy(self.get_pose_shift(pose, self.prev_pose, angle, self.prev_angle)[np.newaxis, :]).float().to(self.device)
         self.prev_pose = pose
@@ -637,7 +630,6 @@ class PoniExploration:
                 
         # Get pose prediction and global policy planning window
         start_x, start_y, start_o, gx1, gx2, gy1, gy2 = self.planner_inputs["pose_pred"]
-        self.last_loc = self.curr_loc
         self.curr_loc = [start_x, start_y, start_o]
         map_pred = self.planner_inputs["map_pred"]
         gx1, gx2, gy1, gy2 = int(gx1), int(gx2), int(gy1), int(gy2)
@@ -704,10 +696,10 @@ class PoniExploration:
             if self.col_width == 7:
                 length = 4
                 buf = 3
-            self.col_width = min(self.col_width, 3)
+            self.col_width = min(self.col_width, 5)
         else:
             self.col_width = 1
-        #self.col_width = 2
+        self.col_width = 2
 
         dist = pu.get_l2_distance(x1, x2, y1, y2)
         if dist < args.collision_threshold:  # Collision
@@ -732,7 +724,7 @@ class PoniExploration:
                     #print('Collision_map[{}, {}] = 1'.format(r, c))
         else:
             self.steps_in_collision = 0
-        #self.last_loc = self.curr_loc
+        self.last_loc = self.curr_loc
     
     
     def _plan(self):
@@ -751,7 +743,9 @@ class PoniExploration:
             action (int): action id
         """
         args = self.args
-        
+
+        self.last_loc = self.curr_loc
+
         # Get Map prediction
         map_pred = np.rint(self.planner_inputs["map_pred"])
         goal = self.planner_inputs["goal"]
@@ -773,6 +767,19 @@ class PoniExploration:
         self.visited[gx1:gx2, gy1:gy2][
             start[0] - 0 : start[0] + 1, start[1] - 0 : start[1] + 1
         ] = 1
+
+        if args.visualize or args.print_images:
+            # Get last loc
+            last_start_x, last_start_y = self.last_loc[0], self.last_loc[1]
+            r, c = last_start_y, last_start_x
+            last_start = [
+                int(r * 100.0 / args.map_resolution - gx1),
+                int(c * 100.0 / args.map_resolution - gy1),
+            ]
+            last_start = pu.threshold_poses(last_start, map_pred.shape)
+            self.visited_vis[gx1:gx2, gy1:gy2] = vu.draw_line(
+                last_start, start, self.visited_vis[gx1:gx2, gy1:gy2]
+            )
 
         # Collision check
         if self.last_action == 1:

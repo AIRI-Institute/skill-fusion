@@ -29,8 +29,6 @@ def make_gif(input_dir, output_dir):
     depths = np.load(os.path.join(input_dir, 'depths.npz'))['arr_0']
     actions = np.load(os.path.join(input_dir, 'actions.txt.npz'))['arr_0']
     goal_coords = np.loadtxt(os.path.join(input_dir, 'goal_coords.txt'))
-    goal_coords_ij = np.loadtxt(os.path.join(input_dir, 'goal_coords_ij.txt'))
-    agent_positions = np.loadtxt(os.path.join(input_dir, 'agent_positions.txt'))
     fin = open(os.path.join(input_dir, 'path_to_goal.txt'), 'r')
     paths = []
     for line in fin.readlines():

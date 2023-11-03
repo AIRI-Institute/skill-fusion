@@ -200,6 +200,8 @@ class HabitatRunner():
             if action == HabitatSimActions.stop:
                 finished = True
                 break
+            #if step == 50:
+            #    break
 
         # Calculate and show metrics
         metrics = self.env.task.measurements.get_metrics()
@@ -268,7 +270,7 @@ class HabitatRunner():
             print('', file=fout)
         fout.close()
         
-        #subprocess.run(['python', 'create_gif.py', save_dir, 'skillfusion_results'])
+        subprocess.run(['python', 'create_gif.py', save_dir, 'skillfusion_results'])
         for file in os.listdir(save_dir):
             if file != 'results.txt':
                 try:
@@ -280,7 +282,7 @@ class HabitatRunner():
 def main():
 
     runner = HabitatRunner()
-    for i in runner.eval_episodes:
+    for i in runner.eval_episodes[3:]:
         runner.run_episode(i)
     fout = open(f"results_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}_{datetime.datetime.now()}.txt", 'w')
     print('Config: {}'.format('config_poni_exploration.yaml'), file=fout)
