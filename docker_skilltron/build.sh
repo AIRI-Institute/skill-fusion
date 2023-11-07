@@ -1,1 +1,1 @@
-docker build -t skilltron_docker .
+docker build -f submission.dockerfile -t skilltron_docker .
