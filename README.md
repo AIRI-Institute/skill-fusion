@@ -30,10 +30,10 @@ All necessary files to build and launch an interactive docker container with Jup
 To build the correspoding docker image run:
 
 ```bash
-bash build.sh
+cd docker_skilltron; bash build.sh
 ```
 
-This will create "alstar_docker" docker image.
+This will create "skillfusion_docker" docker image.
 
 
 To start a docker-container from this image run: 
